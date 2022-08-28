@@ -1,10 +1,13 @@
-import './App.css';
+import "./App.css";
+import CatList from "./components/CatList";
+import DogList from "./components/DogList"
 
 function App() {
   return (
-    <div className="App">
-  <h1>hi</h1>
-    </div>
+    <>
+      <CatList />
+      <DogList/>
+    </>
   );
 }
 
