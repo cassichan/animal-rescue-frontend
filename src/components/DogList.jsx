@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import DogCard from "./DogCard"
+import DogCard from "./DogCard";
+import "../Styles/PetList.css"
 
 export default function DogList() {
   const [dog, setDog] = useState([]);
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/dogs")
+    // fetch("https://cat-rescue-backend.web.app/dogs")
+    fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
       .then((res) => res.json())
       .then((data) => setDog(data));
   }, []);
@@ -13,9 +15,12 @@ export default function DogList() {
   }
   return (
     <>
-      <h1>Adopt a Dog Today!</h1>
-      {dog && dog.map((dog) => <DogCard id={dog._id} dog={dog} setDog={setDog} />)}
-      <button>Learn more</button>
+      <h3>Adopt a Dog Today!</h3>
+      <section className="pet-list">
+        {dog &&
+          dog.map((dog) => <DogCard id={dog._id} dog={dog} setDog={setDog} />)}
+        <button>Learn more</button>
+      </section>
     </>
   );
 }

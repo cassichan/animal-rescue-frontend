@@ -1,16 +1,18 @@
+import "../Styles/DogCard.css"
+
 export default function DogCard({ dog }) {
     return (
       <>
         <div className="dog-card" key={dog._id}>
           <img src={dog.photoUrl} alt="dog"></img>
-          <h2>{dog.name}</h2>
-          <h3>
+          <h4>{dog.name}</h4>
+          <h5>
             {dog.sex}, {dog.breed}
-          </h3>
-          <h3>
+          </h5>
+          <h5>
             {dog.size}, {dog.dateOfBirth}
-          </h3>
-          <h4>{dog.rescue}</h4>
+          </h5>
+          <h5>{dog.rescue}</h5>
           <p>
             Contact: {dog.eMail}, {dog.address}
           </p>

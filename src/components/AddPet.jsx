@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function AddPet({ cat, setCat, dog, setDog }) {
-  const [species, setSpecies] = useState("cat");
+  const [species, setSpecies] = useState("dog");
   const [address, setAddress] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [description, setDescription] = useState("");
@@ -30,7 +30,11 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
       );
       const data = await results.json();
       console.log(data);
-      setCat(data);
+      if (species === "cat") {
+        setCat(data);
+      } else {
+        setDog(data);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -41,6 +45,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
       <form onSubmit={(e) => e.preventDefault()}>
         {/* //Image uploader here */}
 
+{/* species is not changing */}
         <label htmlFor="species">
           Species:
           <select>

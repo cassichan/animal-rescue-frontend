@@ -1,16 +1,18 @@
+import "../Styles/CatCard.css"
+
 export default function CatCard({ cat }) {
   return (
     <>
       <div className="cat-card" key={cat._id}>
         <img src={cat.photoUrl} alt="cat"></img>
-        <h2>{cat.name}</h2>
-        <h3>
+        <h4>{cat.name}</h4>
+        <h5>
           {cat.sex}, {cat.breed}
-        </h3>
-        <h3>
+        </h5>
+        <h5>
           {cat.size}, {cat.dateOfBirth}
-        </h3>
-        <h4>{cat.rescue}</h4>
+        </h5>
+        <h5>{cat.rescue}</h5>
         <p>
           Contact: {cat.eMail}, {cat.address}
         </p>
