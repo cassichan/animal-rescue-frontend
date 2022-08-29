@@ -1,20 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function AddPet() {
-  const [species, setSpecies] = useState("");
-  const [location, setLocation] = useState("");
+export default function AddPet({ cat, setCat, dog, setDog }) {
+  const [species, setSpecies] = useState("cat");
+  const [address, setAddress] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
-  const [size, setSize] = useState("");
   const [description, setDescription] = useState("");
+  const [phone, setPhone] = useState("");
+  const [eMail, setEMail] = useState("");
 
-  //Make a select input to choose cat or dog
-  async function handleSubmit(e) {
+  async function formSubmit(e) {
     const newPet = {
       species: species,
-      location: location,
+      address: address,
       photoUrl: photoUrl,
-      size: size,
       description: description,
+      phone: phone,
+      eMail: eMail,
     };
     try {
       const results = await fetch(
@@ -28,23 +29,73 @@ export default function AddPet() {
         }
       );
       const data = await results.json();
-      //  window.location.reload(false)
+      console.log(data);
+      setCat(data);
     } catch (error) {
       console.error(error);
     }
   }
   return (
     <>
+      <p>Found an animal?</p>
       <form onSubmit={(e) => e.preventDefault()}>
+        {/* //Image uploader here */}
+
         <label htmlFor="species">
-          <input
-            type="select"
-            value={species}
-            name="species"
-            placeholder="species"
+          Species:
+          <select>
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
             onChange={(e) => setSpecies(e.target.value)}
+          </select>
+        </label>
+        <br />
+        <label htmlFor="description">
+          Description:
+          <input
+            type="text"
+            value={description}
+            name="description"
+            placeholder="Size, color, unique traits"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </label>
+        <br />
+        <label htmlFor="address">
+          Location seen:
+          <input
+            type="text"
+            value={address}
+            name="address"
+            placeholder="Specific please!"
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </label>
+        <br />
+        <label htmlFor="phone">
+          Phone number:
+          <input
+            type="text"
+            value={phone}
+            name="phone"
+            placeholder="phone number"
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </label>
+        <br />
+        <label htmlFor="email">
+          E-mail:
+          <input
+            type="email"
+            value={eMail}
+            placeholder="e-mail"
+            onChange={(e) => setEMail(e.target.value)}
+          />
+        </label>
+        <br />
+        <button onClick={formSubmit} type="submit">
+          Submit
+        </button>
       </form>
     </>
   );

@@ -1,7 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-// import CatList from "./components/CatList";
-// import DogList from "./components/DogList"
 import Home from "./pages/Home";
 import AddPet from "./components/AddPet";
 
