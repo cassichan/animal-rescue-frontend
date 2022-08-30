@@ -19,7 +19,6 @@ export default function DogList() {
       <section className="pet-list">
         {dog &&
           dog.map((dog) => <DogCard id={dog._id} dog={dog} setDog={setDog} />)}
-        <button>Learn more</button>
       </section>
     </>
   );

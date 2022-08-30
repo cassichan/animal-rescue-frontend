@@ -19,7 +19,6 @@ export default function CatList() {
       <section className="pet-list">
       {cat &&
         cat.map((cat) => <CatCard id={cat._id} cat={cat} setCat={setCat} />)}
-      <button>Learn more</button>
       </section>
     </>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function AddPet({ cat, setCat, dog, setDog }) {
-  const [species, setSpecies] = useState("dog");
+  const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [description, setDescription] = useState("");
@@ -40,18 +40,17 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
     }
   }
   return (
-    <>
+    <section>
       <p>Found an animal?</p>
       <form onSubmit={(e) => e.preventDefault()}>
         {/* //Image uploader here */}
 
-{/* species is not changing */}
         <label htmlFor="species">
           Species:
-          <select>
+          <select onChange={(e) => setSpecies(e.target.value)}>
+            <option value="default">Select one</option>
             <option value="cat">Cat</option>
             <option value="dog">Dog</option>
-            onChange={(e) => setSpecies(e.target.value)}
           </select>
         </label>
         <br />
@@ -102,6 +101,6 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
           Submit
         </button>
       </form>
-    </>
+    </section>
   );
 }

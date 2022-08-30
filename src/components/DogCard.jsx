@@ -15,8 +15,9 @@ export default function DogCard({ dog }) {
           <h5>{dog.rescue}</h5>
           <p>
             Contact: {dog.eMail}, {dog.address}
-          </p>
+          </p><br/>
           <p>{dog.description}</p>
+          <button className="about-pet-btn">Learn more</button>
         </div>
       </>
     );

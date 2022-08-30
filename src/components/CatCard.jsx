@@ -15,8 +15,9 @@ export default function CatCard({ cat }) {
         <h5>{cat.rescue}</h5>
         <p>
           Contact: {cat.eMail}, {cat.address}
-        </p>
+        </p><br/>
         <p>{cat.description}</p>
+        <button className="about-pet-btn">Learn more</button>
       </div>
     </>
   );
