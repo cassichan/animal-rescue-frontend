@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function AddPet({ cat, setCat, dog, setDog}) {
+export default function AddPet({ cat, setCat, dog, setDog }) {
   const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
@@ -40,67 +40,67 @@ export default function AddPet({ cat, setCat, dog, setDog}) {
     }
   }
   return (
-    <section>
-      <p>Found an animal?</p>
-      <form onSubmit={(e) => e.preventDefault()}>
-        {/* //Image uploader here */}
+      <section>
+        <p>Found an animal?</p>
+        <form onSubmit={(e) => e.preventDefault()}>
+          {/* //Image uploader here */}
 
-        <label htmlFor="species">
-          Species:
-          <select onChange={(e) => setSpecies(e.target.value)}>
-            <option value="default">Select one</option>
-            <option value="cat">Cat</option>
-            <option value="dog">Dog</option>
-          </select>
-        </label>
-        <br />
-        <label htmlFor="description">
-          Description:
-          <input
-            type="text"
-            value={description}
-            name="description"
-            placeholder="Size, color, unique traits"
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <br />
-        <label htmlFor="address">
-          Location seen:
-          <input
-            type="text"
-            value={address}
-            name="address"
-            placeholder="Specific please!"
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </label>
-        <br />
-        <label htmlFor="phone">
-          Phone number:
-          <input
-            type="text"
-            value={phone}
-            name="phone"
-            placeholder="phone number"
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </label>
-        <br />
-        <label htmlFor="email">
-          E-mail:
-          <input
-            type="email"
-            value={eMail}
-            placeholder="e-mail"
-            onChange={(e) => setEMail(e.target.value)}
-          />
-        </label>
-        <br />
-        <button onClick={formSubmit} type="submit">
-          Submit
-        </button>
-      </form>
-    </section>
-  );
+          <label htmlFor="species">
+            Species:
+            <select onChange={(e) => setSpecies(e.target.value)}>
+              <option value="default">Select one</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </label>
+          <br />
+          <label htmlFor="description">
+            Description:
+            <input
+              type="text"
+              value={description}
+              name="description"
+              placeholder="Size, color, unique traits"
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+          <br />
+          <label htmlFor="address">
+            Location seen:
+            <input
+              type="text"
+              value={address}
+              name="address"
+              placeholder="Specific please!"
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </label>
+          <br />
+          <label htmlFor="phone">
+            Phone number:
+            <input
+              type="text"
+              value={phone}
+              name="phone"
+              placeholder="phone number"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </label>
+          <br />
+          <label htmlFor="email">
+            E-mail:
+            <input
+              type="email"
+              value={eMail}
+              placeholder="e-mail"
+              onChange={(e) => setEMail(e.target.value)}
+            />
+          </label>
+          <br />
+          <button onClick={formSubmit} type="submit">
+            Submit
+          </button>
+        </form>
+      </section>
+  )
 }
