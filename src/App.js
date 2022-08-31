@@ -1,8 +1,9 @@
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import AddPet from "./components/AddPet";
 import Footer from "./components/Footer";
+// import StrayPetList from "./components/StrayPetList";
+import NewPetPage from "./pages/NewPetPage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/found-a-pet" element={<AddPet />}></Route>
+        <Route path="/found-a-pet" element={<NewPetPage />}></Route>
       </Routes>
       <Footer/>
     </>

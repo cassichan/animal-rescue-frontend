@@ -5,8 +5,8 @@ import "../Styles/PetList.css"
 export default function CatList() {
   const [cat, setCat] = useState([]);
   useEffect(() => {
-    // fetch("https://cat-rescue-backend.web.app/cats")
-    fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+    fetch("https://cat-rescue-backend.web.app/cats")
+    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
       .then((res) => res.json())
       .then((data) => setCat(data));
   }, []);

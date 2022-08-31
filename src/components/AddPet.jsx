@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddPet({ cat, setCat, dog, setDog }) {
+export default function AddPet({ cat, setCat, dog, setDog}) {
   const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");

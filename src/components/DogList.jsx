@@ -5,11 +5,12 @@ import "../Styles/PetList.css"
 export default function DogList() {
   const [dog, setDog] = useState([]);
   useEffect(() => {
-    // fetch("https://cat-rescue-backend.web.app/dogs")
-    fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
+    fetch("https://cat-rescue-backend.web.app/dogs")
+    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
       .then((res) => res.json())
-      .then((data) => setDog(data));
-  }, []);
+      .then((data) => setDog(data))
+      .catch(console.error);
+  }, [setDog]);
   if (!dog) {
     return <h1> Loading...please wait</h1>;
   }
