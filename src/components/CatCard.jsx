@@ -1,7 +1,7 @@
-import {Link, Routes, Route} from "react-router-dom"
+import { Link, Routes, Route } from "react-router-dom";
 import IndividualPet from "../pages/IndiviualPet";
 import { Button } from "antd";
-import "../Styles/CatCard.css"
+import "../Styles/CatCard.css";
 
 export default function CatCard({ cat }) {
   return (
@@ -18,17 +18,27 @@ export default function CatCard({ cat }) {
         <h5>{cat.rescue}</h5>
         <p>
           Contact: {cat.eMail}, {cat.address}
-        </p><br/>
+        </p>
+        <br />
         <p>{cat.description}</p>
-        <Link to="/cat/:id">
-        <Button type="primary" htmlType="button">Learn more</Button>
-        </Link>
-        {/* <Link to = {`/cat/${cat._id}`}>
-        <button className="about-pet-btn">Learn more</button>
+        {/* <Link to="/catbyid">
+          <Button type="link" htmlType="button">
+            Learn more
+          </Button>
         </Link>
         <Routes>
-      <Route path="/cat/:_id" element={<IndividualPet/>}></Route>
-      </Routes> */}
+          <Route path="/catbyid" element={<IndividualPet />}></Route>
+        </Routes> */}
+
+
+        <Link to = {`/cat/${cat._id}`}>
+        <Button type="link" htmlType="button">
+            Learn more
+          </Button>
+        </Link>
+        <Routes>
+      <Route path="/cat/_id" element={<IndividualPet/>}></Route>
+      </Routes>
       </div>
     </>
   );

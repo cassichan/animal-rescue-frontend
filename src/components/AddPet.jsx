@@ -1,4 +1,5 @@
-import { useState} from "react";
+import { useState } from "react";
+import { Form, Button, Input, Select } from "antd";
 // import {ref, uploadBytes, getDownloadURL, listAll} from "firebase/storage"
 // import {storage} from "../firebase"
 // import {v4} from "uuid"
@@ -10,6 +11,17 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
   const [eMail, setEMail] = useState("");
+
+  const { Option } = Select;
+
+  const onChange = (value) => {
+    setSpecies(value)
+    console.log(`selected ${value}`);
+  };
+
+  const onSearch = (value) => {
+    console.log("search:", value);
+  };
 
   async function formSubmit(e) {
     const newPet = {
@@ -43,12 +55,43 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
     }
   }
   return (
-      <section>
-        <p>Found an animal?</p>
-        <form onSubmit={(e) => e.preventDefault()}>
+    <section>
+      <p className="add-pet-form-header">Found an animal?</p>
+      <Form onFinish={formSubmit}>
+        <Select
+          showSearch
+          placeholder="Select one"
+          optionFilterProp="children"
+          // onChange={onChange}
+          // onSearch={onSearch}
+          onChange={(e) => setSpecies(e.target.value)}
+          filterOption={(input, option) =>
+            option.children.toLowerCase().includes(input.toLowerCase())
+          }
+        >
+          <Option value="Cat">Cat</Option>
+          <Option value="Dog">Dog</Option>
+        </Select>
+        <Form.Item label="Description" name="description">
+          <Input onChange={(e) => setDescription(e.target.value)} />
+        </Form.Item>
+        <Form.Item label="Location" name="location">
+        <Input onChange={(e) => setAddress(e.target.value)} />
+        </Form.Item>
+        <Form.Item label="Phone number" name="phone">
+        <Input onChange={(e) => setPhone(e.target.value)} />
+        </Form.Item>
+        <Form.Item label="Email" name="email">
+        <Input onChange={(e) => setEMail(e.target.value)} />
+        </Form.Item>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form>
+      {/* <form onSubmit={(e) => e.preventDefault()}>
           {/* //Image uploader here */}
 
-          <label htmlFor="species">
+      {/* <label htmlFor="species">
             Species:
             <select onChange={(e) => setSpecies(e.target.value)}>
               <option value="default">Select one</option>
@@ -103,7 +146,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
           <button onClick={formSubmit} type="submit">
             Submit
           </button>
-        </form>
-      </section>
-  )
+        </form> */}
+    </section>
+  );
 }

@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import NewPetPage from "./pages/NewPetPage";
 import IndividualPet from "./pages/IndiviualPet";
-import "antd/dist/antd.css"
+// import "antd/dist/antd.css"
+import "antd/dist/antd.min.css"
 
 function App({ cat }) {
   return (

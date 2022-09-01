@@ -1,5 +1,6 @@
 import { useParams, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
+import CatCard from "../components/CatCard";
 
 export default function IndividualPet({cat,setCat, dog, setDog}) {
   // const [pet, setPet] = useState([{}]);
@@ -13,6 +14,9 @@ export default function IndividualPet({cat,setCat, dog, setDog}) {
   if (!cat || !dog) {
     return <h1> Loading...please wait</h1>;
   }
+  // if(!_id) {
+  //   return <CatCard/>
+  // }
   return (
     <>
     {/* <Routes>
