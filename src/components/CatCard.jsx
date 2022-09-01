@@ -1,5 +1,6 @@
 import {Link, Routes, Route} from "react-router-dom"
 import IndividualPet from "../pages/IndiviualPet";
+import { Button } from "antd";
 import "../Styles/CatCard.css"
 
 export default function CatCard({ cat }) {
@@ -19,12 +20,15 @@ export default function CatCard({ cat }) {
           Contact: {cat.eMail}, {cat.address}
         </p><br/>
         <p>{cat.description}</p>
-        <Link to = {`/cat/${cat._id}`}>
+        <Link to="/cat/:id">
+        <Button type="primary" htmlType="button">Learn more</Button>
+        </Link>
+        {/* <Link to = {`/cat/${cat._id}`}>
         <button className="about-pet-btn">Learn more</button>
         </Link>
         <Routes>
-      <Route path="/cat/_id" element={<IndividualPet/>}></Route>
-      </Routes>
+      <Route path="/cat/:_id" element={<IndividualPet/>}></Route>
+      </Routes> */}
       </div>
     </>
   );

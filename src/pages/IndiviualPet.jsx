@@ -5,11 +5,11 @@ export default function IndividualPet({cat,setCat, dog, setDog}) {
   // const [pet, setPet] = useState([{}]);
   const {_id} = useParams()
   useEffect(() => {
-    fetch(`https://cat-rescue-backend.web.app/cat/${_id}`)
-    // fetch(`http://localhost:5001/cat-rescue-backend/us-central1/api/cat/${_id}`)
+    // fetch(`https://cat-rescue-backend.web.app/cat/${_id}`)
+    fetch(`http://localhost:5001/cat-rescue-backend/us-central1/api/cat/${_id}`)
       .then((res) => res.json())
       .then((data) => setCat(data));
-  }, [setCat, _id]);
+  }, [setCat,_id]);
   if (!cat || !dog) {
     return <h1> Loading...please wait</h1>;
   }
