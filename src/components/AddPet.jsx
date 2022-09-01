@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
+// import {ref, uploadBytes, getDownloadURL, listAll} from "firebase/storage"
+// import {storage} from "../firebase"
+// import {v4} from "uuid"
 
 export default function AddPet({ cat, setCat, dog, setDog }) {
   const [species, setSpecies] = useState("");

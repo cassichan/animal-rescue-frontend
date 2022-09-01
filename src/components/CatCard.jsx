@@ -1,3 +1,5 @@
+import {Link, Routes, Route} from "react-router-dom"
+import IndividualPet from "../pages/IndiviualPet";
 import "../Styles/CatCard.css"
 
 export default function CatCard({ cat }) {
@@ -17,7 +19,12 @@ export default function CatCard({ cat }) {
           Contact: {cat.eMail}, {cat.address}
         </p><br/>
         <p>{cat.description}</p>
+        <Link to = {`/cat/${cat._id}`}>
         <button className="about-pet-btn">Learn more</button>
+        </Link>
+        <Routes>
+      <Route path="/cat/_id" element={<IndividualPet/>}></Route>
+      </Routes>
       </div>
     </>
   );
