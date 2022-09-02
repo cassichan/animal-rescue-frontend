@@ -15,7 +15,6 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
   const { Option } = Select;
 
   const onChange = (value) => {
-    setSpecies(value)
     console.log(`selected ${value}`);
   };
 
@@ -75,23 +74,78 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
           <Option value="Dog">Dog</Option>
         </Select>
         <Form.Item label="Description" name="description">
-          <Input value={description} onChange={(e) => setDescription(e.target.value)} />
+          <Input
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </Form.Item>
         <Form.Item label="Location" name="location">
-        <Input value={address} onChange={(e) => setAddress(e.target.value)} />
+          <Input value={address} onChange={(e) => setAddress(e.target.value)} />
         </Form.Item>
         <Form.Item label="Phone number" name="phone">
-        <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
         </Form.Item>
         <Form.Item label="Email" name="email">
-        <Input value={eMail} onChange={(e) => setEMail(e.target.value)} />
+          <Input value={eMail} onChange={(e) => setEMail(e.target.value)} />
         </Form.Item>
         <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
         </Form.Item>
       </Form>
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* <Form onFinish={formSubmit}>
+        <Select
+          showSearch
+          placeholder="Select one"
+          optionFilterProp="children"
+          // onChange={onChange}
+          // onSearch={onSearch}
+          // onChange={(e) => setSpecies(e.target.value)}
+          onChange={onChange}
+          filterOption={(input, option) =>
+            option.children.toLowerCase().includes(input.toLowerCase())
+          }
+        >
+          <Option value="Cat">Cat</Option>
+          <Option value="Dog">Dog</Option>
+        </Select>
+        <Form.Item label="Description" name="description">
+          <Input
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Form.Item>
+        <Form.Item label="Location" name="location">
+          <Input value={address} onChange={(e) => setAddress(e.target.value)} />
+        </Form.Item>
+        <Form.Item label="Phone number" name="phone">
+          <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
+        </Form.Item>
+        <Form.Item label="Email" name="email">
+          <Input value={eMail} onChange={(e) => setEMail(e.target.value)} />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form> */}
+
+
+      {/* //html form */}
       {/* <form onSubmit={(e) => e.preventDefault()}>
           {/* //Image uploader here */}
 
