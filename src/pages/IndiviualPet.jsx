@@ -19,10 +19,11 @@ export default function IndividualPet({cat,setCat, dog, setDog}) {
   // }
   return (
     <>
+    <CatCard/>
     {/* <Routes>
       <Route path="/cat/_id" element={<IndividualPet/>}></Route>
       </Routes> */}
-     <h1>{cat.name}</h1>
+     {/* <h1>{cat.name}</h1>
      <img src={cat.photoUrl} alt="cat"></img>
      <h5>
           {cat.sex}, {cat.breed}
@@ -34,7 +35,7 @@ export default function IndividualPet({cat,setCat, dog, setDog}) {
         <p>
           Contact: {cat.eMail}, {cat.address}
         </p><br/>
-        <p>{cat.description}</p>
+        <p>{cat.description}</p> */}
     </>
   );
 }

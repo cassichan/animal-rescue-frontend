@@ -1,3 +1,6 @@
+import { Link, Routes, Route } from "react-router-dom";
+import IndividualPet from "../pages/IndiviualPet";
+import { Button } from "antd";
 import "../Styles/DogCard.css"
 
 export default function DogCard({ dog }) {
@@ -17,7 +20,14 @@ export default function DogCard({ dog }) {
             Contact: {dog.eMail}, {dog.address}
           </p><br/>
           <p>{dog.description}</p>
-          <button className="about-pet-btn">Learn more</button>
+          <Link to = {`/dog/${dog._id}`}>
+        <Button type="link" htmlType="button">
+            Learn more
+          </Button>
+        </Link>
+        <Routes>
+      <Route path="/dog/_id" element={<IndividualPet/>}></Route>
+      </Routes>
         </div>
       </>
     );

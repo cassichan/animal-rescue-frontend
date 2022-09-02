@@ -34,7 +34,8 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
     };
     try {
       const results = await fetch(
-        `https://cat-rescue-backend.web.app/add-${species}`,
+        `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
+        // `https://cat-rescue-backend.web.app/add-${species}`,
         {
           method: "POST",
           headers: {
@@ -84,9 +85,11 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
         <Form.Item label="Email" name="email">
         <Input onChange={(e) => setEMail(e.target.value)} />
         </Form.Item>
+        <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
+        </Form.Item>
       </Form>
       {/* <form onSubmit={(e) => e.preventDefault()}>
           {/* //Image uploader here */}

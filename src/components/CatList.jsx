@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import CatCard from "./CatCard";
-import "../Styles/PetList.css"
+import "../Styles/PetList.css";
 
 export default function CatList() {
   const [cat, setCat] = useState([]);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/cats")
-    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
       .then((res) => res.json())
       .then((data) => setCat(data));
   }, []);
@@ -17,8 +17,8 @@ export default function CatList() {
     <>
       <h3>Adopt a Cat Today!</h3>
       <section className="pet-list">
-      {/* {cat && */}
-        {cat.map((cat) => <CatCard id={cat._id} cat={cat} setCat={setCat} />)}
+        {cat &&
+          cat.map((cat) => <CatCard id={cat._id} cat={cat} setCat={setCat} />)}
       </section>
     </>
   );
