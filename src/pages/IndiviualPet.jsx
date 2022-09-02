@@ -11,6 +11,7 @@ export default function IndividualPet({cat,setCat, dog, setDog}) {
       .then((res) => res.json())
       .then((data) => setCat(data));
   }, [setCat,_id]);
+  console.log(cat)
   if (!cat || !dog) {
     return <h1> Loading...please wait</h1>;
   }
@@ -19,23 +20,7 @@ export default function IndividualPet({cat,setCat, dog, setDog}) {
   // }
   return (
     <>
-    <CatCard/>
-    {/* <Routes>
-      <Route path="/cat/_id" element={<IndividualPet/>}></Route>
-      </Routes> */}
-     {/* <h1>{cat.name}</h1>
-     <img src={cat.photoUrl} alt="cat"></img>
-     <h5>
-          {cat.sex}, {cat.breed}
-        </h5>
-        <h5>
-          {cat.size}, {cat.dateOfBirth}
-        </h5>
-        <h5>{cat.rescue}</h5>
-        <p>
-          Contact: {cat.eMail}, {cat.address}
-        </p><br/>
-        <p>{cat.description}</p> */}
+    <CatCard id={cat._id} cat={cat} setCat={setCat} />
     </>
   );
 }

@@ -6,7 +6,7 @@ import "../Styles/CatCard.css";
 export default function CatCard({ cat }) {
   return (
     <>
-      <div className="cat-card" key={cat._id}>
+      <div className="cat-card">
         <img src={cat.photoUrl} alt="cat"></img>
         <h4>{cat.name}</h4>
         <h5>

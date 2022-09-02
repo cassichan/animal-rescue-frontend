@@ -6,7 +6,7 @@ import "../Styles/DogCard.css"
 export default function DogCard({ dog }) {
     return (
       <>
-        <div className="dog-card" key={dog._id}>
+        <div className="dog-card">
           <img src={dog.photoUrl} alt="dog"></img>
           <h4>{dog.name}</h4>
           <h5>

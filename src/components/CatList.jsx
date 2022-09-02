@@ -18,7 +18,7 @@ export default function CatList() {
       <h3>Adopt a Cat Today!</h3>
       <section className="pet-list">
         {cat &&
-          cat.map((cat) => <CatCard id={cat._id} cat={cat} setCat={setCat} />)}
+          cat.map((cat) => <CatCard key={cat._id} _id={cat._id} cat={cat} setCat={setCat} />)}
       </section>
     </>
   );

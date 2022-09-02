@@ -19,7 +19,7 @@ export default function DogList() {
       <h3>Adopt a Dog Today!</h3>
       <section className="pet-list">
         {dog &&
-          dog.map((dog) => <DogCard id={dog._id} dog={dog} setDog={setDog} />)}
+          dog.map((dog) => <DogCard key={dog._id} _id={dog._id} dog={dog} setDog={setDog} />)}
       </section>
     </>
   );
