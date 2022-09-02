@@ -65,7 +65,8 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
           optionFilterProp="children"
           // onChange={onChange}
           // onSearch={onSearch}
-          onChange={(e) => setSpecies(e.target.value)}
+          // onChange={(e) => setSpecies(e.target.value)}
+          onChange={onChange}
           filterOption={(input, option) =>
             option.children.toLowerCase().includes(input.toLowerCase())
           }
@@ -74,16 +75,16 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
           <Option value="Dog">Dog</Option>
         </Select>
         <Form.Item label="Description" name="description">
-          <Input onChange={(e) => setDescription(e.target.value)} />
+          <Input value={description} onChange={(e) => setDescription(e.target.value)} />
         </Form.Item>
         <Form.Item label="Location" name="location">
-        <Input onChange={(e) => setAddress(e.target.value)} />
+        <Input value={address} onChange={(e) => setAddress(e.target.value)} />
         </Form.Item>
         <Form.Item label="Phone number" name="phone">
-        <Input onChange={(e) => setPhone(e.target.value)} />
+        <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
         </Form.Item>
         <Form.Item label="Email" name="email">
-        <Input onChange={(e) => setEMail(e.target.value)} />
+        <Input value={eMail} onChange={(e) => setEMail(e.target.value)} />
         </Form.Item>
         <Form.Item>
         <Button type="primary" htmlType="submit">
