@@ -1,7 +1,7 @@
 export default function StrayDogCard({dog}) {
     return (
         <>
-        <div className="dog-card" key={dog._id}>
+        <div className="dog-card">
         {/* <img src={dog.photoUrl} alt="dog"></img> */}
         <h4>{dog.species}</h4>
         <h4> {dog.address}</h4>

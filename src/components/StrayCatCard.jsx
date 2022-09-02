@@ -1,7 +1,7 @@
 export default function StrayCatCard({cat}) {
     return (
         <>
-        <div className="cat-card" key={cat._id}>
+        <div className="cat-card">
         {/* <img src={cat.photoUrl} alt="cat"></img> */}
         <h4>{cat.species}</h4>
         <h4> {cat.address}</h4>

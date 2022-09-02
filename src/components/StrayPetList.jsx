@@ -29,13 +29,13 @@ export default function StrayPetList() {
       <p>List of stray cats</p>
       <section className="pet-list">
         {cat.map((cat) => (
-          <StrayCatCard id={cat._id} cat={cat} setCat={setCat} />
+          <StrayCatCard key={cat._id} id={cat._id} cat={cat} setCat={setCat} />
         ))}
       </section>
       <p>List of stray dogs</p>
       <section className="pet-list">
         {dog.map((dog) => (
-          <StrayDogCard id={dog._id} dog={dog} setDog={setDog} />
+          <StrayDogCard key={dog._id} id={dog._id} dog={dog} setDog={setDog} />
         ))}
       </section>
     </>
