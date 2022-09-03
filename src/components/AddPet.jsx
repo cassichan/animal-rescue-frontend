@@ -12,6 +12,8 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
   const [eMail, setEMail] = useState("");
+  const [filebase64, setFileBase64] = useState("");
+
   // const [value, setValue] = useState("");
 
   // const [form, setForm] = useState({});
@@ -30,6 +32,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
   // };
 
   async function formSubmit(e) {
+    e.preventDefault()
     const newPet = {
       species: species,
       address: address,

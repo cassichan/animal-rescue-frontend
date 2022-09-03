@@ -2,11 +2,12 @@ import { Link, Routes, Route } from "react-router-dom";
 import { Card } from "antd";
 import React from "react";
 import IndividualPet from "../pages/IndiviualPet";
-import { getCatById } from "../operations/operations.js";
+// import { getCatById } from "../operations/operations.js";
 import { Button } from "antd";
 import "../Styles/CatCard.css";
 const { Meta } = Card;
-export default function CatCard({ cat }) {
+export default function CatCard({ cats, setCats }) {
+  console.log(cats)
   return (
     <div>
       <Card
@@ -15,20 +16,20 @@ export default function CatCard({ cat }) {
         style={{
           width: 240,
         }}
-        cover={<img alt="cat" src={cat.photoUrl} />}
+        cover={<img alt="cat" src={cats.photoUrl} />}
         headStyle={{textAlign: "center"}}
         bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
-        <Meta title={cat.name} 
-        // breed={cat.breed} size={cat.size} 
-        description={cat.breed} />
-        <Link to={`/cat/${cat._id}`}>
+        <Meta title={cats.name} 
+        // breed={cats.breed} size={cats.size} 
+        description={cats.breed} />
+        <Link to={`/cat/${cats._id}`}>
           <Button type="link" htmlType="button">
             Learn more
           </Button>
         </Link>
         <Routes>
-          <Route path="/cat/_id" element={<IndividualPet />}></Route>
+          <Route path="/cat/_id" element={<IndividualPet cats={cats} setCats={setCats}/>}></Route>
         </Routes>
       </Card>
     </div>
