@@ -9,22 +9,27 @@ const { Meta } = Card;
 export default function CatCard({ cat }) {
   return (
     <div>
-      <Card className="antd-cat-card"
+      <Card
+        className="antd-cat-card"
         hoverable
         style={{
           width: 240,
         }}
         cover={<img alt="cat" src={cat.photoUrl} />}
+        headStyle={{textAlign: "center"}}
+        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
-        <Meta title={cat.name} description={cat.description} />
+        <Meta title={cat.name} 
+        // breed={cat.breed} size={cat.size} 
+        description={cat.breed} />
         <Link to={`/cat/${cat._id}`}>
-        <Button type="link" htmlType="button">
-          Learn more
-        </Button>
-      </Link>
-      <Routes>
-        <Route path="/cat/_id" element={<IndividualPet />}></Route>
-      </Routes>
+          <Button type="link" htmlType="button">
+            Learn more
+          </Button>
+        </Link>
+        <Routes>
+          <Route path="/cat/_id" element={<IndividualPet />}></Route>
+        </Routes>
       </Card>
     </div>
   );

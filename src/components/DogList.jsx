@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import DogCard from "./DogCard";
-import "../Styles/PetList.css"
+import ".././App.css"
+// import "../Styles/PetList.css"
 
 export default function DogList() {
   const [dog, setDog] = useState([]);
@@ -15,12 +16,12 @@ export default function DogList() {
     return <h1> Loading...please wait</h1>;
   }
   return (
-    <>
-      <h3>Adopt a Dog Today!</h3>
+    <section className="card-section">
+      <h3>Dogs Available for Adoption</h3>
       <section className="pet-list">
         {dog &&
           dog.map((dog) => <DogCard key={dog._id} _id={dog._id} dog={dog} setDog={setDog} />)}
       </section>
-    </>
+    </section>
   );
 }

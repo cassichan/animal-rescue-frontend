@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CatCard from "./CatCard";
-import "../Styles/PetList.css";
+import ".././App.css"
+// import "../Styles/PetList.css";
 
 export default function CatList() {
   const [cat, setCat] = useState([]);
@@ -14,12 +15,14 @@ export default function CatList() {
     return <h1> Loading...please wait</h1>;
   }
   return (
-    <>
-      <h3>Adopt a Cat Today!</h3>
+    <section className="card-section">
+      <h3>Cats Available for Adoption</h3>
       <section className="pet-list">
         {cat &&
-          cat.map((cat) => <CatCard key={cat._id} _id={cat._id} cat={cat} setCat={setCat} />)}
+          cat.map((cat) => (
+            <CatCard key={cat._id} _id={cat._id} cat={cat} setCat={setCat} />
+          ))}
       </section>
-    </>
+    </section>
   );
 }

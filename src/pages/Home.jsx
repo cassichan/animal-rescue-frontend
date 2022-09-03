@@ -9,7 +9,9 @@ export default function Home() {
       <Hero />
       <CatList />
       <DogList />
-      <Footer/>
+      <Footer>
+        <section> © By Cassandra Curcio</section>
+      </Footer>
     </>
   );
 }
