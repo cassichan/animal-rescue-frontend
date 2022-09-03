@@ -214,7 +214,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
             className="form-input"
             type="email"
             value={eMail}
-            placeholder="e-mail"
+            placeholder="E-mail"
             onChange={(e) => setEMail(e.target.value)}
           />
         </label>
