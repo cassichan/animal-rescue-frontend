@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { PageHeader, Breadcrumb } from "antd";
 import React from "react";
 import "./App.css";
+import Socials from "./components/Socials";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import NewPetPage from "./pages/NewPetPage";
@@ -34,18 +35,7 @@ function App({ cat }) {
               : <SignUp setIsUser={setIsUser} setToken={setToken} />
           : null }
         </div> */}
-      {/* <Breadcrumb>
-        <Breadcrumb.Item>
-        <Home/>
-        <Link to="/">Home</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb>
-        <Breadcrumb.Item>
-        <Link to="/found-a-pet">Found an animal? Get help</Link>
-        <Route path="/found-a-pet" element={<NewPetPage />}></Route>
-        </Breadcrumb.Item>
-        </Breadcrumb>
-        </Breadcrumb> */}
+      
       {/* 
       <PageHeader
         className="site-page-header"
@@ -59,8 +49,15 @@ function App({ cat }) {
       </PageHeader> */}
 
       <nav className="header">
-        <Link className="route-links" to="/">Home</Link>
-        <Link className="route-links" to="/found-a-pet">Share found animal</Link>
+        <Socials />
+        <div className="link-container">
+          <Link className="route-links" to="/">
+            Home
+          </Link>
+          <Link className="route-links" to="/found-a-pet">
+            Share found animal
+          </Link>
+        </div>
       </nav>
       {/* <Link to = "`/cat/${cat._id}`">Learn more</Link> */}
 
@@ -69,7 +66,7 @@ function App({ cat }) {
         <Route path="/found-a-pet" element={<NewPetPage />}></Route>
         <Route path="/cat/:_id" element={<IndividualPet />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }
