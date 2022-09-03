@@ -35,18 +35,6 @@ function App({ cat }) {
               : <SignUp setIsUser={setIsUser} setToken={setToken} />
           : null }
         </div> */}
-      
-      {/* 
-      <PageHeader
-        className="site-page-header"
-        title="Chance 4 Pets"
-        breadcrumb={{
-          routes,
-        }}
-        subTitle="This is a subtitle"
-      >
-        <PageHeader.Item href=""></PageHeader.Item>
-      </PageHeader> */}
 
       <nav className="header">
         <Socials />

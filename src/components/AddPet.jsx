@@ -11,16 +11,22 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
   const [eMail, setEMail] = useState("");
+  // const [value, setValue] = useState("");
 
-  const { Option } = Select;
+  // const [form, setForm] = useState({});
+  // const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const onChange = (value) => {
-    console.log(`selected ${value}`);
-  };
+  // const { Option } = Select;
 
-  const onSearch = (value) => {
-    console.log("search:", value);
-  };
+  // const onChange = (value) => {
+  //   setValue(value);
+  //   console.log(`selected ${value}`);
+  // };
+
+  // const onSearch = (value) => {
+  //   setValue(value);
+  //   console.log("search:", value);
+  // };
 
   async function formSubmit(e) {
     const newPet = {
@@ -45,6 +51,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
       );
       const data = await results.json();
       console.log(data);
+      window.location.reload(false);
       if (species === "cat") {
         setCat(data);
       } else {
@@ -54,58 +61,67 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
       console.error(error);
     }
   }
+  
   return (
+    
     <section>
+     {/* {species && console.log(species)} */}
       <p className="add-pet-form-header">Found an animal?</p>
-      <Form onFinish={formSubmit}>
+      {/* <Form onFinish={() => {formSubmit()}}>
         <Select
           showSearch
           placeholder="Select one"
           optionFilterProp="children"
-          // onChange={onChange}
           // onSearch={onSearch}
           // onChange={(e) => setSpecies(e.target.value)}
-          onChange={onChange}
+          // onChange={updateForm}
           filterOption={(input, option) =>
             option.children.toLowerCase().includes(input.toLowerCase())
           }
         >
-          <Option value="Cat">Cat</Option>
-          <Option value="Dog">Dog</Option>
+          <Option onSearch={(e) => setSpecies("cat")} value="Cat">Cat</Option>
+          <Option onSearch={(e) => setSpecies("dog")} value="Dog">Dog</Option>
         </Select>
         <Form.Item label="Description" name="description">
           <Input
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            // onChange={updateForm}
           />
         </Form.Item>
         <Form.Item label="Location" name="location">
-          <Input value={address} onChange={(e) => setAddress(e.target.value)} />
+          <Input
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            // onChange={updateForm}
+            // onSearch={onSearch}
+          />
         </Form.Item>
         <Form.Item label="Phone number" name="phone">
-          <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <Input
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            // onChange={updateForm}
+          />
         </Form.Item>
         <Form.Item label="Email" name="email">
-          <Input value={eMail} onChange={(e) => setEMail(e.target.value)} />
+          <Input
+            value={eMail}
+            onChange={(e) => setEMail(e.target.value)}
+          />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button
+            type="primary"
+            htmlType="submit"
+          >
             Submit
           </Button>
         </Form.Item>
-      </Form>
+      </Form> */}
 
 
-
-
-
-
-
-
-
-
-
-
+{/* Form */}
       {/* <Form onFinish={formSubmit}>
         <Select
           showSearch
@@ -144,12 +160,11 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
         </Form.Item>
       </Form> */}
 
-
       {/* //html form */}
-      {/* <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()}>
           {/* //Image uploader here */}
 
-      {/* <label htmlFor="species">
+      <label htmlFor="species">
             Species:
             <select onChange={(e) => setSpecies(e.target.value)}>
               <option value="default">Select one</option>
@@ -204,7 +219,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
           <button onClick={formSubmit} type="submit">
             Submit
           </button>
-        </form> */}
+        </form>
     </section>
   );
 }
