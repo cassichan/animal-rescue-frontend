@@ -1,44 +1,40 @@
 import { useContext, useEffect, useState } from "react";
 import { PetContext } from "../../context/PetContext";
-import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx"
-import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx"
+import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
+import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 
-export default function StrayPetList() {
-  const { cats, setCats, dogs, setDogs } = useContext(PetContext);
-  // const [cat, setCat] = useState([]);
-  // const [dog, setDog] = useState([]);
+export default function StrayPetList({ species, cat, setCat, dog, setDog }) {
+  // const { cats, setCats, dogs, setDogs, cat, setCat, dog, setDog } = useContext(PetContext);
+  const [cats, setCats] = useState([]);
+  const [dogs, setDogs] = useState([]);
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/get-new-cat")
-      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat")
+    // fetch("https://cat-rescue-backend.web.app/get-new-cat")
+    fetch(
+      "http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat"
+    )
       .then((results) => results.json())
       .then((data) => {
         setCats(data);
       })
       .catch(console.error);
-  }, [setCats]);
-
-  useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/get-new-dog")
-      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat")
+    fetch(
+      "http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-dog"
+    )
       .then((results) => results.json())
       .then((data) => {
         setDogs(data);
       })
       .catch(console.error);
-  }, [setDogs]);
+  }, []);
   return (
     <>
       <p>List of stray cats</p>
       <section className="pet-list">
-        {cats.map((cat) => (
-          <StrayCatCard key={cat._id} cats={cats} setCats={setCats} />
-        ))}
+        {cats && cats.map((cat) => <StrayCatCard key={cat._id} cat={cat} />)}
       </section>
       <p>List of stray dogs</p>
       <section className="pet-list">
-        {dogs.map((dog) => (
-          <StrayDogCard key={dog._id} dogs={dogs} setDogs={setDogs} />
-        ))}
+        {dogs && dogs.map((dog) => <StrayDogCard key={dog._id} dog={dog} />)}
       </section>
     </>
   );

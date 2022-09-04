@@ -9,8 +9,8 @@ export default function CatList() {
   // const [cats, setCats] = useState([]);
   const { cats, setCats } = useContext(PetContext);
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/cats")
-      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+    // fetch("https://cat-rescue-backend.web.app/cats")
+      fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
       .then((res) => res.json())
       .then((data) => setCats(data))
       .catch((error) => console.log(error));

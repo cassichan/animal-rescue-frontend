@@ -1,47 +1,27 @@
 import { useContext, useState } from "react";
 import { Form, Button, Input, Select } from "antd";
-// import {ref, uploadBytes, getDownloadURL, listAll} from "firebase/storage"
-// import {storage} from "../firebase"
-// import {v4} from "uuid"
-import { PetContext } from "../../context/PetContext";
+// import { PetContext } from "../../context/PetContext";
 import "../../Styles/AddPet.css";
 
-export default function AddPet() {
-  const { cats, setCats, dogs, setDogs } = useContext(PetContext);
+export default function AddPet({ cats, setCats, dogs, setDogs }) {
+  // const { cats, setCats, dogs, setDogs } = useContext(PetContext);
   const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
   const [eMail, setEMail] = useState("");
   const [filebase64, setFileBase64] = useState("");
-
-  // const [value, setValue] = useState("");
-
-  // const [form, setForm] = useState({});
-  // const [formSubmitted, setFormSubmitted] = useState(false);
-
-  // const { Option } = Select;
-
-  // const onChange = (value) => {
-  //   setValue(value);
-  //   console.log(`selected ${value}`);
-  // };
-
-  // const onSearch = (value) => {
-  //   setValue(value);
-  //   console.log("search:", value);
-  // };
+  const [image, setImage] = useState("");
 
   async function formSubmit(e) {
     e.preventDefault();
     const newPet = {
-      species: species,
-      address: address,
-      photoUrl: photoUrl,
-      description: description,
-      phone: phone,
-      eMail: eMail,
+      species,
+      address,
+      description,
+      phone,
+      eMail,
+      image,
     };
     try {
       const results = await fetch(
@@ -68,16 +48,18 @@ export default function AddPet() {
     }
   }
 
-  // function convertFile (files) {
-  //   if (files) {
-  //     const fileRef = files[0] || ""
-  //     const reader = new FileReader()
-  //     reader.readAsBinaryString(fileRef)
-  //     reader.onload=(ev) => {
-  //       setFileBase64(`data:${}`)
-  //     }
-  //   }
-  // }
+  function convertFile(files) {
+    if (files) {
+      const fileRef = files[0] || "";
+      const fileType = fileRef.type || "";
+      console.log(`This is file upload of type:${fileType}`);
+      const reader = new FileReader();
+      reader.readAsBinaryString(fileRef);
+      reader.onload = (ev) => {
+        setImage(`data:${fileType};base64, ${btoa(ev.target.result)}`);
+      };
+    }
+  }
 
   return (
     <>
@@ -86,12 +68,10 @@ export default function AddPet() {
         <p>Please submit information about animal below.</p>
       </section>
       <div className="form-header">
-      <h2>Share Animal:</h2>
+        <h2>Share Animal:</h2>
       </div>
       <section className="form-section">
         <form className="new-animal-form" onSubmit={(e) => e.preventDefault()}>
-          {/* //Image uploader here */}
-
           <label className="form-label" htmlFor="species">
             Species:
             <select onChange={(e) => setSpecies(e.target.value)}>
@@ -103,7 +83,8 @@ export default function AddPet() {
           <br />
           <label className="form-label" htmlFor="description">
             Description:
-            <input className="form-input"
+            <input
+              className="form-input"
               type="text"
               value={description}
               name="description"
@@ -114,7 +95,8 @@ export default function AddPet() {
           <br />
           <label className="form-label" htmlFor="address">
             Location seen:
-            <input className="form-input"
+            <input
+              className="form-input"
               type="text"
               value={address}
               name="address"
@@ -123,9 +105,15 @@ export default function AddPet() {
             />
           </label>
           <br />
+          <input type="file" onChange={(e) => convertFile(e.target.files)} />
+          <hr />
+          {filebase64.indexOf("image/") > -1 && (
+            <img src={filebase64} width={300} />
+          )}
           <label className="form-label" htmlFor="phone">
             Phone number:
-            <input className="form-input"
+            <input
+              className="form-input"
               type="text"
               value={phone}
               name="phone"

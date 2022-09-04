@@ -1,19 +1,18 @@
-import { useContext } from "react"
-import { PetContext } from "../../context/PetContext"
+// import { useContext } from "react"
+// import { PetContext } from "../../context/PetContext"
 
-export default function StrayCatCard() {
-  const {cats} = useContext(PetContext)
+export default function StrayCatCard({cat}) {
+  // const {cat, cats} = useContext(PetContext)
     return (
         <>
         <div className="cat-card">
-        {/* <img src={cat.photoUrl} alt="cat"></img> */}
-        <h4>{cats.species}</h4>
-        <h4> {cats.address}</h4>
-        <p>{cats.description}</p>
+        <img src={cat?.image} alt="cat"></img>
+        <h4>{cat?.species}</h4>
+        <h4> {cat?.address}</h4>
+        <p>{cat?.description}</p>
         <p>
-          Contact: {cats.eMail}, {cats.phone}
-        </p><br/>
-        <button className="about-pet-btn">Learn more</button>
+          Contact: {cat?.eMail}, {cat?.phone}
+        </p>
       </div>
         </>
     )

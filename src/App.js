@@ -34,7 +34,7 @@ function App() {
             path="/cats/:_id"
             element={<IndividualPet species="cats" />}
           ></Route>
-           <Route
+          <Route
             path="/dogs/:_id"
             element={<IndividualPet species="dogs" />}
           ></Route>
