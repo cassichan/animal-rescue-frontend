@@ -13,7 +13,7 @@
   align-items: center;
   text-align: center;
   background-color: teal;
-  min-height: 10vh;
+  min-height: 12vh;
 }
 
 .route-links {
@@ -27,6 +27,20 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
+  /* margin-right: 45rem; */
+}
+
+.brand-logo-image {
+  width: 100%;
+  /* height: auto; */
+  height: 70px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.main-social-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* .logo-img {
