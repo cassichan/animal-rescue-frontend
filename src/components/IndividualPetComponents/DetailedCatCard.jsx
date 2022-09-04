@@ -1,31 +1,32 @@
-import { useContext } from "react";
-import { PetContext } from "../../context/PetContext";
+// import { useContext } from "react";
+// import { PetContext } from "../../context/PetContext";
 
-export default function DetailedCatCard() {
-  const { cats } = useContext(PetContext);
+export default function DetailedCatCard({cat}) {
+  // const { cats } = useContext(PetContext);
   return (
     <>
+    {/* If cat is null, don't break please */}
       <div className="detailed-cat-card">
         <h1>Individual cat</h1>
-        <img src={cats.photoUrl} alt="cat"></img>
-        <h2>{cats.name}</h2>
-        <h3>{cats.sex}</h3>
+        <img src={cat?.photoUrl} alt="cat"></img>
+        <h2>{cat?.name}</h2>
+        <h3>{cat?.sex}</h3>
         <h4>
-          Breed: {cats.breed}
+          Breed: {cat?.breed}
           <br />
-          Size: {cats.size}
+          Size: {cat?.size}
           <br />
-          Estimated date of birth:{cats.dateOfBirth}
+          Estimated date of birth:{cat?.dateOfBirth}
         </h4>
         <section>
-          {cats.rescue}
+          {cat?.rescue}
           <br />
-          E-mail address: {cats.eMail}
+          E-mail address: {cat?.eMail}
           <br />
-          Location: {cats.address}
+          Location: {cat?.address}
         </section>
         <br />
-        <p>{cats.description}</p>
+        <p>{cat?.description}</p>
       </div>
     </>
   );

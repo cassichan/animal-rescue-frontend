@@ -4,7 +4,7 @@ import { Form, Button, Input, Select } from "antd";
 // import {storage} from "../firebase"
 // import {v4} from "uuid"
 import { PetContext } from "../../context/PetContext";
-import "../../Styles/AddPet.css"
+import "../../Styles/AddPet.css";
 
 export default function AddPet() {
   const { cats, setCats, dogs, setDogs } = useContext(PetContext);
@@ -81,101 +81,8 @@ export default function AddPet() {
 
   return (
     <section className="form-section">
-      {/* {species && console.log(species)} */}
       <h1 className="add-pet-form-header">Found an animal?</h1>
-      {/* <Form onFinish={() => {formSubmit()}}>
-        <Select
-          showSearch
-          placeholder="Select one"
-          optionFilterProp="children"
-          // onSearch={onSearch}
-          // onChange={(e) => setSpecies(e.target.value)}
-          // onChange={updateForm}
-          filterOption={(input, option) =>
-            option.children.toLowerCase().includes(input.toLowerCase())
-          }
-        >
-          <Option onSearch={(e) => setSpecies("cat")} value="Cat">Cat</Option>
-          <Option onSearch={(e) => setSpecies("dog")} value="Dog">Dog</Option>
-        </Select>
-        <Form.Item label="Description" name="description">
-          <Input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            // onChange={updateForm}
-          />
-        </Form.Item>
-        <Form.Item label="Location" name="location">
-          <Input
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            // onChange={updateForm}
-            // onSearch={onSearch}
-          />
-        </Form.Item>
-        <Form.Item label="Phone number" name="phone">
-          <Input
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            // onChange={updateForm}
-          />
-        </Form.Item>
-        <Form.Item label="Email" name="email">
-          <Input
-            value={eMail}
-            onChange={(e) => setEMail(e.target.value)}
-          />
-        </Form.Item>
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-          >
-            Submit
-          </Button>
-        </Form.Item>
-      </Form> */}
 
-      {/* Form */}
-      {/* <Form onFinish={formSubmit}>
-        <Select
-          showSearch
-          placeholder="Select one"
-          optionFilterProp="children"
-          // onChange={onChange}
-          // onSearch={onSearch}
-          // onChange={(e) => setSpecies(e.target.value)}
-          onChange={onChange}
-          filterOption={(input, option) =>
-            option.children.toLowerCase().includes(input.toLowerCase())
-          }
-        >
-          <Option value="Cat">Cat</Option>
-          <Option value="Dog">Dog</Option>
-        </Select>
-        <Form.Item label="Description" name="description">
-          <Input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </Form.Item>
-        <Form.Item label="Location" name="location">
-          <Input value={address} onChange={(e) => setAddress(e.target.value)} />
-        </Form.Item>
-        <Form.Item label="Phone number" name="phone">
-          <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </Form.Item>
-        <Form.Item label="Email" name="email">
-          <Input value={eMail} onChange={(e) => setEMail(e.target.value)} />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form> */}
-
-      {/* //html form */}
       <form className="new-animal-form" onSubmit={(e) => e.preventDefault()}>
         {/* //Image uploader here */}
 

@@ -4,7 +4,6 @@ import { Card } from "antd";
 import { Link, Routes, Route } from "react-router-dom";
 import { Button } from "antd";
 import IndividualPet from "../../pages/IndiviualPet";
-// import "../Styles/DogCard.css";
 
 const { Meta } = Card;
 export default function DogCard({dog}) {
@@ -30,19 +29,6 @@ export default function DogCard({dog}) {
             </Button>
           </Link>
         </Card>
-        {/* <img src={dog.photoUrl} alt="dog"></img>
-          <h4>{dog.name}</h4>
-          <h5>
-            {dog.sex}, {dog.breed}
-          </h5>
-          <h5>
-            {dog.size}, {dog.dateOfBirth}
-          </h5>
-          <h5>{dog.rescue}</h5>
-          <p>
-            Contact: {dog.eMail}, {dog.address}
-          </p><br/>
-          <p>{dog.description}</p> */}
       </div>
     </>
   );
