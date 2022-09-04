@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Card } from "antd";
 import { Link, Routes, Route } from "react-router-dom";
 import { Button } from "antd";
-import IndividualPet from "../pages/IndiviualPet";
+import IndividualPet from "../../pages/IndiviualPet";
 // import "../Styles/DogCard.css";
 
 const { Meta } = Card;
