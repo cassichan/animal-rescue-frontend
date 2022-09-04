@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Socials from "./Socials"
+import "../../App.css"
 
 export default function Navbar() {
   return (

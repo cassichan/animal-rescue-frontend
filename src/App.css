@@ -18,11 +18,15 @@
 
 .route-links {
   color: white;
+  display: flex;
+  padding: 0.25rem;
+  /* justify-content: space-between; */
 }
 
 .link-container {
   display: flex;
   justify-content: space-between;
+  padding: 0.5rem;
 }
 
 /* .logo-img {
