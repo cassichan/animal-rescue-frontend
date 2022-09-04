@@ -1,4 +1,4 @@
-import "../../Styles/Hero.css"
+import "../../Styles/Hero.css";
 
 export default function Hero() {
   return (
@@ -9,10 +9,11 @@ export default function Hero() {
       <section className="hero-text">
         <h2> Mission: </h2>
         <p>
-           A bridge between animals in need, animal rescues and adoptors. Help pets in need to
-          find their forever home, and humans to find their next furbaby.
+          A bridge between animals in need, animal rescues and adoptors. Help
+          pets in need to find their forever home, and humans to find their next
+          furbaby.
         </p>
       </section>
-      </div>
+    </div>
   );
 }

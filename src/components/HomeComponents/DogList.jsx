@@ -4,8 +4,8 @@ import DogCard from "./DogCard";
 import "../../App.css";
 
 export default function DogList() {
-  // const [dog, setDog] = useState([]);
-  const { dogs, setDogs } = useContext(PetContext);
+  const [dogs, setDogs] = useState([]);
+  // const { dogs, setDogs } = useContext(PetContext);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/dogs")
       // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")

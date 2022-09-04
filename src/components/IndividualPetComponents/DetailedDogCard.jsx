@@ -1,16 +1,23 @@
 // import { useContext } from "react";
 // import { PetContext } from "../../context/PetContext";
-import "../../App.css"
+import "../../App.css";
 
 export default function DetailedDogCard({ dog }) {
   // const {dog} = useContext(PetContext)
   return (
     // If dog is null, don't break please
     <div className="detailed-animal-card">
-      <img className="detailed-animal-image" src={dog?.photoUrl} alt="dog"></img>
+      <img
+        className="detailed-animal-image"
+        src={dog?.photoUrl}
+        alt="dog"
+      ></img>
       <h1>{dog?.name}</h1>
-      <h2>Sex: {dog?.sex}<br/>
-      Breed: {dog?.breed}</h2>
+      <h2>
+        Sex: {dog?.sex}
+        <br />
+        Breed: {dog?.breed}
+      </h2>
       <h3>
         <br />
         Size: {dog?.size}
