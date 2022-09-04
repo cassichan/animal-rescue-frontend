@@ -1,15 +1,14 @@
 import { Link, Routes, Route } from "react-router-dom";
-import { Card } from "antd";
 import React, { useContext } from "react";
 import IndividualPet from "../pages/IndiviualPet";
-// import { getCatById } from "../operations/operations.js";
+import { PetContext } from "../context/PetContext";
+import { Card } from "antd";
 import { Button } from "antd";
 import "../Styles/CatCard.css";
-import { PetContext } from "../context/PetContext";
 const { Meta } = Card;
-export default function CatCard() {
-  const {cats, setCats} = useContext(PetContext)
-  console.log(cats)
+export default function CatCard({cat}) {
+  // const { cats, setCats } = useContext(PetContext);
+  console.log(cat)
   return (
     <div>
       <Card
@@ -18,21 +17,20 @@ export default function CatCard() {
         style={{
           width: 240,
         }}
-        cover={<img alt="cat" src={cats.photoUrl} />}
-        headStyle={{textAlign: "center"}}
+        cover={<img alt="cat" src={cat.photoUrl} />}
+        headStyle={{ textAlign: "center" }}
         bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
-        <Meta title={cats.name} 
-        // breed={cats.breed} size={cats.size} 
-        description={cats.breed} />
-        <Link to={`/cat/${cats._id}`}>
+        <Meta
+          title={cat.name}
+          // breed={cats.breed} size={cats.size}
+          description={cat.description}
+        />
+        <Link to={`/cats/${cat._id}`}>
           <Button type="link" htmlType="button">
             Learn more
           </Button>
         </Link>
-        <Routes>
-          <Route path="/cat/_id" element={<IndividualPet cats={cats} setCats={setCats}/>}></Route>
-        </Routes>
       </Card>
     </div>
   );

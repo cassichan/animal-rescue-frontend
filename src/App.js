@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import PetContextProvider from "./context/PetContext";
+import { useState } from "react";
 import Navbar from "./components/common/Navbar";
 import { Route, Routes } from "react-router-dom";
-import React from "react";
-import "./App.css";
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
 import NewPetPage from "./pages/NewPetPage";
-import IndividualPet from "./pages/IndiviualPet";
-import "antd/dist/antd.min.css";
+// import IndividualPet from "./pages/IndiviualPet";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import PetContextProvider from "./context/PetContext";
+import Footer from "./components/common/Footer";
+import "antd/dist/antd.min.css";
+import "./App.css";
 
 function App() {
   const [token, setToken] = useState();
@@ -31,7 +31,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/found-a-pet" element={<NewPetPage />}></Route>
-          <Route path="/cat/:_id" element={<IndividualPet />}></Route>
+
+          {/* <Route
+            path="/dogs/:_id"
+             element={<IndividualPet dogs={dogs} setDogs={setDogs} />}
+          ></Route>
+          <Route
+            path="/cats/:_id"
+            element={<IndividualPet cats={cats} setCats={setCats} />}
+          ></Route> */}
         </Routes>
         <Footer />
       </PetContextProvider>

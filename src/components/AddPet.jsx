@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Form, Button, Input, Select } from "antd";
 // import {ref, uploadBytes, getDownloadURL, listAll} from "firebase/storage"
 // import {storage} from "../firebase"
 // import {v4} from "uuid"
+import { PetContext } from "../context/PetContext";
 import "../Styles/AddPet.css";
 
-export default function AddPet({ cat, setCat, dog, setDog }) {
+export default function AddPet() {
+  const { cats, setCats, dogs, setDogs } = useContext(PetContext);
   const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
@@ -32,7 +34,7 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
   // };
 
   async function formSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     const newPet = {
       species: species,
       address: address,
@@ -57,9 +59,9 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
       console.log(data);
       window.location.reload(false);
       if (species === "cat") {
-        setCat(data);
+        setCats(data);
       } else {
-        setDog(data);
+        setDogs(data);
       }
     } catch (error) {
       console.error(error);

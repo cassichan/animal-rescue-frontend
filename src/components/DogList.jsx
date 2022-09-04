@@ -1,26 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { PetContext } from "../context/PetContext";
 import DogCard from "./DogCard";
-import ".././App.css"
+import ".././App.css";
 // import "../Styles/PetList.css"
 
 export default function DogList() {
-  const [dog, setDog] = useState([]);
+  // const [dog, setDog] = useState([]);
+  const { dogs, setDogs } = useContext(PetContext);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/dogs")
-    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
+      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
       .then((res) => res.json())
-      .then((data) => setDog(data))
-      .catch(console.error);
-  }, [setDog]);
-  if (!dog) {
+      .then((data) => setDogs(data))
+      .catch((error) => console.log(error));
+  }, [setDogs]);
+  console.log({ dogs });
+  if (!dogs) {
     return <h1> Loading...please wait</h1>;
   }
   return (
     <section className="card-section">
       <h3>Dogs Available for Adoption</h3>
       <section className="pet-list">
-        {dog &&
-          dog.map((dog) => <DogCard key={dog._id} _id={dog._id} dog={dog} setDog={setDog} />)}
+        {dogs.length && dogs.map((dog) => <DogCard key={dog._id} dog={dog} />)}
       </section>
     </section>
   );

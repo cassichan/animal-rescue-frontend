@@ -1,18 +1,21 @@
-import { Link, Routes, Route } from "react-router-dom";
+import React, { useContext } from "react";
+// import { PetContext } from "../context/PetContext";
 import { Card } from "antd";
-import React from "react";
-import IndividualPet from "../pages/IndiviualPet";
+import { Link, Routes, Route } from "react-router-dom";
 import { Button } from "antd";
+import IndividualPet from "../pages/IndiviualPet";
 // import "../Styles/DogCard.css";
-const { Meta } = Card;
 
-export default function DogCard({ dog }) {
+const { Meta } = Card;
+export default function DogCard({dog}) {
+  // const { dogs, setDogs } = useContext(PetContext);
+  console.log(dog)
   return (
     <>
       <div>
         <Card
           className="antd-dog-card"
-          headStyle={{textAlign: "center"}}
+          headStyle={{ textAlign: "center" }}
           hoverable
           style={{
             width: 240,
@@ -21,14 +24,11 @@ export default function DogCard({ dog }) {
           bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
         >
           <Meta title={dog.name} description={dog.description} />
-          <Link to={`/dog/${dog._id}`}>
+          <Link to={`/dogs/${dog._id}`}>
             <Button type="link" htmlType="button">
               Learn more
             </Button>
           </Link>
-          <Routes>
-            <Route path="/dog/_id" element={<IndividualPet />}></Route>
-          </Routes>
         </Card>
         {/* <img src={dog.photoUrl} alt="dog"></img>
           <h4>{dog.name}</h4>

@@ -1,41 +1,43 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { PetContext } from "../context/PetContext";
 import StrayCatCard from "./StrayCatCard";
 import StrayDogCard from "./StrayDogCard";
 
 export default function StrayPetList() {
-  const [cat, setCat] = useState([]);
-  const [dog, setDog] = useState([]);
+  const { cats, setCats, dogs, setDogs } = useContext(PetContext);
+  // const [cat, setCat] = useState([]);
+  // const [dog, setDog] = useState([]);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/get-new-cat")
       // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat")
       .then((results) => results.json())
       .then((data) => {
-        setCat(data);
+        setCats(data);
       })
       .catch(console.error);
-  }, [setCat]);
+  }, [setCats]);
 
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/get-new-dog")
       // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat")
       .then((results) => results.json())
       .then((data) => {
-        setDog(data);
+        setDogs(data);
       })
       .catch(console.error);
-  }, [setDog]);
+  }, [setDogs]);
   return (
     <>
       <p>List of stray cats</p>
       <section className="pet-list">
-        {cat.map((cat) => (
-          <StrayCatCard key={cat._id} id={cat._id} cat={cat} setCat={setCat} />
+        {cats.map((cat) => (
+          <StrayCatCard key={cat._id} cats={cats} setCats={setCats} />
         ))}
       </section>
       <p>List of stray dogs</p>
       <section className="pet-list">
-        {dog.map((dog) => (
-          <StrayDogCard key={dog._id} id={dog._id} dog={dog} setDog={setDog} />
+        {dogs.map((dog) => (
+          <StrayDogCard key={dog._id} dogs={dogs} setDogs={setDogs} />
         ))}
       </section>
     </>
