@@ -1,19 +1,28 @@
 // import { useContext } from "react"
 // import { PetContext } from "../../context/PetContext"
 
-export default function StrayCatCard({cat}) {
+import { Card } from "antd";
+const { Meta } = Card;
+
+export default function StrayCatCard({ cat }) {
   // const {cat, cats} = useContext(PetContext)
-    return (
-        <>
-        <div className="cat-card">
-        <img src={cat?.image} alt="cat"></img>
-        <h4>{cat?.species}</h4>
-        <h4> {cat?.address}</h4>
-        <p>{cat?.description}</p>
-        <p>
-          Contact: {cat?.eMail}, {cat?.phone}
-        </p>
-      </div>
-        </>
-    )
+  return (
+    <>
+      <Card
+        className="antd-cat-card"
+        hoverable
+        style={{
+          width: 240,
+        }}
+        cover={<img alt="cat" src={cat?.image} />}
+        headStyle={{ textAlign: "center" }}
+        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
+      >
+        <Meta
+          title={[cat.species, cat?.breed, cat?.description]}
+          description={[cat?.address, cat?.eMail, cat?.phone]}
+        />
+      </Card>
+    </>
+  );
 }

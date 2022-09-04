@@ -3,7 +3,7 @@
 import "../../App.css";
 
 export default function DetailedCatCard({ cat }) {
-  // const { cats } = useContext(PetContext);
+  // const { cat } = useContext(PetContext);
   return (
     <>
       {/* If cat is null, don't break please */}

@@ -65,7 +65,6 @@
 
 .pet-list {
   text-align: center;
-  /* height: 100vh; */
   max-width: 1100px;
   margin: auto;
   display: flex;
