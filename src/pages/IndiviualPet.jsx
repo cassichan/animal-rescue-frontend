@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import DetailedCatCard from "../components/IndividualPetComponents/DetailedCatCard"
+import DetailedCatCard from "../components/IndividualPetComponents/DetailedCatCard";
 import { PetContext } from "../context/PetContext";
 
 export default function IndividualPet() {
   const { cats, setCats, dogs, setDogs } = useContext(PetContext);
   const { _id } = useParams();
-  console.log({ _id });
+  // console.log({ _id });
   useEffect(() => {
     //   // fetch(`https://cat-rescue-backend.web.app/cats/${_id}`)
     fetch(
@@ -19,7 +19,7 @@ export default function IndividualPet() {
   if (!cats || !dogs) {
     return <h1> Loading...please wait</h1>;
   }
-  console.log({ cats });
+  // console.log({ cats });
   return (
     <>
       <DetailedCatCard id={cats._id} cats={cats} setCats={setCats} />

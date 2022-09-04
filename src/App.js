@@ -35,11 +35,11 @@ function App() {
           {/* <Route
             path="/dogs/:_id"
             element={<IndividualPet dogs={dogs} setDogs={setDogs} />}
-          ></Route>
+          ></Route> */}
           <Route
             path="/cats/:_id"
-            element={<IndividualPet cats={cats} setCats={setCats} />}
-          ></Route> */}
+            element={<IndividualPet />}
+          ></Route>
         </Routes>
         <Footer />
       </PetContextProvider>
