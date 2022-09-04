@@ -66,6 +66,17 @@ export default function AddPet({ cat, setCat, dog, setDog }) {
     }
   }
 
+  // function convertFile (files) {
+  //   if (files) {
+  //     const fileRef = files[0] || ""
+  //     const reader = new FileReader()
+  //     reader.readAsBinaryString(fileRef)
+  //     reader.onload=(ev) => {
+  //       setFileBase64(`data:${}`)
+  //     }
+  //   }
+  // }
+
   return (
     <section className="form-section">
       {/* {species && console.log(species)} */}

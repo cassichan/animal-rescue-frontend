@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import CatCard from "./CatCard";
 import ".././App.css";
+import { PetContext } from "../context/PetContext";
 
 export default function CatList() {
-  const [cats, setCats] = useState([]);
+  // const [cats, setCats] = useState([]);
+  const {cats, setCats} = useContext(PetContext)
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/cats")
       // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
