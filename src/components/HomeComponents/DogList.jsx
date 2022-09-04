@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { PetContext } from "../../context/PetContext";
 import DogCard from "./DogCard";
-import ".././App.css";
+import "../../App.css"
 // import "../Styles/PetList.css"
 
 export default function DogList() {

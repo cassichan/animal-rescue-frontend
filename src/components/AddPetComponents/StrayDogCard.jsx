@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { PetContext } from "../context/PetContext"
+import { PetContext } from "../../context/PetContext.jsx"
 
 export default function StrayDogCard() {
   const {dogs} = useContext(PetContext)

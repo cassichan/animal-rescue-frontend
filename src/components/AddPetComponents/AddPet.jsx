@@ -4,7 +4,7 @@ import { Form, Button, Input, Select } from "antd";
 // import {storage} from "../firebase"
 // import {v4} from "uuid"
 import { PetContext } from "../../context/PetContext";
-import "../Styles/AddPet.css";
+import "../../Styles/AddPet.css"
 
 export default function AddPet() {
   const { cats, setCats, dogs, setDogs } = useContext(PetContext);

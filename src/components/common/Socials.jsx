@@ -1,4 +1,4 @@
-import "../Styles/Socials.css";
+import "../../Styles/Socials.css"
 export default function Socials() {
   return (
     <div className="social-container">

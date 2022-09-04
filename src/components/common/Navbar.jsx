@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Socials from '../Socials.jsx'
+import Socials from "./Socials"
 
 export default function Navbar() {
   return (

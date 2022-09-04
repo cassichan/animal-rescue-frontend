@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import DetailedCatCard from "../components/CatCard";
+import DetailedCatCard from "../components/IndividualPetComponents/DetailedCatCard"
 import { PetContext } from "../context/PetContext";
 
 export default function IndividualPet() {
@@ -22,7 +22,6 @@ export default function IndividualPet() {
   console.log({ cats });
   return (
     <>
-      {/* <h1>lahdshf</h1> */}
       <DetailedCatCard id={cats._id} cats={cats} setCats={setCats} />
     </>
   );

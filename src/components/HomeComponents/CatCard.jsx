@@ -1,10 +1,10 @@
 import { Link, Routes, Route } from "react-router-dom";
 import React, { useContext } from "react";
-import IndividualPet from "../pages/IndiviualPet";
-import { PetContext } from "../context/PetContext";
+import IndividualPet from "../../pages/IndiviualPet.jsx"
+// import { PetContext } from "../../context/PetContext"
 import { Card } from "antd";
 import { Button } from "antd";
-import "../Styles/CatCard.css";
+import "../../Styles/CatCard.css"
 const { Meta } = Card;
 export default function CatCard({cat}) {
   // const { cats, setCats } = useContext(PetContext);

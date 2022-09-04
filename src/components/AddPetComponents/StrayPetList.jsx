@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { PetContext } from "../../context/PetContext";
-import StrayCatCard from "./StrayCatCard";
-import StrayDogCard from "../StrayDogCard";
+import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx"
+import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx"
 
 export default function StrayPetList() {
   const { cats, setCats, dogs, setDogs } = useContext(PetContext);

@@ -5,9 +5,9 @@ import Navbar from "./components/common/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
-// import IndividualPet from "./pages/IndiviualPet";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
+import IndividualPet from "./pages/IndiviualPet";
+import Login from "../src/components/common/Login.jsx"
+import SignUp from "../src/components/common/SignUp.jsx"
 import Footer from "./components/common/Footer";
 import "antd/dist/antd.min.css";
 import "./App.css";
@@ -34,7 +34,7 @@ function App() {
 
           {/* <Route
             path="/dogs/:_id"
-             element={<IndividualPet dogs={dogs} setDogs={setDogs} />}
+            element={<IndividualPet dogs={dogs} setDogs={setDogs} />}
           ></Route>
           <Route
             path="/cats/:_id"
