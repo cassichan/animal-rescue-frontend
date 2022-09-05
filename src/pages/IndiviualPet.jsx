@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import DetailedCatCard from "../components/DetailedPetComponents/DetailedCatCard";
 import DetailedDogCard from "../components/DetailedPetComponents/DetailedDogCard";
+import "../Styles/DetailedPetPage.css"
 // import { PetContext } from "../context/PetContext";
 
 export default function IndividualPet({ species }) {

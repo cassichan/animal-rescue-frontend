@@ -1,0 +1,16 @@
+.detailed-animal-card {
+    margin: 7rem;
+    display: flex;
+    border-style: dashed;
+    border-color: turquoise;
+    box-sizing: contain;
+  }
+  .detailed-animal-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .detailed-animal-card-text {
+    font-family: Roboto;
+    margin: 30px;
+  }

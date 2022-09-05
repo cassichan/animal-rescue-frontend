@@ -1,7 +1,8 @@
 import { Modal, Form, Input, Button } from "antd";
 import { useState } from "react";
+import { Link} from "react-router-dom";
 
-export default function Login({ setToken, setIsUser }) {
+export default function Login({ setToken, setIsUser, user }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -26,6 +27,24 @@ export default function Login({ setToken, setIsUser }) {
       .catch((err) => alert(err.message));
   };
   return (
+    <>
+    {!user ? (
+       <Link to="/users/login">
+       <Button 
+       onClick={handleShow} 
+       type="link" htmlType="button">
+         Login
+       </Button>
+     </Link>
+    ) : ( <Link to="/users/login">
+    <Button 
+    // onClick={}
+    type="link" htmlType="button">
+      Logout
+    </Button>
+  </Link>)
+    
+    }
     <Modal
       show={show}
       onHide={handleClose}
@@ -81,5 +100,6 @@ export default function Login({ setToken, setIsUser }) {
         </Form>
       </Modal.Body>
     </Modal>
+    </>
   );
 }
