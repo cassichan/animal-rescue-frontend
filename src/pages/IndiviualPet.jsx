@@ -10,7 +10,7 @@ export default function IndividualPet({ species }) {
   // const { cats, setCats, dogs, setDogs } = useContext(PetContext);
   const { _id } = useParams();
   useEffect(() => {
-    //   // fetch(`https://cat-rescue-backend.web.app/cats/${_id}`)
+    // fetch(`https://cat-rescue-backend.web.app/cats/${_id}`)
     fetch(
       `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
     )
@@ -18,8 +18,10 @@ export default function IndividualPet({ species }) {
       .then((data) => {
         if (species === "cats") setCat(data);
         else if (species === "dogs") setDog(data);
-      });
+      })
+      .catch((error) => console.error(error));
   }, [species, _id]);
+
   if (!cat || !dog) {
     return <h1> Loading...please wait</h1>;
   }
