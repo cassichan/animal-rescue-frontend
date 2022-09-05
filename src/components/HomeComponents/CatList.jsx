@@ -21,7 +21,7 @@ export default function CatList() {
   }
   return (
     <section className="card-section">
-      <h3>Cats Available for Adoption</h3>
+      <h3 className="header-text">Cats Available for Adoption</h3>
       <section className="pet-list">
         {cats && cats.map((cat) => <CatCard key={cat._id} cat={cat} />)}
       </section>

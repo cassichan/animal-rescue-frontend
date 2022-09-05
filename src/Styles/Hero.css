@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Nanum+Gothic:wght@700&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto:wght@400;500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Nanum+Gothic:wght@700&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto:wght@400;500&display=swap');
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Montserrat:wght@100;400&family=Nanum+Gothic:wght@700&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto:wght@400;500&display=swap');
+
 
 
 
@@ -11,10 +15,14 @@
 
 .hero-header {
   font-size: 3rem;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-  font-family: Roboto
+  font-family: Dynapuff;
 }
 
 .hero-text {
   font-size: 20px;
 }
+
+/* .hero-text-body {
+  display: flex;
+  justify-content: center;
+} */

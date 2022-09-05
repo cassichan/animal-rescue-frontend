@@ -19,7 +19,7 @@ export default function DogList() {
   }
   return (
     <section className="card-section">
-      <h3>Dogs Available for Adoption</h3>
+      <h3 className="header-text">Dogs Available for Adoption</h3>
       <section className="pet-list">
         {dogs.length && dogs.map((dog) => <DogCard key={dog._id} dog={dog} />)}
       </section>

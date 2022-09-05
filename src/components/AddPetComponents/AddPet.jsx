@@ -105,11 +105,12 @@ export default function AddPet({ setCats, setDogs }) {
             />
           </label>
           <br />
-          <input type="file" onChange={(e) => convertFile(e.target.files)} />
+          <input className="form-input" type="file" onChange={(e) => convertFile(e.target.files)} />
           <hr />
           {filebase64.indexOf("image/") > -1 && (
             <img src={filebase64} width={300} />
           )}
+          <img className="uploaded-animal-image" src={image}></img><br/>
           <label className="form-label" htmlFor="phone">
             Phone number:
             <input
