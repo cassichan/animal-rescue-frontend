@@ -6,54 +6,6 @@
   box-sizing: inherit;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background-color: teal;
-  min-height: 12vh;
-}
-
-.route-links {
-  color: white;
-  display: flex;
-  padding: 0.25rem;
-  /* justify-content: space-between; */
-}
-
-.link-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  /* margin-right: 45rem; */
-}
-
-.brand-logo-image {
-  width: 100%;
-  /* height: auto; */
-  height: 70px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-.main-social-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* .logo-img {
-  width: 40px;
-  height: 40px;
-  padding: 3px;
-}
-
-.social-container {
-  display: flex;
-  justify-content: flex-end;
-} */
-
 .App {
   text-align: center;
   display: grid;

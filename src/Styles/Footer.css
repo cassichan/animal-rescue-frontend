@@ -2,7 +2,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: flex-end; */
   align-items: center;
   text-align: center;
   left: 0;

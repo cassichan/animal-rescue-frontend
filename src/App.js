@@ -1,14 +1,14 @@
 import React from "react";
 import PetContextProvider from "./context/PetContext";
 import { useState } from "react";
-import Navbar from "./components/common/Navbar";
+import Navbar from "./components/Common/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
 import IndividualPet from "./pages/IndiviualPet";
-import Login from "../src/components/common/Login.jsx";
-import SignUp from "../src/components/common/SignUp.jsx";
-import Footer from "./components/common/Footer";
+import Login from "../src/components/Common/Login.jsx";
+import SignUp from "../src/components/Common/SignUp.jsx";
+import Footer from "./components/Common/Footer";
 import "antd/dist/antd.min.css";
 import "./App.css";
 

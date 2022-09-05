@@ -1,5 +1,5 @@
-import Socials from "../common/Socials"
-import "../../Styles/Footer.css"
+// import Socials from "../Common/Socials"
+import "../../Styles/Footer.css";
 
 export default function Footer() {
   return (
