@@ -5,6 +5,8 @@ import IndividualPet from "../../pages/IndiviualPet.jsx";
 import { Card } from "antd";
 import { Button } from "antd";
 import "../../Styles/CatCard.css";
+// import "../../App.css"
+
 const { Meta } = Card;
 export default function CatCard({ cat }) {
   // const { cats, setCats } = useContext(PetContext);
@@ -12,23 +14,23 @@ export default function CatCard({ cat }) {
   return (
     <div>
       <Card
-        className="antd-cat-card"
+        className="antd-animal-card"
         hoverable
         style={{
           width: 240,
         }}
-        cover={<img alt="cat" src={cat.photoUrl} />}
+        cover={<img className = "card-image" alt="cat" src={cat.photoUrl} />}
         headStyle={{ textAlign: "center" }}
-        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
+        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise"}}
       >
         <Meta
-          title={`${cat.name}`}
-          description={[`Size: ${cat.size}, Breed: ${cat.breed} Estimated birthday: ${cat.dateOfBirth}`]}
+          title={cat.name}
+          description={[`${cat.size}, ${cat.breed}`]}
           loading="false"
         />
         <Link to={`/cats/${cat._id}`}>
           <Button type="link" htmlType="button">
-            Learn more
+            Details
           </Button>
         </Link>
       </Card>
