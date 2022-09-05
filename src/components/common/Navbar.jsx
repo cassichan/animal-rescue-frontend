@@ -46,7 +46,6 @@ export default function Navbar() {
               ></img>
             </a>
           </div>
-          {/* <Socials /> */}
         </section>
       </nav>
     </>

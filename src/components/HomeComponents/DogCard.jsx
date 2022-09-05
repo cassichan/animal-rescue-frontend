@@ -21,7 +21,7 @@ export default function DogCard({dog}) {
           cover={<img alt="dog" src={dog.photoUrl} />}
           bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
         >
-          <Meta title={dog.name} description={[dog.size, dog.breed, dog.dateOfBirth]} />
+          <Meta title={`${dog.name}`} description={[`Size: ${dog.size}, Breed: ${dog.breed} Estimated birthday: ${dog.dateOfBirth}`]} />
           <Link to={`/dogs/${dog._id}`}>
             <Button type="link" htmlType="button">
               Learn more

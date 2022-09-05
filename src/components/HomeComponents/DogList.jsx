@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { PetContext } from "../../context/PetContext";
+// import { PetContext } from "../../context/PetContext";
 import DogCard from "./DogCard";
 import "../../App.css";
 

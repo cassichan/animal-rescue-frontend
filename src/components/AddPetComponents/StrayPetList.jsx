@@ -3,7 +3,7 @@ import { PetContext } from "../../context/PetContext";
 import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 
-export default function StrayPetList({ species, cat, setCat, dog, setDog }) {
+export default function StrayPetList() {
   // const { cats, setCats, dogs, setDogs, cat, setCat, dog, setDog } = useContext(PetContext);
   const [cats, setCats] = useState([]);
   const [dogs, setDogs] = useState([]);

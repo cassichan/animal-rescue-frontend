@@ -22,8 +22,9 @@ export default function CatCard({ cat }) {
         bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
         <Meta
-          title={cat.name}
-          description={[cat.size, cat.breed, cat.dateOfBirth]}
+          title={`${cat.name}`}
+          description={[`Size: ${cat.size}, Breed: ${cat.breed} Estimated birthday: ${cat.dateOfBirth}`]}
+          loading="false"
         />
         <Link to={`/cats/${cat._id}`}>
           <Button type="link" htmlType="button">
