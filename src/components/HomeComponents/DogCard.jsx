@@ -7,7 +7,7 @@ import { Button } from "antd";
 const { Meta } = Card;
 export default function DogCard({dog}) {
   // const { dogs, setDogs } = useContext(PetContext);
-  console.log(dog)
+  // console.log(dog)
   return (
     <>
       <div>

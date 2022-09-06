@@ -13,7 +13,7 @@ export default function DogList() {
       .then((data) => setDogs(data))
       .catch((error) => console.log(error));
   }, [setDogs]);
-  console.log({ dogs });
+  // console.log({ dogs });
   if (!dogs) {
     return <h1> Loading...please wait</h1>;
   }

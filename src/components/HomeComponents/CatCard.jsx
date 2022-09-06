@@ -1,23 +1,28 @@
 import { Link } from "react-router-dom";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 // import { PetContext } from "../../context/PetContext"
 import { Card } from "antd";
 import { Button } from "antd";
 import { updateFavorite } from "../../services/services.js";
 import "../../Styles/CatCard.css";
-
 const { Meta } = Card;
-export default function CatCard({ cat, setCats }) {
+export default function CatCard({cat, cats, setCats }) {
   // const { cats, setCats } = useContext(PetContext);
-
+  console.log({cat})
   async function handleFavorite(catId) {
     const newFavorite = await updateFavorite(catId);
     console.log(newFavorite);
-    setCats((cats) => {
+    const updateCat = (cat) => {
+      console.log({cat}) //undefined
       return cats.map((cat) =>
-        cat._id === catId ? { ...cat, favorite: true } : cat
+        cat._id === catId ? {...cat, favorite: newFavorite} : cat
       );
-    });
+    };
+    // console.log({ cat });
+  console.log(cat._id)
+  console.log(catId)
+  console.log(cat.favorite)
+  updateCat()
   }
 
   return (
@@ -52,7 +57,13 @@ export default function CatCard({ cat, setCats }) {
             ❤️ {cat.favorite}
           </div>
         ) : (
-          <div>♡</div>
+          <div
+            onClick={() => {
+              handleFavorite(cat._id);
+            }}
+          >
+            ♡
+          </div>
         )}
       </Card>
     </div>
