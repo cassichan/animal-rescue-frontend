@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import DetailedCatCard from "../components/DetailedPetComponents/DetailedCatCard";
 import DetailedDogCard from "../components/DetailedPetComponents/DetailedDogCard";
-import "../Styles/DetailedPetPage.css"
+import "../Styles/DetailedPetPage.css";
 // import { PetContext } from "../context/PetContext";
 
 export default function IndividualPet({ species }) {
@@ -11,10 +11,10 @@ export default function IndividualPet({ species }) {
   // const { cats, setCats, dogs, setDogs } = useContext(PetContext);
   const { _id } = useParams();
   useEffect(() => {
-    // fetch(`https://cat-rescue-backend.web.app/cats/${_id}`)
-    fetch(
-      `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
-    )
+    fetch(`https://cat-rescue-backend.web.app/${species}/${_id}`)
+      // fetch(
+      //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
+      // )
       .then((res) => res.json())
       .then((data) => {
         if (species === "cats") setCat(data);

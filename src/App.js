@@ -17,7 +17,7 @@ function App() {
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
   return (
-    <div className = "main-app">
+    <div className="main-app">
       <PetContextProvider>
         {/* <div className="login-sign-up">
           <Link to="/users/login">

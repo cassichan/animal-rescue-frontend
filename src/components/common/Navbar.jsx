@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../../Styles/Navbar.css"
+import "../../Styles/Navbar.css";
 
 export default function Navbar() {
   return (
@@ -13,23 +13,15 @@ export default function Navbar() {
           ></img>
         </section>
 
-        {/* <section className="link-container">
-          <Link className="route-links" to="/">
-            Home
-          </Link>
-          <Link className="route-links" to="/found-a-pet">
-            Share found animal
-          </Link>
-        </section> */}
         <section className="main-social-container">
-        <section className="link-container">
-          <Link className="route-links" to="/">
-            Home
-          </Link>
-          <Link className="route-links" to="/found-a-pet">
-            Found animal?
-          </Link>
-        </section>
+          <section className="link-container">
+            <Link className="route-links" to="/">
+              Home
+            </Link>
+            <Link className="route-links" to="/found-a-pet">
+              Found animal?
+            </Link>
+          </section>
           <div className="social-container">
             <a
               href="/https://github.com/cassichan"

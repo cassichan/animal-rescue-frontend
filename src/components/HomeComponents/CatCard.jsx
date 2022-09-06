@@ -13,7 +13,7 @@ export default function CatCard({cat, cats, setCats }) {
     const newFavorite = await updateFavorite(catId);
     console.log(newFavorite);
     const updateCat = (cat) => {
-      console.log({cat}) //undefined
+      console.log(cat) //undefined
       return cats.map((cat) =>
         cat._id === catId ? {...cat, favorite: newFavorite} : cat
       );

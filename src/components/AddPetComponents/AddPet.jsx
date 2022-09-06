@@ -25,8 +25,8 @@ export default function AddPet({ setCats, setDogs }) {
     };
     try {
       const results = await fetch(
-        `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
-        // `https://cat-rescue-backend.web.app/add-${species}`,
+        // `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
+        `https://cat-rescue-backend.web.app/add-${species}`,
         {
           method: "POST",
           headers: {
@@ -105,12 +105,15 @@ export default function AddPet({ setCats, setDogs }) {
             />
           </label>
           <br />
-          <input className="form-input" type="file" onChange={(e) => convertFile(e.target.files)} />
+          <input
+            className="form-input"
+            type="file"
+            onChange={(e) => convertFile(e.target.files)}
+          />
           <hr />
           {filebase64.indexOf("image/") > -1 && (
             <img src={filebase64} width={300} />
           )}
-          <img className="uploaded-animal-image" src={image}></img><br/>
           <label className="form-label" htmlFor="phone">
             Phone number:
             <input
@@ -139,6 +142,8 @@ export default function AddPet({ setCats, setDogs }) {
           </button>
         </form>
       </section>
+      <img className="uploaded-animal-image" src={image}></img>
+      <br />
     </>
   );
 }

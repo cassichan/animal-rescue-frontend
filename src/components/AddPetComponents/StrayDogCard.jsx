@@ -22,16 +22,6 @@ export default function StrayDogCard({ dog }) {
           description={[dog?.address, dog?.eMail, dog?.phone]}
         />
       </Card>
-
-      {/* <div className="dog-card">
-        <img src={dog?.image} alt="cat"></img>
-        <h4>{dog?.species}</h4>
-        <h4> {dog?.address}</h4>
-        <p>{dog?.description}</p>
-        <p>
-          Contact: {dog?.eMail}, {dog?.phone}
-        </p>
-      </div> */}
     </>
   );
 }

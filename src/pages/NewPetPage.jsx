@@ -1,4 +1,4 @@
-import AddPet from "../components/AddPetComponents/AddPet"
+import AddPet from "../components/AddPetComponents/AddPet";
 import StrayPetList from "../components/AddPetComponents/StrayPetList";
 
 export default function NewPetPage({ species }) {
