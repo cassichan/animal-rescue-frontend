@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { Form, Button, Input, Select } from "antd";
-// import { PetContext } from "../../context/PetContext";
+import { PetContext } from "../../context/PetContext";
 import "../../Styles/AddPet.css";
 
-export default function AddPet({ setCats, setDogs }) {
-  // const { cats, setCats, dogs, setDogs } = useContext(PetContext);
+export default function AddPet() {
+  const { setCats, setDogs } = useContext(PetContext);
   const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");

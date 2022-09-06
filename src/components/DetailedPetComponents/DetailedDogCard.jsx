@@ -1,11 +1,11 @@
-// import { useContext } from "react";
-// import { PetContext } from "../../context/PetContext";
+import { useContext } from "react";
+import { PetContext } from "../../context/PetContext";
 import "../../App.css";
 import "../../Styles/DetailedPetPage.css";
 import { Card } from "antd";
 
-export default function DetailedDogCard({ dog }) {
-  // const {dog} = useContext(PetContext)
+export default function DetailedDogCard() {
+  const {dog} = useContext(PetContext)
   return (
     // If dog is null, don't break please
     <section className="detailed-antd-animal-card">

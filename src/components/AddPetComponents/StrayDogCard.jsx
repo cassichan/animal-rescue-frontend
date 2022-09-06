@@ -1,10 +1,10 @@
-// import { useContext } from "react";
-// import { PetContext } from "../../context/PetContext.jsx";
+import { useContext } from "react";
+import { PetContext } from "../../context/PetContext.jsx";
 import { Card } from "antd";
 const { Meta } = Card;
 
-export default function StrayDogCard({ dog }) {
-  // const {dogs} = useContext(PetContext)
+export default function StrayDogCard({dog}) {
+  // const {dog} = useContext(PetContext)
   return (
     <>
       <Card

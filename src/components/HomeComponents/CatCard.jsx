@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom";
 import React, { useContext, useState } from "react";
-// import { PetContext } from "../../context/PetContext"
+import { PetContext } from "../../context/PetContext";
 import { Card } from "antd";
 import { Button } from "antd";
-import { updateFavorite } from "../../services/services.js";
+// import { updateFavorite } from "../../services/services.js";
 import "../../Styles/CatCard.css";
 const { Meta } = Card;
-export default function CatCard({ cat, setCat, cats }) {
-  // const { cat, cats, setCats } = useContext(PetContext);
-  console.log({ cat });
 
-  async function handleFavorite(catId) {
-    const newFavorite = await updateFavorite(catId);
-    console.log(newFavorite);
-    const updateCat = (cat) => {
-      console.log(cat); //undefined
-      return cats.map((cat) =>
-        cat._id === catId ? { ...cat, favorite: newFavorite } : cat
-      );
-    };
-    // console.log({ cat });
-    console.log(cat._id);
-    console.log(catId);
-    console.log(cat.favorite);
-    updateCat();
-  }
+export default function CatCard({cat}) {
+  // const { cat, cats } = useContext(PetContext);
+
+  // async function handleFavorite(catId) {
+  //   const newFavorite = await updateFavorite(catId);
+  //   console.log(newFavorite);
+  //   const updateCat = (cat) => {
+  //     console.log(cat); //undefined
+  //     return cats.map((cat) =>
+  //       cat._id === catId ? { ...cat, favorite: newFavorite } : cat
+  //     );
+  //   };
+  //   // console.log({ cat });
+  //   console.log(cat._id);
+  //   console.log(catId);
+  //   console.log(cat.favorite);
+  //   updateCat();
+  // }
 
   return (
     <div>
@@ -49,7 +49,7 @@ export default function CatCard({ cat, setCat, cats }) {
           </Button>
         </Link>
 
-        {cat.favorite === true ? (
+        {/* {cat.favorite === true ? (
           <div
             onClick={() => {
               handleFavorite(cat._id);
@@ -65,7 +65,7 @@ export default function CatCard({ cat, setCat, cats }) {
           >
             ♡
           </div>
-        )}
+        )} */}
       </Card>
     </div>
   );
