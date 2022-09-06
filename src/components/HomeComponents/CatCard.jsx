@@ -1,16 +1,25 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useContext } from "react";
-import IndividualPet from "../../pages/IndiviualPet.jsx";
 // import { PetContext } from "../../context/PetContext"
 import { Card } from "antd";
 import { Button } from "antd";
+import { updateFavorite } from "../../services/services.js";
 import "../../Styles/CatCard.css";
-// import "../../App.css"
 
 const { Meta } = Card;
-export default function CatCard({ cat }) {
+export default function CatCard({ cat, setCats }) {
   // const { cats, setCats } = useContext(PetContext);
-  console.log(cat);
+
+  async function handleFavorite(catId) {
+    const newFavorite = await updateFavorite(catId);
+    console.log(newFavorite);
+    setCats((cats) => {
+      return cats.map((cat) =>
+        cat._id === catId ? { ...cat, favorite: true } : cat
+      );
+    });
+  }
+
   return (
     <div>
       <Card
@@ -19,9 +28,9 @@ export default function CatCard({ cat }) {
         style={{
           width: 240,
         }}
-        cover={<img className = "card-image" alt="cat" src={cat.photoUrl} />}
+        cover={<img className="card-image" alt="cat" src={cat.photoUrl} />}
         headStyle={{ textAlign: "center" }}
-        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise"}}
+        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
         <Meta
           title={cat.name}
@@ -33,6 +42,18 @@ export default function CatCard({ cat }) {
             Details
           </Button>
         </Link>
+
+        {cat.favorite === true ? (
+          <div
+            onClick={() => {
+              handleFavorite(cat._id);
+            }}
+          >
+            ❤️ {cat.favorite}
+          </div>
+        ) : (
+          <div>♡</div>
+        )}
       </Card>
     </div>
   );

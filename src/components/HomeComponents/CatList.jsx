@@ -1,6 +1,4 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, Route } from "react-router-dom";
-import { Button } from "antd";
 import { PetContext } from "../../context/PetContext";
 import CatCard from "./CatCard";
 import "../../App.css";

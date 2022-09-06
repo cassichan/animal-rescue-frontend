@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 // import { PetContext } from "../context/PetContext";
 import { Card } from "antd";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Button } from "antd";
 
 const { Meta } = Card;
