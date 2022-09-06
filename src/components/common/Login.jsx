@@ -23,12 +23,13 @@ export default function Login({ setToken, setIsUser, user }) {
       .then((data) => {
         setToken(data.token);
         localStorage.setItem("token", data.token);
+        console.log(data.token)
       })
       .catch((err) => alert(err.message));
   };
   return (
     <>
-    {!user ? (
+ {/* {!user ? (
        <Link to="/users/login">
        <Button 
        onClick={handleShow} 
@@ -44,7 +45,9 @@ export default function Login({ setToken, setIsUser, user }) {
     </Button>
   </Link>)
     
-    }
+    } */}
+
+
     <Modal
       show={show}
       onHide={handleClose}

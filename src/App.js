@@ -19,46 +19,54 @@ function App() {
   return (
     <div className="main-app">
       <PetContextProvider>
-        {/* <div className="login-sign-up">
-          <Link to="/users/login">
-            <Button type="link" htmlType="button">
-              Login
-            </Button>
+        <div className="login-sign-up">
+          {/* {!isUser ? ( */}
+            <Link to="/users/login">
+              <Button type="link" htmlType="button">
+                Log in
+              </Button>
+            </Link>
+          
+          {/* ) : (
+            <Link to="/users">
+              <Button type="link" htmlType="button">
+                Log out
+              </Button>
+            </Link>
+          )} */}
+
+          <Link to ="/users">
+            <Button type="link" htmlType="button">Sign up</Button>
           </Link>
-          <Link to="/users">
-            <Button type="link" htmlType="button">
-              Sign up
-            </Button>
-          </Link>
-        </div> */}
+        </div>
 
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          {/* <Route
+          <Route
             path="/users"
             element={
-              !token ? (
-                isUser ? (
-                  <Login setIsUser={setIsUser} setToken={setToken} />
-                ) : (
+              // !token ? (
+              //   isUser ? (
+              //     <Login setIsUser={setIsUser} setToken={setToken} />
+              //   ) : (
                   <SignUp setIsUser={setIsUser} setToken={setToken} />
-                )
-              ) : null
+              //   )
+              // ) : null
             }
           ></Route>
           <Route
             path="/users/login"
             element={
-              !token ? (
-                isUser ? (
+              // !token ? (
+              //   isUser ? (
                   <Login setIsUser={setIsUser} setToken={setToken} />
-                ) : (
-                  <SignUp setIsUser={setIsUser} setToken={setToken} />
-                )
-              ) : null
+              //   ) : (
+              //     <SignUp setIsUser={setIsUser} setToken={setToken} />
+              //   )
+              // ) : null
             }
-          ></Route> */}
+          ></Route>
           <Route path="/found-a-pet" element={<NewPetPage />}></Route>
           <Route
             path="/cats/:_id"

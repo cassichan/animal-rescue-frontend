@@ -1,6 +1,6 @@
 import { Modal, Form, Input, Button } from 'antd';
 
-export default function SignUp({ setToken, setIsUser }) {
+export default function SignUp({ setToken, user, setIsUser }) {
   const handleSignUp = ({ email, password }) => {
     fetch('http://localhost:5001/cat-rescue-backend/us-central1/api/users', {
       method: 'POST',
@@ -13,11 +13,15 @@ export default function SignUp({ setToken, setIsUser }) {
       .then(data => {
         setToken(data.token);
         localStorage.setItem('token', data.token);
+        console.log(data.token)
       })
+      // window.location.reload(false)
+      window.location.assign("http://localhost:3000")
       .catch(err => alert(err.message))
   }
   return (
-    <Modal title="Create Account" visible closable={false} footer={null}>
+    <>
+    <Modal title="Create Account" visible closable={true} footer={null}>
       <Form onFinish={handleSignUp} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
         <Form.Item label="Email" name="email">
           <Input />
@@ -31,5 +35,7 @@ export default function SignUp({ setToken, setIsUser }) {
         <p>Already a user? <Button onClick={() => setIsUser(true)} type={'link'}>Login</Button></p>
       </Form>
     </Modal>
+    {user? ({user}) : <p>user not registered</p>}
+    </>
   )
 }
