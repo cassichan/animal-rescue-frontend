@@ -1,6 +1,19 @@
 import { Modal, Form, Input, Button } from 'antd';
+import { useState } from 'react';
 
 export default function SignUp({ setToken, user, setIsUser }) {
+const [visible, setVisible] = useState(false)
+  // const LoginButton = () => {
+  //   const [loggedIn, setLoggedin] = useState(false)
+  // }
+  const showModal = () => {
+    setVisible(true);
+  };
+  const closeModal = () => {
+    setVisible(false);
+  };
+
+
   const handleSignUp = ({ email, password }) => {
     fetch('http://localhost:5001/cat-rescue-backend/us-central1/api/users', {
       method: 'POST',
@@ -15,13 +28,13 @@ export default function SignUp({ setToken, user, setIsUser }) {
         localStorage.setItem('token', data.token);
         console.log(data.token)
       })
-      // window.location.reload(false)
-      window.location.assign("http://localhost:3000")
+      window.location.reload(false)
+      // window.location.assign("http://localhost:3000")
       .catch(err => alert(err.message))
   }
   return (
     <>
-    <Modal title="Create Account" visible closable={true} footer={null}>
+    <Modal visible= {visible}title="Create Account" footer={null}>
       <Form onFinish={handleSignUp} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
         <Form.Item label="Email" name="email">
           <Input />

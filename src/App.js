@@ -3,7 +3,7 @@ import PetContextProvider from "./context/PetContext";
 import { useState } from "react";
 import Navbar from "./components/Common/Navbar";
 import { Route, Routes, Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Menu, Layout } from "antd";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
 import IndividualPet from "./pages/IndiviualPet";
@@ -19,15 +19,14 @@ function App() {
   return (
     <div className="main-app">
       <PetContextProvider>
-        <div className="login-sign-up">
-          {/* {!isUser ? ( */}
+        {/* <div className="login-sign-up">
             <Link to="/users/login">
               <Button type="link" htmlType="button">
                 Log in
               </Button>
-            </Link>
-          
-          {/* ) : (
+            </Link> */}
+
+        {/* ) : (
             <Link to="/users">
               <Button type="link" htmlType="button">
                 Log out
@@ -35,49 +34,66 @@ function App() {
             </Link>
           )} */}
 
-          <Link to ="/users">
+        {/* <Link to ="/users">
             <Button type="link" htmlType="button">Sign up</Button>
           </Link>
-        </div>
+        </div> */}
+        <Layout>
+          <Navbar />
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+            <Menu.Item key="1">Login</Menu.Item>
+            <Menu.Item key="2">Logout</Menu.Item>
+            <Menu.Item key="3">Sign Up</Menu.Item>
+          </Menu>
 
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/found-a-pet" element={<NewPetPage />}></Route>
+            <Route
+              path="/cats/:_id"
+              element={<IndividualPet species="cats" />}
+            ></Route>
+            <Route
+              path="/dogs/:_id"
+              element={<IndividualPet species="dogs" />}
+            ></Route>
+
+            {/* <Route
             path="/users"
-            element={
-              // !token ? (
-              //   isUser ? (
-              //     <Login setIsUser={setIsUser} setToken={setToken} />
-              //   ) : (
-                  <SignUp setIsUser={setIsUser} setToken={setToken} />
-              //   )
-              // ) : null
-            }
-          ></Route>
-          <Route
+            element={ */}
+
+            {/* {!token ? (
+            isUser ? (
+              <Login setIsUser={setIsUser} setToken={setToken} />
+            ) : (
+              <SignUp setIsUser={setIsUser} setToken={setToken} />
+            )
+          ) : null} */}
+            {/* ></Route>
+             */}
+
+            {/* <Route
             path="/users/login"
-            element={
-              // !token ? (
-              //   isUser ? (
+            element={ */}
+            {/* {!token ? (
+                isUser ? (
                   <Login setIsUser={setIsUser} setToken={setToken} />
-              //   ) : (
-              //     <SignUp setIsUser={setIsUser} setToken={setToken} />
-              //   )
-              // ) : null
-            }
-          ></Route>
-          <Route path="/found-a-pet" element={<NewPetPage />}></Route>
-          <Route
-            path="/cats/:_id"
-            element={<IndividualPet species="cats" />}
-          ></Route>
-          <Route
-            path="/dogs/:_id"
-            element={<IndividualPet species="dogs" />}
-          ></Route>
-        </Routes>
-        <Footer />
+                ) : (
+                  <SignUp setIsUser={setIsUser} setToken={setToken} />
+                )
+              ) : null
+            } */}
+            {/* ></Route> */}
+          </Routes>
+          {!token ? (
+            isUser ? (
+              <Login setIsUser={setIsUser} setToken={setToken} />
+            ) : (
+              <SignUp setIsUser={setIsUser} setToken={setToken} />
+            )
+          ) : null}
+          <Footer />
+        </Layout>
       </PetContextProvider>
     </div>
   );
