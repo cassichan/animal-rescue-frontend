@@ -16,34 +16,30 @@ import "./App.css";
 function App() {
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
+  const [signUpVisible, setSignUpVisible] = useState(false);
+  const [loginVisible, setLoginVisible] = useState(false);
+  const [logoutVisible, setLogoutVisible] = useState(false);
   return (
     <div className="main-app">
       <PetContextProvider>
-        {/* <div className="login-sign-up">
-            <Link to="/users/login">
-              <Button type="link" htmlType="button">
-                Log in
-              </Button>
-            </Link> */}
+        <SignUp visible={signUpVisible} setVisible={setSignUpVisible} />
+        <Login visible={loginVisible} setVisible={setLoginVisible} />
+        {/* <Logout visible={signUpVisible} setVisible={setSignUpVisible} /> */}
 
-        {/* ) : (
-            <Link to="/users">
-              <Button type="link" htmlType="button">
-                Log out
-              </Button>
-            </Link>
-          )} */}
 
-        {/* <Link to ="/users">
-            <Button type="link" htmlType="button">Sign up</Button>
-          </Link>
-        </div> */}
+
         <Layout>
           <Navbar />
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">Login</Menu.Item>
-            <Menu.Item key="2">Logout</Menu.Item>
-            <Menu.Item key="3">Sign Up</Menu.Item>
+            <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
+              Sign up
+            </Menu.Item>
+            <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
+              Login
+            </Menu.Item>
+            <Menu.Item onClick={() => setLogoutVisible(!logoutVisible)} key="3">
+              Logout
+            </Menu.Item>
           </Menu>
 
           <Routes>
@@ -57,11 +53,6 @@ function App() {
               path="/dogs/:_id"
               element={<IndividualPet species="dogs" />}
             ></Route>
-
-            {/* <Route
-            path="/users"
-            element={ */}
-
             {/* {!token ? (
             isUser ? (
               <Login setIsUser={setIsUser} setToken={setToken} />
@@ -69,29 +60,7 @@ function App() {
               <SignUp setIsUser={setIsUser} setToken={setToken} />
             )
           ) : null} */}
-            {/* ></Route>
-             */}
-
-            {/* <Route
-            path="/users/login"
-            element={ */}
-            {/* {!token ? (
-                isUser ? (
-                  <Login setIsUser={setIsUser} setToken={setToken} />
-                ) : (
-                  <SignUp setIsUser={setIsUser} setToken={setToken} />
-                )
-              ) : null
-            } */}
-            {/* ></Route> */}
           </Routes>
-          {!token ? (
-            isUser ? (
-              <Login setIsUser={setIsUser} setToken={setToken} />
-            ) : (
-              <SignUp setIsUser={setIsUser} setToken={setToken} />
-            )
-          ) : null}
           <Footer />
         </Layout>
       </PetContextProvider>
