@@ -5,9 +5,15 @@ import "../../App.css";
 
 export default function CatList() {
   // const [cats, setCats] = useState([]);
-  const { cat, setCat, cats, setCats } = useContext(PetContext);
-  console.log(cats)
-  console.log(cat)
+  const { cats, setCats } = useContext(PetContext);
+  const updateCatList = (cat) => {
+    const updatedList = cats.map((c) => {
+      return c._id === cat._id ? cat : c;
+    });
+    setCats(updatedList);
+  };
+
+  console.log(cats);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/cats")
       // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
@@ -23,7 +29,10 @@ export default function CatList() {
     <section className="card-section">
       <h3 className="header-text">Cats Available for Adoption</h3>
       <section className="pet-list">
-        {cats && cats.map((cat) => <CatCard key={cat._id} cat={cat} />)}
+        {cats &&
+          cats.map((cat) => (
+            <CatCard key={cat._id} cat={cat} setCat={updateCatList} />
+          ))}
       </section>
     </section>
   );
