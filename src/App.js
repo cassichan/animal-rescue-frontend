@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
 import IndividualPet from "./pages/IndiviualPet";
 import Login from "../src/components/Common/Login.jsx";
+import Logout from "../src/components/Common/SignUp.jsx";
 import SignUp from "../src/components/Common/SignUp.jsx";
 import Footer from "./components/Common/Footer";
 import "antd/dist/antd.min.css";
@@ -16,17 +17,18 @@ import "./App.css";
 function App() {
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false)
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
   const [logoutVisible, setLogoutVisible] = useState(false);
   return (
     <div className="main-app">
       <PetContextProvider>
-        <SignUp visible={signUpVisible} setVisible={setSignUpVisible} />
-        <Login visible={loginVisible} setVisible={setLoginVisible} />
-        {/* <Logout visible={signUpVisible} setVisible={setSignUpVisible} /> */}
+        <SignUp visible={signUpVisible} setVisible={setSignUpVisible} setIsUser = {setIsUser}setToken={setToken} />
+        <Login visible={loginVisible} setVisible={setLoginVisible} setIsUser = {setIsUser}setToken={setToken} setIsLoggedIn = {setisLoggedIn}/>
+        <Logout visible={logoutVisible} setVisible={setLogoutVisible} />
 
-
+        {isUser? <h1>Hello {isUser}</h1> : <h1>Guest</h1>}
 
         <Layout>
           <Navbar />

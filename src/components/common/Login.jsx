@@ -1,10 +1,11 @@
 import { Modal, Form, Input, Button } from "antd";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Login({
   setToken,
   setIsUser,
   user,
+  setIsLoggedIn,
   visible,
   setVisible,
 }) {
@@ -25,6 +26,7 @@ export default function Login({
         localStorage.setItem("token", data.token);
         console.log(data.token);
         setVisible(false);
+        setIsLoggedIn(true);
       })
       .catch((err) => alert(err.message));
   };
@@ -41,48 +43,51 @@ export default function Login({
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body> */}
-          <Form
-            onFinish={handleLogin}
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+        <Form
+          onFinish={handleLogin}
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+        >
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Please enter a valid email",
+              },
+            ]}
           >
-            <Form.Item
-              label="Email"
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter a valid email",
-                },
-              ]}
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please enter a valid email",
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              //  onClick = {() => setIsLoggedIn(true) }
             >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="Password"
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter a valid email",
-                },
-              ]}
-            >
-              <Input.Password />
-            </Form.Item>
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
-                Login
-              </Button>
-            </Form.Item>
-            <p>
-              Not a user?{" "}
-              <Button onClick={() => setIsUser(false)} type={"link"}>
-                Sign Up
-              </Button>
-            </p>
-          </Form>
-        {/* </Modal.Body> */}
+              Login
+            </Button>
+          </Form.Item>
+          <p>
+            Not a user?{" "}
+            <Button onClick={() => setIsUser(false)} type={"link"}>
+              Sign Up
+            </Button>
+          </p>
+        </Form>
       </Modal>
     </>
   );
