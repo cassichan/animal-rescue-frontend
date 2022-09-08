@@ -27,7 +27,7 @@ export default function Login({ visible, setVisible }) {
         setEmail({ email });
         console.log(data);
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => console.error(err.message));
   };
   return (
     <>

@@ -19,7 +19,7 @@ export default function SignUp({visible, setVisible}) {
         localStorage.setItem("token", data.token);
         console.log(data.token);
         setVisible(false);
-        alert("Account created!");
+        console.log("Account created!");
       });
   };
   return (
