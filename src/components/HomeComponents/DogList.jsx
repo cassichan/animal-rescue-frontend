@@ -6,6 +6,13 @@ import "../../App.css";
 export default function DogList() {
   // const [dogs, setDogs] = useState([]);
   const { dogs, setDogs } = useContext(PetContext);
+
+  const updateDogList = (dog) => {
+    const updatedList = dogs.map((d) => {
+      return d._id === dog._id ? dog : d;
+    });
+    setDogs(updatedList);
+  };
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/dogs")
       // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
@@ -21,7 +28,10 @@ export default function DogList() {
     <section className="card-section">
       <h3 className="header-text">Dogs Available for Adoption</h3>
       <section className="pet-list">
-        {dogs.length && dogs.map((dog) => <DogCard key={dog._id} dog={dog} />)}
+        {dogs.length &&
+          dogs.map((dog) => (
+            <DogCard key={dog._id} dog={dog} setDog={updateDogList} />
+          ))}
       </section>
     </section>
   );

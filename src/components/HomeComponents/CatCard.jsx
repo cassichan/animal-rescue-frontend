@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { PetContext } from "../../context/PetContext";
 import { Card } from "antd";
 import { Button } from "antd";
-import { updateFavorite } from "../../services/services.js";
+import { updateCatFavorite } from "../../services/services.js";
 import "../../Styles/CatCard.css";
 const { Meta } = Card;
 
@@ -12,9 +12,9 @@ export default function CatCard({ cat, setCat }) {
 
   async function handleFavorite(catId) {
     const isFavorite = cat.favorite;
-    const newFavorite = await updateFavorite(catId, isFavorite);
+    const newFavorite = await updateCatFavorite(catId, isFavorite);
     console.log(newFavorite);
-    setCat({...cat, favorite : newFavorite})
+    setCat({ ...cat, favorite: newFavorite });
   }
 
   return (
