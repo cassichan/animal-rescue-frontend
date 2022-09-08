@@ -3,7 +3,7 @@ import { Form, Button, Input, Select } from "antd";
 import { PetContext } from "../../context/PetContext";
 import "../../Styles/AddPet.css";
 
-export default function AddPet({token}) {
+export default function AddPet({ token }) {
   const { setCats, setDogs } = useContext(PetContext);
   const [species, setSpecies] = useState("");
   const [address, setAddress] = useState("");
@@ -25,8 +25,8 @@ export default function AddPet({token}) {
     };
     try {
       const results = await fetch(
-        `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
-        // `https://cat-rescue-backend.web.app/add-${species}`,
+        // `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
+        `https://cat-rescue-backend.web.app/add-${species}`,
         {
           method: "POST",
           headers: {

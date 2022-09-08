@@ -13,8 +13,8 @@ export default function CatList() {
     setCats(updatedList);
   };
   useEffect(() => {
-    // fetch("https://cat-rescue-backend.web.app/cats")
-      fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+    fetch("https://cat-rescue-backend.web.app/cats")
+      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
       .then((res) => res.json())
       .then((data) => setCats(data))
       .catch((error) => console.log(error));
@@ -29,9 +29,12 @@ export default function CatList() {
       <section className="pet-list">
         {cats &&
           cats.map((cat) => (
-            <CatCard 
-            // token={token}
-             key={cat._id} cat={cat} setCat={updateCatList} />
+            <CatCard
+              // token={token}
+              key={cat._id}
+              cat={cat}
+              setCat={updateCatList}
+            />
           ))}
       </section>
     </section>

@@ -9,9 +9,7 @@ export default function StrayPetList() {
   // const [dogs, setDogs] = useState([]);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/get-new-cat")
-      // fetch(
-      // "http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat"
-      // )
+    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat")
       .then((results) => results.json())
       .then((data) => {
         setCats(data);
