@@ -3,7 +3,7 @@ import { PetContext } from "../../context/PetContext";
 import CatCard from "./CatCard";
 import "../../App.css";
 
-export default function CatList() {
+export default function CatList({token}) {
   // const [cats, setCats] = useState([]);
   const { cats, setCats } = useContext(PetContext);
   const updateCatList = (cat) => {
@@ -12,16 +12,14 @@ export default function CatList() {
     });
     setCats(updatedList);
   };
-
-  console.log(cats);
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/cats")
-      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+    // fetch("https://cat-rescue-backend.web.app/cats")
+      fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
       .then((res) => res.json())
       .then((data) => setCats(data))
       .catch((error) => console.log(error));
   }, [setCats]);
-  console.log({ cats });
+  // console.log({ cats });
   if (!cats) {
     return <h1> Loading...please wait</h1>;
   }
@@ -31,7 +29,9 @@ export default function CatList() {
       <section className="pet-list">
         {cats &&
           cats.map((cat) => (
-            <CatCard key={cat._id} cat={cat} setCat={updateCatList} />
+            <CatCard 
+            // token={token}
+             key={cat._id} cat={cat} setCat={updateCatList} />
           ))}
       </section>
     </section>

@@ -1,7 +1,12 @@
 import { Modal, Form, Input, Button } from "antd";
-import { useState } from "react";
 
-export default function SignUp({ setToken, user, setIsUser, visible, setVisible}) {
+export default function SignUp({
+  setToken,
+  user,
+  setIsUser,
+  visible,
+  setVisible,
+}) {
   const handleSignUp = ({ email, password }) => {
     fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
       method: "POST",
@@ -15,12 +20,19 @@ export default function SignUp({ setToken, user, setIsUser, visible, setVisible}
         setToken(data.token);
         localStorage.setItem("token", data.token);
         console.log(data.token);
-        setVisible(false)
+        setVisible(false);
+        alert("Account created!");
       });
   };
   return (
     <>
-      <Modal onCancel = {() => setVisible(false)} closable={true} visible={visible} title="Create Account" footer={null}>
+      <Modal
+        onCancel={() => setVisible(false)}
+        closable={true}
+        visible={visible}
+        title="Create Account"
+        footer={null}
+      >
         <Form
           onFinish={handleSignUp}
           labelCol={{ span: 8 }}

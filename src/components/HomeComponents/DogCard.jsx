@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import { Button } from "antd";
 
 const { Meta } = Card;
-export default function DogCard({dog}) {
+export default function DogCard({dog, setDog}) {
   // const { dog } = useContext(PetContext);
-  // console.log(dog)
   return (
     <>
       <div>

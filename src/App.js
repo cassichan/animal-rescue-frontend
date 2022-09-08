@@ -17,18 +17,44 @@ import "./App.css";
 function App() {
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
-  const [isLoggedIn, setisLoggedIn] = useState(false)
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
   const [logoutVisible, setLogoutVisible] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.clear();
+  };
   return (
     <div className="main-app">
       <PetContextProvider>
-        <SignUp visible={signUpVisible} setVisible={setSignUpVisible} setIsUser = {setIsUser}setToken={setToken} />
-        <Login visible={loginVisible} setVisible={setLoginVisible} setIsUser = {setIsUser}setToken={setToken} setIsLoggedIn = {setisLoggedIn}/>
-        <Logout visible={logoutVisible} setVisible={setLogoutVisible} />
+        <SignUp
+          visible={signUpVisible}
+          setVisible={setSignUpVisible}
+          setIsUser={setIsUser}
+          setToken={setToken}
+        />
+        <Login
+          visible={loginVisible}
+          setVisible={setLoginVisible}
+          setIsUser={setIsUser}
+          // isUser={isUser}
+          setToken={setToken}
+          setIsLoggedIn={setisLoggedIn}
+          setEmail={setEmail}
+        />
+        <Logout
+          visible={logoutVisible}
+          setVisible={setLogoutVisible}
+          //  setIsUser={setIsUser}
+          //  setToken={setToken}
+        />
 
-        {isUser? <h1>Hello {isUser}</h1> : <h1>Guest</h1>}
+        {token ? <h1>Hello, you are logged in {isUser}</h1> : <h1>Guest</h1>}
 
         <Layout>
           <Navbar />
@@ -39,7 +65,10 @@ function App() {
             <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
               Login
             </Menu.Item>
-            <Menu.Item onClick={() => setLogoutVisible(!logoutVisible)} key="3">
+            {/* <Menu.Item onClick={() => setLogoutVisible(!logoutVisible)} key="3">
+              Logout
+            </Menu.Item> */}
+            <Menu.Item key="3" onClick={localStorage.clear()}>
               Logout
             </Menu.Item>
           </Menu>
@@ -55,13 +84,6 @@ function App() {
               path="/dogs/:_id"
               element={<IndividualPet species="dogs" />}
             ></Route>
-            {/* {!token ? (
-            isUser ? (
-              <Login setIsUser={setIsUser} setToken={setToken} />
-            ) : (
-              <SignUp setIsUser={setIsUser} setToken={setToken} />
-            )
-          ) : null} */}
           </Routes>
           <Footer />
         </Layout>

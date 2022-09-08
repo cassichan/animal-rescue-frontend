@@ -1,13 +1,13 @@
 import { Modal, Form, Input, Button } from "antd";
-// import { useState } from "react";
 
 export default function Login({
   setToken,
   setIsUser,
-  user,
+  isUser,
   setIsLoggedIn,
   visible,
   setVisible,
+  setEmail,
 }) {
   const handleLogin = ({ email, password }) => {
     fetch(
@@ -27,6 +27,7 @@ export default function Login({
         console.log(data.token);
         setVisible(false);
         setIsLoggedIn(true);
+        setEmail({ email });
       })
       .catch((err) => alert(err.message));
   };
@@ -39,10 +40,6 @@ export default function Login({
         title="Login"
         footer={null}
       >
-        {/* <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
-        </Modal.Header>
-        <Modal.Body> */}
         <Form
           onFinish={handleLogin}
           labelCol={{ span: 8 }}
