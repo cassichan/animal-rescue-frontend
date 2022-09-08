@@ -1,14 +1,11 @@
 import { Modal, Form, Input, Button } from "antd";
+import { useContext } from "react";
+import { PetContext } from "../../context/PetContext";
 
-export default function Login({
-  setToken,
-  setIsUser,
-  isUser,
-  setIsLoggedIn,
-  visible,
-  setVisible,
-  setEmail,
-}) {
+export default function Login({ visible, setVisible }) {
+  const { setToken, setIsUser, setIsLoggedIn, setEmail } =
+    useContext(PetContext);
+
   const handleLogin = ({ email, password }) => {
     fetch(
       "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
@@ -24,10 +21,11 @@ export default function Login({
       .then((data) => {
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        console.log(data.token);
+        console.log(localStorage.getItem("token"));
         setVisible(false);
         setIsLoggedIn(true);
         setEmail({ email });
+        console.log(data);
       })
       .catch((err) => alert(err.message));
   };

@@ -1,12 +1,10 @@
 import { Modal, Form, Input, Button } from "antd";
+import { useContext } from "react";
+import { PetContext } from "../../context/PetContext";
 
-export default function SignUp({
-  setToken,
-  user,
-  setIsUser,
-  visible,
-  setVisible,
-}) {
+export default function SignUp({visible, setVisible}) {
+  const { setToken, user, setIsUser } = useContext(PetContext);
+
   const handleSignUp = ({ email, password }) => {
     fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
       method: "POST",
