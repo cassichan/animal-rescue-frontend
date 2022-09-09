@@ -1,3 +1,7 @@
+.add-pet-page-container {
+  display: flex;
+}
+
 .new-animal-form {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -65,15 +69,12 @@
   padding: 2rem;
 }
 
-.form-header {
-  display: flex;
-  /* flex-direction: column; */
-  align-content: flex-start;
-  justify-content: space-between;
-  padding: 2rem;
-}
-
 .uploaded-animal-image {
   max-width: 50%;
   height: auto;
 }
+
+/* .heart-image {
+  max-width: 30%;
+  height: auto;
+} */

@@ -4,24 +4,27 @@ import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 
 export default function StrayPetList() {
-  const { cats, setCats, dogs, setDogs } = useContext(PetContext);
-  // const [cats, setCats] = useState([]);
-  // const [dogs, setDogs] = useState([]);
+  const { strayCats, setStrayCats, strayDogs, setStrayDogs, token } = useContext(PetContext);
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/get-new-cat")
-    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-cat")
+    // fetch("https://cat-rescue-backend.web.app/get-stray-cats"
+    // )
+    fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-cats")
+    // ,{headers: {
+    //   "Authorization": token,
+    // }
+  // })
       .then((results) => results.json())
       .then((data) => {
-        setCats(data);
+        setStrayCats(data);
       })
       .catch(console.error);
     fetch(
-      // "http://localhost:5001/cat-rescue-backend/us-central1/api/get-new-dog"
-      "https://cat-rescue-backend.web.app/get-new-dog"
+      "http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-dogs"
+      // "https://cat-rescue-backend.web.app/get-stray-dogs"
     )
       .then((results) => results.json())
       .then((data) => {
-        setDogs(data);
+        setStrayDogs(data);
       })
       .catch(console.error);
   }, []);
@@ -29,12 +32,13 @@ export default function StrayPetList() {
     <>
       <p>List of stray cats</p>
       <section className="pet-list">
-        {cats && cats.map((cat) => <StrayCatCard key={cat._id} cat={cat} />)}
+        {strayCats && strayCats.map((c) => <StrayCatCard key={c._id} cat={c} />)}
       </section>
       <p>List of stray dogs</p>
       <section className="pet-list">
-        {dogs && dogs.map((dog) => <StrayDogCard key={dog._id} dog={dog} />)}
+        {strayDogs && strayDogs.map((d) => <StrayDogCard key={d._id} dog={d} />)}
       </section>
+        {/* <img className="heart-image" src="https://cdn.pixabay.com/photo/2016/10/18/19/42/abstract-1751204_1280.png"></img> */}
     </>
   );
 }

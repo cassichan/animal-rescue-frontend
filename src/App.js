@@ -28,6 +28,13 @@ function App() {
     setToken("");
   };
 
+
+  // useEffect(()=>{
+  //   if(localStorage.getItem('token')) {
+  //     setToken(localStorage.getItem('token'))
+  //   }
+  // },[setToken]);
+
   return (
     <div className="main-app">
       {/* <PetContextProvider> */}

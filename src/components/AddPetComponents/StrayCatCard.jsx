@@ -1,11 +1,7 @@
-import { useContext } from "react"
-import { PetContext } from "../../context/PetContext"
-
 import { Card } from "antd";
 const { Meta } = Card;
 
-export default function StrayCatCard({cat}) {
-  // const {cat} = useContext(PetContext)
+export default function StrayCatCard({ cat }) {
   return (
     <>
       <Card
@@ -19,7 +15,7 @@ export default function StrayCatCard({cat}) {
         bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
         <Meta
-          title={[cat.species, cat?.breed, cat?.description]}
+          title={[cat?.species, cat?.breed, cat?.description]}
           description={[cat?.address, cat?.eMail, cat?.phone]}
         />
       </Card>

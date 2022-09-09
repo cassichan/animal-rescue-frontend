@@ -8,10 +8,13 @@ export default function PetContextProvider({ children }) {
   const [cat, setCat] = useState({});
   const [dogs, setDogs] = useState([]);
   const [dog, setDog] = useState({});
+  const [strayCats, setStrayCats] = useState([]);
+  const [strayDogs, setStrayDogs] = useState([]);
+
   const [token, setToken] = useState(
     // ""
     localStorage.getItem("token")
-    );
+  );
   const [isUser, setIsUser] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState("");
@@ -31,6 +34,10 @@ export default function PetContextProvider({ children }) {
     setCat,
     dog,
     setDog,
+    strayCats,
+    setStrayCats,
+    strayDogs,
+    setStrayDogs,
     token,
     setToken,
     isUser,
