@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { PetContext } from "../../context/PetContext";
 import "../../Styles/Navbar.css";
 
 export default function Navbar() {
+  const {token} = useContext(PetContext)
   return (
     <>
+      <div className="logged-in-status">
+        {token ? (
+          <h1 className="log-in-status">Hello, you are logged in</h1>
+        ) : (
+          <h1>Guest</h1>
+        )}
+      </div>
       <nav className="header">
         <section className="header-logo-container">
           <img

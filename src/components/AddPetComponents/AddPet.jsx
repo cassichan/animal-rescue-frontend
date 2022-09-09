@@ -9,6 +9,7 @@ export default function AddPet() {
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
   const [eMail, setEMail] = useState("");
+
   const [filebase64, setFileBase64] = useState("");
   const [image, setImage] = useState("");
 
@@ -67,7 +68,7 @@ export default function AddPet() {
       <section className="add-pet-page-container">
         <section className="add-pet-header">
           <h1 className="add-pet-form-text">Found an animal?</h1>
-          <p>We can help. Please submit information about animal. </p>
+          <p>We can help. Please submit information about animal. Someone will reach out to you shortly. </p>
         </section>
         <section className="form-section">
           <form

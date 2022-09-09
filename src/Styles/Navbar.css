@@ -1,3 +1,9 @@
+.logged-in-status {
+ display: flex;
+ justify-content: flex-end;
+ height: 4vh;
+}
+
 .header {
   display: flex;
   flex-direction: row;

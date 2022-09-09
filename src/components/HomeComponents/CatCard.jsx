@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { Card } from "antd";
-import { Button } from "antd";
-// import { updateCatFavorite } from "../../services/services.js";
+import { Card, Button } from "antd";
 import "../../Styles/CatCard.css";
 const { Meta } = Card;
 

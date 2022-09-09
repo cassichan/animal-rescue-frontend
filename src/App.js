@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import Navbar from "./components/Common/Navbar";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Menu, Layout } from "antd";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
@@ -14,7 +14,7 @@ import "./App.css";
 import { PetContext } from "./context/PetContext";
 
 function App() {
-  const { token, setToken, isUser, setIsUser, setEmail, setIsLoggedIn } =
+  const { token, setToken, setIsUser, setEmail, setIsLoggedIn } =
     useContext(PetContext);
 
   const [signUpVisible, setSignUpVisible] = useState(false);
@@ -48,7 +48,7 @@ function App() {
         setEmail={setEmail}
       />
 
-      {token ? <h1>Hello, you are logged in</h1> : <h1>Guest</h1>}
+      {/* {token ? <h1>Hello, you are logged in</h1> : <h1>Guest</h1>} */}
 
       <Layout>
         <Navbar />
