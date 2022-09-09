@@ -3,8 +3,12 @@ import { useContext } from "react";
 import { PetContext } from "../../context/PetContext";
 
 export default function Login({ visible, setVisible }) {
-  const { setToken, setIsUser, setIsLoggedIn, setEmail } =
-    useContext(PetContext);
+  const {
+    setToken,
+    setIsUser,
+    setIsLoggedIn,
+    // setEmail
+  } = useContext(PetContext);
 
   const handleLogin = ({ email, password }) => {
     fetch(
@@ -21,11 +25,11 @@ export default function Login({ visible, setVisible }) {
       .then((data) => {
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        console.log(localStorage.getItem("token"));
+        // console.log(localStorage.getItem("token"));
         setVisible(false);
         setIsLoggedIn(true);
-        setEmail({ email });
-        console.log(data);
+        // setEmail({ email });
+        // console.log(data);
       })
       .catch((err) => console.error(err.message));
   };
@@ -68,11 +72,7 @@ export default function Login({ visible, setVisible }) {
             <Input.Password />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button
-              type="primary"
-              htmlType="submit"
-              //  onClick = {() => setIsLoggedIn(true) }
-            >
+            <Button type="primary" htmlType="submit">
               Login
             </Button>
           </Form.Item>

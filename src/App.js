@@ -1,14 +1,12 @@
 import React from "react";
-// import PetContextProvider from "./context/PetContext";
 import { useState, useContext } from "react";
 import Navbar from "./components/Common/Navbar";
 import { Route, Routes, Link } from "react-router-dom";
-import { Button, Menu, Layout } from "antd";
+import { Menu, Layout } from "antd";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
 import DetailedPetPage from "./pages/DetailedPetPage";
 import Login from "../src/components/Common/Login.jsx";
-import Logout from "../src/components/Common/SignUp.jsx";
 import SignUp from "../src/components/Common/SignUp.jsx";
 import Footer from "./components/Common/Footer";
 import "antd/dist/antd.min.css";
@@ -21,7 +19,6 @@ function App() {
 
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
-  const [logoutVisible, setLogoutVisible] = useState(false);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -36,7 +33,6 @@ function App() {
 
   return (
     <div className="main-app">
-      {/* <PetContextProvider> */}
       <SignUp
         visible={signUpVisible}
         setVisible={setSignUpVisible}
@@ -51,10 +47,6 @@ function App() {
         setIsLoggedIn={setIsLoggedIn}
         setEmail={setEmail}
       />
-      {/* <Logout
-        visible={logoutVisible}
-        setVisible={setLogoutVisible}
-      /> */}
 
       {token ? <h1>Hello, you are logged in</h1> : <h1>Guest</h1>}
 
@@ -86,7 +78,6 @@ function App() {
         </Routes>
         <Footer />
       </Layout>
-      {/* </PetContextProvider> */}
     </div>
   );
 }
