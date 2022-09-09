@@ -6,7 +6,7 @@ import { Route, Routes, Link } from "react-router-dom";
 import { Button, Menu, Layout } from "antd";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
-import IndividualPet from "./pages/IndiviualPet";
+import DetailedPetPage from "./pages/DetailedPetPage";
 import Login from "../src/components/Common/Login.jsx";
 import Logout from "../src/components/Common/SignUp.jsx";
 import SignUp from "../src/components/Common/SignUp.jsx";
@@ -27,7 +27,6 @@ function App() {
     localStorage.clear();
     setToken("");
   };
-
 
   // useEffect(()=>{
   //   if(localStorage.getItem('token')) {
@@ -78,11 +77,11 @@ function App() {
           <Route path="/found-a-pet" element={<NewPetPage />}></Route>
           <Route
             path="/cats/:_id"
-            element={<IndividualPet species="cats" />}
+            element={<DetailedPetPage species="cats" />}
           ></Route>
           <Route
             path="/dogs/:_id"
-            element={<IndividualPet species="dogs" />}
+            element={<DetailedPetPage species="dogs" />}
           ></Route>
         </Routes>
         <Footer />

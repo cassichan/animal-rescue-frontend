@@ -1,14 +1,26 @@
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
-import { PetContext } from "../../context/PetContext";
+import React from "react";
 import { Card } from "antd";
 import { Button } from "antd";
-import { updateCatFavorite } from "../../services/services.js";
+// import { updateCatFavorite } from "../../services/services.js";
 import "../../Styles/CatCard.css";
 const { Meta } = Card;
 
 export default function CatCard({ cat, setCat }) {
-  // const { cat, cats } = useContext(PetContext);
+  async function updateCatFavorite(catId, favorite) {
+    const fetchPets = await fetch(
+      `http://localhost:5001/cat-rescue-backend/us-central1/api/update-cat?_id=${catId}`,
+      // `https://cat-rescue-backend.web.app/update-cat?_id=${catId}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ favorite: !favorite }),
+      }
+    );
+    const cat = await fetchPets.json();
+    // console.log(cat);
+    return !favorite;
+  }
 
   async function handleFavorite(catId) {
     const isFavorite = cat.favorite;

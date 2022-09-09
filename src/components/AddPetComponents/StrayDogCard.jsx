@@ -10,13 +10,13 @@ export default function StrayDogCard({ dog }) {
         style={{
           width: 240,
         }}
-        cover={<img alt="dog" src={dog?.image} />}
+        cover={<img alt="dog" src={dog.image} />}
         headStyle={{ textAlign: "center" }}
         bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
         <Meta
-          title={[dog?.species, dog?.breed, dog?.description]}
-          description={[dog?.address, dog?.eMail, dog?.phone]}
+          title={[dog.species, dog.breed, dog.description]}
+          description={[dog.address, dog.eMail, dog.phone]}
         />
       </Card>
     </>

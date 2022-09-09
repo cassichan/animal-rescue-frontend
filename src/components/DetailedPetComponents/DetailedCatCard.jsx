@@ -7,7 +7,7 @@ import { Card } from "antd";
 export default function DetailedCatCard() {
   const { cat } = useContext(PetContext);
   return (
-    /* If cat is null, don't break please */
+    /* Initial state of cat is an empty object. If cat is null, don't break please */
 
     <section className="detailed-antd-animal-card">
       <img

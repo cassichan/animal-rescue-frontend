@@ -15,8 +15,8 @@ export default function StrayCatCard({ cat }) {
         bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
       >
         <Meta
-          title={[cat?.species, cat?.breed, cat?.description]}
-          description={[cat?.address, cat?.eMail, cat?.phone]}
+          title={[cat.species, cat.breed, cat.description]}
+          description={[cat.address, cat.eMail, cat.phone]}
         />
       </Card>
     </>

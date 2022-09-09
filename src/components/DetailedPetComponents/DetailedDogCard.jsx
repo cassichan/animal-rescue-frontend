@@ -5,7 +5,7 @@ import "../../Styles/DetailedPetPage.css";
 import { Card } from "antd";
 
 export default function DetailedDogCard() {
-  const {dog} = useContext(PetContext)
+  const { dog } = useContext(PetContext);
   return (
     // If dog is null, don't break please
     <section className="detailed-antd-animal-card">
