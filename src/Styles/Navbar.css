@@ -2,12 +2,17 @@
  display: flex;
  justify-content: flex-end;
  height: 4vh;
+ background-color: teal;
+}
+
+.logged-in-status-header {
+  padding-right: 1rem;
+  color: white
 }
 
 .header {
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-start; */
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -29,7 +34,6 @@
 
 .brand-logo-image {
   width: 100%;
-  /* height: auto; */
   height: 70px;
   object-fit: cover;
   object-position: 50% 50%;
@@ -37,7 +41,6 @@
 
 .main-social-container {
   display: flex;
-  /* justify-content: flex-end; */
   justify-content: space-between;
 }
 

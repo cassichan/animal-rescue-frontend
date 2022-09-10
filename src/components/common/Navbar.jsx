@@ -9,9 +9,9 @@ export default function Navbar() {
     <>
       <div className="logged-in-status">
         {token ? (
-          <h1 className="log-in-status">Hello, you are logged in</h1>
+          <h1 className="logged-in-status-header">Hello, you are logged in</h1>
         ) : (
-          <h1>Guest</h1>
+          <h1 className="logged-in-status-header">Guest</h1>
         )}
       </div>
       <nav className="header">
@@ -51,7 +51,7 @@ export default function Navbar() {
             >
               <img
                 className="logo-img"
-                src="/LI-In-Bug.png"
+                src="/linkedinblack.png"
                 alt="Linkedin logo: 'in' in white text inside of a rounded light-royal-blue square."
               ></img>
             </a>
