@@ -31,12 +31,12 @@ export default function StrayPetList() {
   return (
     <div className="stray-animal-container">
       <section className="stray-animal-text-container">
-        <h1>List of stray cats</h1>
+        <h1>Stray cats</h1>
         <section className="pet-list">
           {strayCats &&
             strayCats.map((c) => <StrayCatCard key={c._id} cat={c} />)}
         </section>
-        <h1>List of stray dogs</h1>
+        <h1>Stray dogs</h1>
         <section className="pet-list">
           {strayDogs &&
             strayDogs.map((d) => <StrayDogCard key={d._id} dog={d} />)}

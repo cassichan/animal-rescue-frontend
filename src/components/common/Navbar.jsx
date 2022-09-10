@@ -4,7 +4,7 @@ import { PetContext } from "../../context/PetContext";
 import "../../Styles/Navbar.css";
 
 export default function Navbar() {
-  const {token} = useContext(PetContext)
+  const { token } = useContext(PetContext);
   return (
     <>
       <div className="logged-in-status">

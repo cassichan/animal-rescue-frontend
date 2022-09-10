@@ -103,6 +103,7 @@ export default function AddPet() {
                 name="description"
                 placeholder="Size, color, unique traits"
                 onChange={(e) => setDescription(e.target.value)}
+                required
               />
             </label>
             <br />
@@ -115,7 +116,8 @@ export default function AddPet() {
                 name="address"
                 placeholder="Specific please!"
                 onChange={(e) => setAddress(e.target.value)}
-              />
+                required
+              ></input>
             </label>
             <br />
             <input
@@ -124,9 +126,6 @@ export default function AddPet() {
               onChange={(e) => convertFile(e.target.files)}
             />
             <hr />
-            {/* {filebase64.indexOf("image/") > -1 && (
-              <img src={image} width={300} />
-            )} */}
             <label className="form-label" htmlFor="phone">
               Phone number:
               <input
