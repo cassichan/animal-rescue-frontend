@@ -72,6 +72,9 @@ export default function AddPet() {
 
   return (
     <>
+    <section className="add-pet-header-container">
+    <h1><u>Report an animal in need</u></h1>
+    </section>
       <section className="add-pet-page-container">
         <section className="add-pet-header">
           <h1 className="add-pet-form-text">Found an animal?</h1>
@@ -114,7 +117,7 @@ export default function AddPet() {
                 type="text"
                 value={address}
                 name="address"
-                placeholder="Specific please!"
+                placeholder="Be specific please!"
                 onChange={(e) => setAddress(e.target.value)}
                 required
               ></input>

@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { PetContext } from "../../context/PetContext";
+import { Divider } from "antd";
 import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 import "../../App.css";
@@ -31,12 +32,13 @@ export default function StrayPetList() {
   return (
     <div className="stray-animal-container">
       <section className="stray-animal-text-container">
-        <h1>Stray cats</h1>
+        <h1 className="header-text">Stray cats</h1>
         <section className="pet-list">
           {strayCats &&
             strayCats.map((c) => <StrayCatCard key={c._id} cat={c} />)}
         </section>
-        <h1>Stray dogs</h1>
+        <Divider />
+        <h1 className="header-text">Stray dogs</h1>
         <section className="pet-list">
           {strayDogs &&
             strayDogs.map((d) => <StrayDogCard key={d._id} dog={d} />)}

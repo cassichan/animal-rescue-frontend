@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { Card, Button } from "antd";
-import "../../Styles/CatCard.css";
+import "../../Styles/PetCard.css";
 const { Meta } = Card;
 
 export default function CatCard({ cat, setCat }) {
@@ -37,6 +37,7 @@ export default function CatCard({ cat, setCat }) {
         cover={<img className="card-image" alt="cat" src={cat.photoUrl} />}
         headStyle={{ textAlign: "center" }}
         bodyStyle={{
+          height: 180,
           borderStyle: "dashed",
           borderColor: "turquoise",
         }}
@@ -51,24 +52,27 @@ export default function CatCard({ cat, setCat }) {
             Details
           </Button>
         </Link>
-
-        {cat.favorite === true ? (
-          <div
-            onClick={() => {
-              handleFavorite(cat._id);
-            }}
-          >
-            ❤️ {cat.favorite}
-          </div>
-        ) : (
-          <div
-            onClick={() => {
-              handleFavorite(cat._id);
-            }}
-          >
-            ♡
-          </div>
-        )}
+        <section className="favorite-container">
+          <section className="favorite">
+            {cat.favorite === true ? (
+              <div
+                onClick={() => {
+                  handleFavorite(cat._id);
+                }}
+              >
+                ❤️ {cat.favorite}
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  handleFavorite(cat._id);
+                }}
+              >
+                ♡
+              </div>
+            )}
+          </section>
+        </section>
       </Card>
     </div>
   );

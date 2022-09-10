@@ -1,0 +1,17 @@
+.card-image {
+  height: 40vh;
+}
+
+.antd-animal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 3rem;
+  border: dashed;
+  border-color: turquoise;
+}
+
+.favorite-container {
+  display: flex;
+  justify-content: flex-end;
+}

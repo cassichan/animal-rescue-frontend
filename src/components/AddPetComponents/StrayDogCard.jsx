@@ -1,5 +1,4 @@
 import { Card } from "antd";
-import "../../App.css"
 const { Meta } = Card;
 
 export default function StrayDogCard({ dog }) {
@@ -14,16 +13,13 @@ export default function StrayDogCard({ dog }) {
         cover={<img alt="dog" src={dog.image} />}
         headStyle={{ textAlign: "center" }}
         bodyStyle={{
-          
-          //  borderStyle: "dashed",
-          // borderColor: "turquoise",
           textAlign: "left",
         }}
       >
         <Meta
           title={[dog.breed, dog.description]}
           description={[
-            `Location: ${dog.address}, Contact: ${dog.eMail}, ${dog.phone}`,
+            `Location: ${dog.address}, Contact: ${dog.eMail} ${dog.phone}`,
           ]}
         />
       </Card>

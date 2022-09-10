@@ -39,6 +39,7 @@
 
 .header-text {
   font-family: Dynapuff;
+  font-size: 1.5rem;
 }
 
 .card-section > h3 {
@@ -46,15 +47,7 @@
   font-size: 2rem;
 }
 
- /* .detailed-animal-card {
-  margin: 1rem;
-} */
 .detailed-animal-image {
   object-fit: contain;
   aspect-ratio: 16/9;
-}
-
-.antd-animal-card {
-  border: dashed;
-  border-color: turquoise;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
+import "../../Styles/PetCard.css";
 
 const { Meta } = Card;
 export default function DogCard({ dog, setDog }) {
@@ -29,14 +30,18 @@ export default function DogCard({ dog, setDog }) {
     <>
       <div>
         <Card
-          className="antd-dog-card"
+          className="antd-animal-card"
           headStyle={{ textAlign: "center" }}
           hoverable
           style={{
             width: 240,
           }}
-          cover={<img alt="dog" src={dog.photoUrl} />}
-          bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
+          cover={<img className="card-image" alt="dog" src={dog.photoUrl} />}
+          bodyStyle={{
+            height: 180,
+            borderStyle: "dashed",
+            borderColor: "turquoise",
+          }}
         >
           <Meta title={dog.name} description={[`${dog.size}, ${dog.breed}`]} />
           <Link to={`/dogs/${dog._id}`}>
@@ -44,24 +49,25 @@ export default function DogCard({ dog, setDog }) {
               Details
             </Button>
           </Link>
-
-          {dog.favorite === true ? (
-            <div
-              onClick={() => {
-                handleFavorite(dog._id);
-              }}
-            >
-              ❤️ {dog.favorite}
-            </div>
-          ) : (
-            <div
-              onClick={() => {
-                handleFavorite(dog._id);
-              }}
-            >
-              ♡
-            </div>
-          )}
+          <section className="favorite-container">
+            {dog.favorite === true ? (
+              <div
+                onClick={() => {
+                  handleFavorite(dog._id);
+                }}
+              >
+                ❤️ {dog.favorite}
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  handleFavorite(dog._id);
+                }}
+              >
+                ♡
+              </div>
+            )}
+          </section>
         </Card>
       </div>
     </>
