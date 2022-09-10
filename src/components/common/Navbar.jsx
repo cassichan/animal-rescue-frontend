@@ -34,7 +34,7 @@ export default function Navbar() {
           </section>
           <div className="social-container">
             <a
-              href="/https://github.com/cassichan"
+              href="https://github.com/cassichan"
               target="_blank"
               rel="noreferrer"
             >
@@ -45,7 +45,7 @@ export default function Navbar() {
               ></img>
             </a>
             <a
-              href="/https://www.linkedin.com/in/cassandra-l-curcio/"
+              href="https://www.linkedin.com/in/cassandra-l-curcio/"
               target="_blank"
               rel="noreferrer"
             >

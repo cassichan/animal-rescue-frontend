@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { PetContext } from "../../context/PetContext";
 
 export default function Login({ visible, setVisible }) {
-  const { setToken, setIsUser, setIsLoggedIn } = useContext(PetContext);
+  const { setToken, setIsLoggedIn } = useContext(PetContext);
 
   const handleLogin = ({ email, password }) => {
     fetch(
-      "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
+      // "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
+      "https://cat-rescue-backend.web.app/users/login",
       {
         method: "POST",
         headers: {
@@ -68,12 +69,6 @@ export default function Login({ visible, setVisible }) {
               Login
             </Button>
           </Form.Item>
-          {/* <p>
-            Not a user?{" "}
-            <Button onClick={() => setIsUser(false)} type={"link"}>
-              Sign Up
-            </Button>
-          </p> */}
         </Form>
       </Modal>
     </>

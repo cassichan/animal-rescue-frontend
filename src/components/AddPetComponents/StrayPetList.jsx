@@ -9,19 +9,17 @@ export default function StrayPetList() {
   const { strayCats, setStrayCats, strayDogs, setStrayDogs, token } =
     useContext(PetContext);
   useEffect(() => {
-    // fetch("https://cat-rescue-backend.web.app/get-stray-cats"
-    // )
-    fetch(
-      "http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-cats"
-    )
+    fetch("https://cat-rescue-backend.web.app/get-stray-cats");
+    fetch()
+    // "http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-cats"
       .then((results) => results.json())
       .then((data) => {
         setStrayCats(data);
       })
       .catch(console.error);
     fetch(
-      "http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-dogs"
-      // "https://cat-rescue-backend.web.app/get-stray-dogs"
+      // "http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-dogs"
+      "https://cat-rescue-backend.web.app/get-stray-dogs"
     )
       .then((results) => results.json())
       .then((data) => {

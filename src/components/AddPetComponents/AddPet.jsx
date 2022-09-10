@@ -33,8 +33,8 @@ export default function AddPet() {
     };
     try {
       const results = await fetch(
-        `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
-        // `https://cat-rescue-backend.web.app/add-${species}`,
+        // `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
+        `https://cat-rescue-backend.web.app/add-${species}`,
         {
           method: "POST",
           mode: "cors",
@@ -72,9 +72,11 @@ export default function AddPet() {
 
   return (
     <>
-    <section className="add-pet-header-container">
-    <h1><u>Report an animal in need</u></h1>
-    </section>
+      <section className="add-pet-header-container">
+        <h1>
+          <u>Report an animal in need</u>
+        </h1>
+      </section>
       <section className="add-pet-page-container">
         <section className="add-pet-header">
           <h1 className="add-pet-form-text">Found an animal?</h1>

@@ -14,7 +14,7 @@ import "./App.css";
 import { PetContext } from "./context/PetContext";
 
 function App() {
-  const { token, setToken, setIsUser, setEmail, setIsLoggedIn } =
+  const { setToken, setIsUser, setEmail, setIsLoggedIn } =
     useContext(PetContext);
 
   const [signUpVisible, setSignUpVisible] = useState(false);

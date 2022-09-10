@@ -8,8 +8,8 @@ const { Meta } = Card;
 export default function DogCard({ dog, setDog }) {
   async function updateDogFavorite(dogId, favorite) {
     const fetchPets = await fetch(
-      `http://localhost:5001/cat-rescue-backend/us-central1/api/update-dog?_id=${dogId}`,
-      // "https://cat-rescue-backend.web.app/update-dog?_id=${dogId}",
+      // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-dog?_id=${dogId}`,
+      `https://cat-rescue-backend.web.app/update-dog?_id=${dogId}`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
