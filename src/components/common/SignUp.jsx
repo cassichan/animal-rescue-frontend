@@ -47,12 +47,12 @@ export default function SignUp({visible, setVisible}) {
               Sign up
             </Button>
           </Form.Item>
-          <p>
+          {/* <p>
             Already a user?{" "}
             <Button onClick={() => setIsUser(true)} type={"link"}>
               Login
             </Button>
-          </p>
+          </p> */}
         </Form>
       </Modal>
     </>

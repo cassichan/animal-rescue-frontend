@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react";
 import { PetContext } from "../../context/PetContext";
 import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
-// import "../../Styles/StrayPetList.css";
 import "../../App.css";
 
 export default function StrayPetList() {
@@ -14,10 +13,6 @@ export default function StrayPetList() {
     fetch(
       "http://localhost:5001/cat-rescue-backend/us-central1/api/get-stray-cats"
     )
-      // ,{headers: {
-      //   "Authorization": token,
-      // }
-      // })
       .then((results) => results.json())
       .then((data) => {
         setStrayCats(data);

@@ -8,10 +8,18 @@ export default function AddPet() {
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
-  const [eMail, setEMail] = useState("");
+  const [eMail, setEmail] = useState("");
 
   const [filebase64, setFileBase64] = useState("");
   const [image, setImage] = useState("");
+
+  function formRefresh() {
+    setSpecies("");
+    setDescription("");
+    setAddress("");
+    setPhone("");
+    setEmail("");
+  }
 
   async function formSubmit(e) {
     e.preventDefault();
@@ -32,7 +40,6 @@ export default function AddPet() {
           mode: "cors",
           headers: {
             "Content-Type": "application/json",
-            // Authorization: token,
           },
           body: JSON.stringify(newPet),
         }
@@ -68,7 +75,10 @@ export default function AddPet() {
       <section className="add-pet-page-container">
         <section className="add-pet-header">
           <h1 className="add-pet-form-text">Found an animal?</h1>
-          <p>We can help. Please submit information about animal. Someone will reach out to you shortly. </p>
+          <p>
+            We can help. Please submit information about animal. Someone will
+            reach out to you shortly.{" "}
+          </p>
         </section>
         <section className="form-section">
           <form
@@ -136,11 +146,18 @@ export default function AddPet() {
                 type="email"
                 value={eMail}
                 placeholder="E-mail"
-                onChange={(e) => setEMail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
             <br />
-            <button className="submit-btn" onClick={formSubmit} type="submit">
+            <button className="submit-btn" type="submit" onClick={formSubmit}>
+              {/* <button
+              className="submit-btn"
+              type="submit"
+              onClick={() => {
+                formSubmit(), formRefresh();
+              }}
+            > */}
               Submit
             </button>
           </form>

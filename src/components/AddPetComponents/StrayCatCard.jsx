@@ -12,11 +12,15 @@ export default function StrayCatCard({ cat }) {
         }}
         cover={<img alt="cat" src={cat?.image} />}
         headStyle={{ textAlign: "center" }}
-        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
+        bodyStyle={{ 
+          // borderStyle: "dashed", borderColor: "turquoise",
+         textAlign: "left" }}
       >
         <Meta
-          title={[cat.species, cat.breed, cat.description]}
-          description={[cat.address, cat.eMail, cat.phone]}
+          title={[cat.breed, cat.description]}
+          description={[
+            `Location: ${cat.address}, Contact: ${cat.eMail}, ${cat.phone}`,
+          ]}
         />
       </Card>
     </>

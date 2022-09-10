@@ -16,7 +16,6 @@ export default function CatCard({ cat, setCat }) {
       }
     );
     const cat = await fetchPets.json();
-    // console.log(cat);
     return !favorite;
   }
 
@@ -37,7 +36,10 @@ export default function CatCard({ cat, setCat }) {
         }}
         cover={<img className="card-image" alt="cat" src={cat.photoUrl} />}
         headStyle={{ textAlign: "center" }}
-        bodyStyle={{ borderStyle: "dashed", borderColor: "turquoise" }}
+        bodyStyle={{
+          borderStyle: "dashed",
+          borderColor: "turquoise",
+        }}
       >
         <Meta
           title={cat.name}

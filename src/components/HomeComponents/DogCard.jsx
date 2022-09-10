@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-// import { updateDogFavorite } from "../../services/services.js";
 
 const { Meta } = Card;
 export default function DogCard({ dog, setDog }) {
@@ -17,7 +16,6 @@ export default function DogCard({ dog, setDog }) {
       }
     );
     const pet = await fetchPets.json();
-    // console.log(dog);
     return !favorite;
   }
 

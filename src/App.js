@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Navbar from "./components/Common/Navbar";
 import { Route, Routes } from "react-router-dom";
 import { Menu, Layout } from "antd";
@@ -20,16 +20,16 @@ function App() {
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, [setToken]);
+
   const handleLogout = () => {
     localStorage.clear();
     setToken("");
   };
-
-  // useEffect(()=>{
-  //   if(localStorage.getItem('token')) {
-  //     setToken(localStorage.getItem('token'))
-  //   }
-  // },[setToken]);
 
   return (
     <div className="main-app">
@@ -47,8 +47,6 @@ function App() {
         setIsLoggedIn={setIsLoggedIn}
         setEmail={setEmail}
       />
-
-      {/* {token ? <h1>Hello, you are logged in</h1> : <h1>Guest</h1>} */}
 
       <Layout>
         <Navbar />

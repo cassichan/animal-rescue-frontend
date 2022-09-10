@@ -9,9 +9,8 @@ export default function NewPetPage({ species }) {
 
   return (
     <>
-      <AddPet token={token}/>
+      <AddPet/>
       <StrayPetList
-      //  token={token} 
       species={species} />
     </>
   );

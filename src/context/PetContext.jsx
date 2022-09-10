@@ -12,8 +12,8 @@ export default function PetContextProvider({ children }) {
   const [strayDogs, setStrayDogs] = useState([]);
 
   const [token, setToken] = useState(
-    // ""
-    localStorage.getItem("token")
+    ""
+    // localStorage.getItem("token")
   );
   const [isUser, setIsUser] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);

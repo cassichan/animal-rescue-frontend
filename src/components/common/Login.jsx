@@ -3,12 +3,7 @@ import { useContext } from "react";
 import { PetContext } from "../../context/PetContext";
 
 export default function Login({ visible, setVisible }) {
-  const {
-    setToken,
-    setIsUser,
-    setIsLoggedIn,
-    // setEmail
-  } = useContext(PetContext);
+  const { setToken, setIsUser, setIsLoggedIn } = useContext(PetContext);
 
   const handleLogin = ({ email, password }) => {
     fetch(
@@ -25,11 +20,8 @@ export default function Login({ visible, setVisible }) {
       .then((data) => {
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        // console.log(localStorage.getItem("token"));
         setVisible(false);
         setIsLoggedIn(true);
-        // setEmail({ email });
-        // console.log(data);
       })
       .catch((err) => console.error(err.message));
   };
@@ -76,12 +68,12 @@ export default function Login({ visible, setVisible }) {
               Login
             </Button>
           </Form.Item>
-          <p>
+          {/* <p>
             Not a user?{" "}
             <Button onClick={() => setIsUser(false)} type={"link"}>
               Sign Up
             </Button>
-          </p>
+          </p> */}
         </Form>
       </Modal>
     </>

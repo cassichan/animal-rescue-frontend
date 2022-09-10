@@ -18,7 +18,6 @@ export default function CatList() {
       .then((data) => setCats(data))
       .catch((error) => console.log(error));
   }, [setCats]);
-  // console.log({ cats });
   if (!cats) {
     return <h1> Loading...please wait</h1>;
   }

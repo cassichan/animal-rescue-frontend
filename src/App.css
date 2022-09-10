@@ -6,14 +6,6 @@
   box-sizing: inherit;
 }
 
-.main-app {
-  /* background-image: url("./assets/pexels-photo-13096525.webp");
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* background: linear-gradient(white 0%, turquoise 25%, teal 50%, green 75%, blue 100%); */
-  /* background: rgb(238, 235, 235) */
-}
-
 .App {
   text-align: center;
   display: grid;
@@ -54,10 +46,15 @@
   font-size: 2rem;
 }
 
-/* .detailed-animal-card {
+ /* .detailed-animal-card {
   margin: 1rem;
-}
-.detailed-animal-image {
-  width: 50%;
-  height: auto;
 } */
+.detailed-animal-image {
+  object-fit: contain;
+  aspect-ratio: 16/9;
+}
+
+.antd-animal-card {
+  border: dashed;
+  border-color: turquoise;
+}
