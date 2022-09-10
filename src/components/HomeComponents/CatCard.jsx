@@ -27,26 +27,21 @@ export default function CatCard({ cat, setCat }) {
   }
 
   return (
-    <div>
+    <div className="antd-animal-card">
       <Card
-        className="antd-animal-card"
         hoverable
         style={{
           width: 240,
         }}
         cover={<img className="card-image" alt="cat" src={cat.photoUrl} />}
-        headStyle={{ textAlign: "center" }}
-        bodyStyle={{
-          height: 180,
-          borderStyle: "dashed",
-          borderColor: "turquoise",
-        }}
       >
-        <Meta
-          title={cat.name}
-          description={[`${cat.size}, ${cat.breed}`]}
-          loading="false"
-        />
+        <div className="card-text">
+          <Meta
+            title={cat.name}
+            description={[`${cat.size}, ${cat.breed}`]}
+            loading="false"
+          />
+        </div>
         <Link to={`/cats/${cat._id}`}>
           <Button type="link" htmlType="button">
             Details

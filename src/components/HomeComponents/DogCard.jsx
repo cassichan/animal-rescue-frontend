@@ -28,9 +28,8 @@ export default function DogCard({ dog, setDog }) {
   }
   return (
     <>
-      <div>
+      <div className="antd-animal-card">
         <Card
-          className="antd-animal-card"
           headStyle={{ textAlign: "center" }}
           hoverable
           style={{

@@ -2,13 +2,27 @@
   height: 40vh;
 }
 
+.card-text {
+  text-align: center;
+}
+
+.ant-card-body {
+  padding: 0;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
 .antd-animal-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-bottom: 3rem;
-  border: dashed;
-  border-color: turquoise;
+  border: 2px dashed turquoise;
+  height: fit-content;
+  text-align: center;
 }
 
 .favorite-container {
