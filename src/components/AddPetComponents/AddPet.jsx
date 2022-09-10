@@ -19,6 +19,11 @@ export default function AddPet() {
     setAddress("");
     setPhone("");
     setEmail("");
+    setImage("");
+    const imageInput = document.getElementById("image-upload");
+    imageInput.value = null;
+    const selectInput = document.getElementById("species-select");
+    selectInput.value = "default";
   }
 
   async function formSubmit(e) {
@@ -46,12 +51,12 @@ export default function AddPet() {
       );
       const data = await results.json();
       console.log(data);
-      // window.location.reload(false);
       if (species === "cat") {
         setStrayCats(data);
       } else {
         setStrayDogs(data);
       }
+      formRefresh();
     } catch (error) {
       console.error(error);
     }
@@ -92,7 +97,10 @@ export default function AddPet() {
           >
             <label className="form-label" htmlFor="species">
               Species:
-              <select onChange={(e) => setSpecies(e.target.value)}>
+              <select
+                id="species-select"
+                onChange={(e) => setSpecies(e.target.value)}
+              >
                 <option value="default">Select one</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
@@ -126,6 +134,7 @@ export default function AddPet() {
             </label>
             <br />
             <input
+              id="image-upload"
               className="form-input"
               type="file"
               onChange={(e) => convertFile(e.target.files)}
@@ -155,13 +164,6 @@ export default function AddPet() {
             </label>
             <br />
             <button className="submit-btn" type="submit" onClick={formSubmit}>
-              {/* <button
-              className="submit-btn"
-              type="submit"
-              onClick={() => {
-                formSubmit(), formRefresh();
-              }}
-            > */}
               Submit
             </button>
           </form>
