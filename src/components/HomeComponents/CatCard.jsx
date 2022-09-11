@@ -27,7 +27,7 @@ export default function CatCard({ cat, setCat }) {
   }
 
   return (
-    <div className="antd-animal-card">
+    <div className="antd-animal-card home-page">
       <Card
         hoverable
         style={{

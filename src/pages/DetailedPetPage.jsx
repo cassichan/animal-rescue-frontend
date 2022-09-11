@@ -12,6 +12,8 @@ export default function DetailedPet({ species }) {
   const { _id } = useParams();
 
   useEffect(() => {
+    setCat({});
+    setDog({});
     fetch(`https://cat-rescue-backend.web.app/${species}/${_id}`)
       // fetch(
       //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
@@ -24,17 +26,18 @@ export default function DetailedPet({ species }) {
       .catch((error) => console.error(error));
   }, [species, _id]);
 
-  if (!cat || !dog) {
-    return <h1> Loading...please wait</h1>;
-  }
   return (
     <>
-      {species === "cats" ? (
-        <DetailedCatCard />
-      ) : species === "dogs" ? (
-        <DetailedDogCard />
+      {cat || dog ? (
+        species === "cats" ? (
+          <DetailedCatCard />
+        ) : species === "dogs" ? (
+          <DetailedDogCard />
+        ) : (
+          <p>This pet is not available.</p>
+        )
       ) : (
-        <p>This pet is not available.</p>
+        <h1> Loading...please wait</h1>
       )}
     </>
   );
