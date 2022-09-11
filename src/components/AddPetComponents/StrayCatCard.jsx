@@ -14,8 +14,8 @@ export default function StrayCatCard({ cat }) {
         <Meta
           title={[cat.breed, cat.description]}
           description={[
-            `Location: ${cat.address}
-            Contact: ${cat.eMail} ${cat.phone}`
+            `Location: ${cat.address},
+            Contact: ${cat.eMail}, ${cat.phone}`
           ]}
         />
       </Card>

@@ -16,7 +16,7 @@ export default function StrayDogCard({ dog }) {
           <Meta
             title={[dog.breed, dog.description]}
             description={[
-              `Location: ${dog.address}, Contact: ${dog.eMail} ${dog.phone}`,
+              `Location: ${dog.address}, Contact: ${dog.eMail}, ${dog.phone}`,
             ]}
           />
         </div>
