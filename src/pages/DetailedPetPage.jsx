@@ -28,7 +28,8 @@ export default function DetailedPet({ species }) {
 
   return (
     <>
-      {(cat && cat !== {}) || (dog && dog !== {}) ? (
+      {(!cat&&!dog)?  <h1> Loading...please wait</h1>:<></>}
+      {(cat) || (dog) ? (
         species === "cats" ? (
           <DetailedCatCard />
         ) : species === "dogs" ? (
@@ -37,7 +38,7 @@ export default function DetailedPet({ species }) {
           <p>This pet is not available.</p>
         )
       ) : (
-        <h1> Loading...please wait</h1>
+      <></>
       )}
     </>
   );

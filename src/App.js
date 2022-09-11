@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import Navbar from "./components/Common/Navbar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { Menu, Layout } from "antd";
 import Home from "./pages/Home";
 import NewPetPage from "./pages/NewPetPage";
@@ -17,6 +17,8 @@ function App() {
   const { setToken, setIsUser, setEmail, setIsLoggedIn } =
     useContext(PetContext);
 
+  const navigate = useNavigate();
+
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
 
@@ -29,6 +31,7 @@ function App() {
   const handleLogout = () => {
     localStorage.clear();
     setToken("");
+    navigate("/")
   };
 
   return (
