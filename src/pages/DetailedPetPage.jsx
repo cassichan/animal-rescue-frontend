@@ -26,9 +26,17 @@ export default function DetailedPet({ species }) {
       .catch((error) => console.error(error));
   }, [species, _id]);
 
+  if (cat) {
+    return <DetailedCatCard />;
+  }
+
+  if (dog) {
+    return <DetailedDogCard />;
+  }
+
   return (
     <>
-      {cat || dog ? (
+      {/* {cat || dog ? (
         species === "cats" ? (
           <DetailedCatCard />
         ) : species === "dogs" ? (
@@ -38,7 +46,7 @@ export default function DetailedPet({ species }) {
         )
       ) : (
         <></>
-      )}
+      )} */}
     </>
   );
 }

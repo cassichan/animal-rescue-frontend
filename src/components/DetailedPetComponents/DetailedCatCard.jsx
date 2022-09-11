@@ -25,9 +25,7 @@ export default function DetailedCatCard() {
   // if (cat ==! {}) {
   //   onChange();
   // }
-
   return (
-    /* Initial state of cat is an empty object. If cat is null, don't break please */
     <>
       <Switch checked={!loading} onChange={onChange} />
       <section className="detailed-antd-animal-card">
@@ -46,11 +44,14 @@ export default function DetailedCatCard() {
             <EllipsisOutlined key="ellipsis" />,
           ]}
         >
+          {/* <Meta description={[cat.rescue, cat.eMail, cat.address, cat.phone, cat.size, cat.sex, cat.breed, cat.dateOfBirth, cat.description]} /> */}
+          <Card />
           <section>
             <p> {cat.rescue}</p>
             <p> {cat.eMail}</p>
             <p>{cat.address}</p>
             <p>{cat.phone}</p>
+            <br />
             <p>Size: {cat.size}</p>
             <p>Sex: {cat.sex}</p>
             <p>Breed: {cat.breed}</p>
