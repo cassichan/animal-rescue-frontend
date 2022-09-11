@@ -17,12 +17,7 @@ export default function DetailedDogCard() {
         src={dog?.photoUrl}
         alt="dog"
       ></img>
-      <Card
-        title={dog?.name}
-        style={{
-          width: 800,
-        }}
-      >
+      <Card title={dog?.name}>
         <section>
           <p> {dog?.eMail}</p>
           <p>{dog?.address}</p>
@@ -32,6 +27,7 @@ export default function DetailedDogCard() {
           <p>Breed: {dog?.breed}</p>
           <p>Estimated Date of Birth: {dog?.dateOfBirth}</p>
           <p> {dog?.rescue}</p>
+          <p>Description: {dog?.description}</p>
         </section>
       </Card>
     </section>

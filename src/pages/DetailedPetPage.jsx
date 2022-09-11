@@ -28,7 +28,7 @@ export default function DetailedPet({ species }) {
 
   return (
     <>
-      {cat || dog ? (
+      {(cat && cat !== {}) || (dog && dog !== {}) ? (
         species === "cats" ? (
           <DetailedCatCard />
         ) : species === "dogs" ? (

@@ -1,10 +1,22 @@
 .detailed-antd-animal-card {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 5rem;
-  height: 40rem;
+  padding: 3rem;
   text-align: center;
   text-overflow: auto;
+  /* max-width: 12rem; */
+  width: 100vw;
+  margin: auto;
+}
+
+.detailed-antd-animal-card .ant-card-body {
+  height: unset;
+  width: 25rem;
+}
+
+.detailed-antd-animal-card > * {
+  margin: 1rem;
 }
 
 .detailed-animal-image {
@@ -13,3 +25,5 @@
   aspect-ratio: 16/9;
   margin-right: 0.25rem;
 }
+
+

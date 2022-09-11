@@ -17,12 +17,7 @@ export default function DetailedCatCard() {
         src={cat?.photoUrl}
         alt="cat"
       ></img>
-      <Card
-        title={cat?.name}
-        style={{
-          width: 800,
-        }}
-      >
+      <Card title={cat?.name}>
         <section>
           <p> {cat?.rescue}</p>
           <p> {cat?.eMail}</p>
