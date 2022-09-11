@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const PetContext = createContext();
 
@@ -17,10 +17,6 @@ export default function PetContextProvider({ children }) {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // const [signUpVisible, setSignUpVisible] = useState(false);
-  // const [loginVisible, setLoginVisible] = useState(false);
-  // const [logoutVisible, setLogoutVisible] = useState(false);
 
   const value = {
     cats,

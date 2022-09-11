@@ -1,28 +1,26 @@
 import { Card } from "antd";
+import "../../Styles/PetCard.css";
 const { Meta } = Card;
 
 export default function StrayDogCard({ dog }) {
   return (
-    <>
+    <div className="antd-animal-card">
       <Card
-        className="antd-animal-card"
         hoverable
         style={{
           width: 240,
         }}
-        cover={<img alt="dog" src={dog.image} />}
-        headStyle={{ textAlign: "center" }}
-        bodyStyle={{
-          textAlign: "left",
-        }}
+        cover={<img className="card-image" alt="dog" src={dog.image} />}
       >
-        <Meta
-          title={[dog.breed, dog.description]}
-          description={[
-            `Location: ${dog.address}, Contact: ${dog.eMail} ${dog.phone}`,
-          ]}
-        />
+        <div className="card-text">
+          <Meta
+            title={[dog.breed, dog.description]}
+            description={[
+              `Location: ${dog.address}, Contact: ${dog.eMail} ${dog.phone}`,
+            ]}
+          />
+        </div>
       </Card>
-    </>
+    </div>
   );
 }

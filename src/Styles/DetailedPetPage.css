@@ -1,10 +1,15 @@
 .detailed-antd-animal-card {
- display: flex;
- justify-content: center;
- margin: 7rem;
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  height: 40rem;
+  text-align: center;
+  text-overflow: auto;
 }
 
 .detailed-animal-image {
   object-fit: contain;
+  height: auto;
   aspect-ratio: 16/9;
+  margin-right: 0.25rem;
 }

@@ -3,26 +3,22 @@ const { Meta } = Card;
 
 export default function StrayCatCard({ cat }) {
   return (
-    <>
+    <div className="antd-animal-card">
       <Card
-        className="antd-animal-card"
         hoverable
         style={{
-          width: 240,
+          width: 250,
         }}
-        cover={<img alt="cat" src={cat.image} />}
-        headStyle={{ textAlign: "center" }}
-        bodyStyle={{
-          textAlign: "left",
-        }}
+        cover={<img className="card-image" alt="cat" src={cat.image} />}
       >
         <Meta
           title={[cat.breed, cat.description]}
           description={[
-            `Location: ${cat.address}, Contact: ${cat.eMail} ${cat.phone}`,
+            `Location: ${cat.address}
+            Contact: ${cat.eMail} ${cat.phone}`
           ]}
         />
       </Card>
-    </>
+    </div>
   );
 }

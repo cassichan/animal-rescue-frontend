@@ -6,7 +6,7 @@ import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 import "../../App.css";
 
 export default function StrayPetList() {
-  const { strayCats, setStrayCats, strayDogs, setStrayDogs, token } =
+  const { strayCats, setStrayCats, strayDogs, setStrayDogs} =
     useContext(PetContext);
   useEffect(() => {
     fetch("https://cat-rescue-backend.web.app/get-stray-cats")

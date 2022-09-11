@@ -85,9 +85,10 @@ export default function AddPet() {
       <section className="add-pet-page-container">
         <section className="add-pet-header">
           <h1 className="add-pet-form-text">Found an animal?</h1>
-          <p>
-            We can help. Please submit information about animal. Someone will
-            reach out to you shortly.{" "}
+          <p className="add-pet-form-text">
+            We can help.
+            <br /> Please submit information about animal. Someone will reach
+            out to you shortly.{" "}
           </p>
         </section>
         <section className="form-section">

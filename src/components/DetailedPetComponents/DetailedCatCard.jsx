@@ -6,6 +6,9 @@ import { Card } from "antd";
 
 export default function DetailedCatCard() {
   const { cat } = useContext(PetContext);
+  if (!cat) {
+    return <h1> Loading...please wait</h1>;
+  }
   return (
     /* Initial state of cat is an empty object. If cat is null, don't break please */
     <section className="detailed-antd-animal-card">
@@ -17,18 +20,20 @@ export default function DetailedCatCard() {
       <Card
         title={cat?.name}
         style={{
-          width: 300,
+          width: 800,
         }}
       >
-        <p> {cat?.rescue}</p>
-        <p> {cat?.eMail}</p>
-        <p>{cat?.address}</p>
-        <p>{cat?.phone}</p>
-        <p>Size: {cat?.size}</p>
-        <p>Sex: {cat?.sex}</p>
-        <p>Breed: {cat?.breed}</p>
-        <p>Estimated Date of Birth: {cat?.dateOfBirth}</p>
-        <p>Description: {cat?.description}</p>
+        <section>
+          <p> {cat?.rescue}</p>
+          <p> {cat?.eMail}</p>
+          <p>{cat?.address}</p>
+          <p>{cat?.phone}</p>
+          <p>Size: {cat?.size}</p>
+          <p>Sex: {cat?.sex}</p>
+          <p>Breed: {cat?.breed}</p>
+          <p>Estimated Date of Birth: {cat?.dateOfBirth}</p>
+          <p>Description: {cat?.description}</p>
+        </section>
       </Card>
     </section>
   );

@@ -36,11 +36,6 @@ export default function DogCard({ dog, setDog }) {
             width: 240,
           }}
           cover={<img className="card-image" alt="dog" src={dog.photoUrl} />}
-          bodyStyle={{
-            height: 180,
-            borderStyle: "dashed",
-            borderColor: "turquoise",
-          }}
         >
           <Meta title={dog.name} description={[`${dog.size}, ${dog.breed}`]} />
           <Link to={`/dogs/${dog._id}`}>
