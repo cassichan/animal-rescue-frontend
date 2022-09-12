@@ -1,14 +1,10 @@
 # Chance 4 Pets Web Application
 
-This project is a 
+This project is a web application built in React that creates a bridge between the public and animal rescues. It allows users to view cats and dogs available for adoption from local animal rescues, favorite animals, and post information for an animal in need of rescue/shelter intake.
 
-## Setup
-Run the following commands to clone the repo and install dependencies
-1. https://github.com/cassichan/animal-rescue-frontend
-2. cd animal-rescue-frontend
-3. npm i
-4. git remote set-url origin   <<Your URL here>>
+## Live Demo
 
+https://animal-rescue-frontend-js.web.app/
 
 ### Credits
 
