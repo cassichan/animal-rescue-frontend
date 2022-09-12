@@ -1,8 +1,16 @@
-# Getting Started with Create React App
+# Chance 4 Pets Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a 
 
-## Credits
+## Setup
+Run the following commands to clone the repo and install dependencies
+1. https://github.com/cassichan/animal-rescue-frontend
+2. cd animal-rescue-frontend
+3. npm i
+4. git remote set-url origin   <<Your URL here>>
+
+
+### Credits
 
 1. Logo created by Alex Pelta using rucraft
 
