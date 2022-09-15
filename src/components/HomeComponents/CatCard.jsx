@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Button } from "antd";
 import "../../Styles/PetCard.css";
+import { PetContext } from "../../context/PetContext";
 const { Meta } = Card;
 
 export default function CatCard({ cat, setCat }) {
+  const {token} = useContext(PetContext)
   async function updateCatFavorite(catId, favorite) {
     const fetchPets = await fetch(
       // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-cat?_id=${catId}`,
       `https://cat-rescue-backend.web.app/update-cat?_id=${catId}`,
       {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+        "Authorization": token,
+      },
         body: JSON.stringify({ favorite: !favorite }),
       }
     );
