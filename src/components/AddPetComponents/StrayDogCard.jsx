@@ -1,7 +1,6 @@
 import { Card, Typography } from "antd";
 import "../../Styles/PetCard.css";
 const { Title } = Typography;
-const { Meta } = Card;
 
 export default function StrayDogCard({ dog }) {
   return (

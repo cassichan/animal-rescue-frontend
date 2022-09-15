@@ -1,5 +1,4 @@
 import { Card, Typography } from "antd";
-const { Meta } = Card;
 const { Title } = Typography;
 
 export default function StrayCatCard({ cat }) {
