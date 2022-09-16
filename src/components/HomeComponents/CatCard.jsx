@@ -6,7 +6,7 @@ import { PetContext } from "../../context/PetContext";
 const { Meta } = Card;
 
 export default function CatCard({ cat, setCat }) {
-  const {token} = useContext(PetContext)
+  const { token } = useContext(PetContext);
   async function updateCatFavorite(catId, favorite) {
     const fetchPets = await fetch(
       // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-cat?_id=${catId}`,
@@ -23,10 +23,24 @@ export default function CatCard({ cat, setCat }) {
     return !favorite;
   }
 
+  // async function updateUserFavorite() {
+  //   const fetchPets = await fetch(
+  //     `http://localhost:5001/cat-rescue-backend/us-central1/api/users/favorites`,
+  //     // `https://cat-rescue-backend.web.app/users/favorites`,
+  //     {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         // "Authorization": token,
+  //       },
+  //       body: JSON.stringify({ message: "hello world" }),
+  //     }
+  //   );
+  // }
+
   async function handleFavorite(catId) {
     const isFavorite = cat.favorite;
     const newFavorite = await updateCatFavorite(catId, isFavorite);
-    console.log(newFavorite);
     setCat({ ...cat, favorite: newFavorite });
   }
 
@@ -57,6 +71,7 @@ export default function CatCard({ cat, setCat }) {
               <div
                 onClick={() => {
                   handleFavorite(cat._id);
+                  // updateUserFavorite();
                 }}
               >
                 ❤️ {cat.favorite}
@@ -65,6 +80,7 @@ export default function CatCard({ cat, setCat }) {
               <div
                 onClick={() => {
                   handleFavorite(cat._id);
+                  // updateUserFavorite();
                 }}
               >
                 ♡

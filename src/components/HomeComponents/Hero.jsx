@@ -13,7 +13,8 @@ export default function Hero() {
             <p className="hero-text-body">
               A bridge between animals in need, animal rescues and adoptors.
               Help pets in need to find their forever home, and humans to find
-              their next pet.
+              their next pet.<br/><br/>
+              <b>Please create an account to favorite a pet.</b>
             </p>
           </i>
           <section className="img-container">
