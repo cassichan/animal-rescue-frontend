@@ -6,8 +6,8 @@ export default function SignUp({ visible, setVisible }) {
   const { setToken } = useContext(PetContext);
 
   const handleSignUp = ({ email, password }) => {
-    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
-    fetch("https://cat-rescue-backend.web.app/users", {
+    fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
+    // fetch("https://cat-rescue-backend.web.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,8 +7,8 @@ export default function Login({ visible, setVisible }) {
 
   const handleLogin = ({ email, password }) => {
     fetch(
-      // "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
-      "https://cat-rescue-backend.web.app/users/login",
+      "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
+      // "https://cat-rescue-backend.web.app/users/login",
       {
         method: "POST",
         headers: {
