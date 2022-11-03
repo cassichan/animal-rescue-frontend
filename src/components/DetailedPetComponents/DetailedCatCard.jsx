@@ -3,7 +3,7 @@ import { PetContext } from "../../context/PetContext";
 import "../../App.css";
 import "../../Styles/DetailedPetPage.css";
 import { Card } from "antd";
-import React, { useState } from "react";
+import React from "react";
 
 export default function DetailedCatCard() {
   const { cat } = useContext(PetContext);
@@ -39,7 +39,5 @@ export default function DetailedCatCard() {
         <h1>Loading...</h1>
       </>
     );
-  }
-  {
   }
 }

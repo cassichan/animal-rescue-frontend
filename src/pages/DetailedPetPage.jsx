@@ -15,9 +15,9 @@ export default function DetailedPet({ species }) {
     setCat({});
     setDog({});
     fetch(`https://cat-rescue-backend.web.app/${species}/${_id}`)
-      // fetch(
-      //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
-      // )
+    // fetch(
+    //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
+    // )
       .then((res) => res.json())
       .then((data) => {
         if (species === "cats") setCat(data);
@@ -25,14 +25,6 @@ export default function DetailedPet({ species }) {
       })
       .catch((error) => console.error(error));
   }, [species, _id]);
-
-  // if (cat) {
-  //   return <DetailedCatCard />;
-  // }
-
-  // if (dog) {
-  //   return <DetailedDogCard />;
-  // }
 
   return (
     <>

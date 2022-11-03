@@ -7,7 +7,7 @@ import { PetContext } from "../../context/PetContext";
 
 const { Meta } = Card;
 export default function DogCard({ dog, setDog }) {
-  const {token} = useContext(PetContext)
+  const { token } = useContext(PetContext);
   async function updateDogFavorite(dogId, favorite) {
     const fetchPets = await fetch(
       // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-dog?_id=${dogId}`,
@@ -16,7 +16,7 @@ export default function DogCard({ dog, setDog }) {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": token,
+          Authorization: token,
         },
         body: JSON.stringify({ favorite: !favorite }),
       }
