@@ -7,46 +7,25 @@ const { Meta } = Card;
 
 export default function CatCard({ cat, setCat }) {
   const { token } = useContext(PetContext);
-  // async function updateCatFavorite(catId, favorite) {
-  //   const fetchPets = await fetch(
-  //     // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-cat?_id=${catId}`,
-  //     `https://cat-rescue-backend.web.app/update-cat?_id=${catId}`,
-  //     {
-  //       method: "PATCH",
-  //       headers: { "Content-Type": "application/json",
-  //       "Authorization": token,
-  //     },
-  //       body: JSON.stringify({ favorite: !favorite }),
-  //     }
-  //   );
-  //   const cat = await fetchPets.json();
-  //   return !favorite;
-  // }
-
-  async function updateUserFavorite() {
-    try {
-      const fetchPets = await fetch(
-        `http://localhost:5001/cat-rescue-backend/us-central1/api/users/favorites`,
-        // `https://cat-rescue-backend.web.app/users/favorites`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-          body: JSON.stringify({ message: "Hello world" }),
-        }
-      );
-    } catch (error) {
-      alert("Please log in to add a favorite", error);
-    }
+  async function updateCatFavorite(catId, favorite) {
+    const fetchPet = await fetch(
+      // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-cat?_id=${catId}`,
+      `https://cat-rescue-backend.web.app/update-cat?_id=${catId}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: token },
+        body: JSON.stringify({ favorite: !favorite }),
+      }
+    );
+    const cat = await fetchPet.json();
+    return !favorite;
   }
 
-  // async function handleFavorite(catId) {
-  //   const isFavorite = cat.favorite;
-  //   const newFavorite = await updateCatFavorite(catId, isFavorite);
-  //   setCat({ ...cat, favorite: newFavorite });
-  // }
+  async function handleFavorite(catId) {
+    const isFavorite = cat.favorite;
+    const newFavorite = await updateCatFavorite(catId, isFavorite);
+    setCat({ ...cat, favorite: newFavorite });
+  }
 
   return (
     <div className="antd-animal-card home-page">
@@ -69,29 +48,34 @@ export default function CatCard({ cat, setCat }) {
             Details
           </Button>
         </Link>
-        <section className="favorite-container">
-          <section className="favorite">
-            {cat.favorite === true ? (
-              <div
-                onClick={() => {
-                  // handleFavorite(cat._id);
-                  updateUserFavorite();
-                }}
-              >
-                ❤️ {cat.favorite}
-              </div>
-            ) : (
-              <div
-                onClick={() => {
-                  // handleFavorite(cat._id);
-                  updateUserFavorite();
-                }}
-              >
-                ♡
-              </div>
-            )}
+
+        {token ? (
+          <section className="favorite-container">
+            <section className="favorite">
+              {cat.favorite === true ? (
+                <div
+                  onClick={() => {
+                    handleFavorite(cat._id);
+                    // updateUserFavorite();
+                  }}
+                >
+                  ❤️ {cat.favorite}
+                </div>
+              ) : (
+                <div
+                  onClick={() => {
+                    handleFavorite(cat._id);
+                    // updateUserFavorite();
+                  }}
+                >
+                  ♡
+                </div>
+              )}
+            </section>
           </section>
-        </section>
+        ) : (
+          <h1>Login to favorite me!</h1>
+        )}
       </Card>
     </div>
   );
