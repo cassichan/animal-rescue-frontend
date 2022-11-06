@@ -4,19 +4,27 @@ import Navbar from "./components/Common/Navbar";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Menu, Layout } from "antd";
 import Home from "./pages/Home";
-import Landing from "./pages/Landing"
+import Landing from "./pages/Landing";
 import NewPetPage from "./pages/NewPetPage";
 import DetailedPetPage from "./pages/DetailedPetPage";
 import Login from "../src/components/Common/Login.jsx";
 import SignUp from "../src/components/Common/SignUp.jsx";
 import Footer from "./components/Common/Footer";
+import { PetContext } from "./context/PetContext";
 import "antd/dist/antd.min.css";
 import "./App.css";
-import { PetContext } from "./context/PetContext";
 
 function App() {
-  const { token, setToken, setIsUser, setEmail, setIsLoggedIn } =
-    useContext(PetContext);
+  const {
+    token,
+    setToken,
+    user,
+    setUser,
+    setIsUser,
+    email,
+    setEmail,
+    setIsLoggedIn,
+  } = useContext(PetContext);
 
   const navigate = useNavigate();
 
@@ -29,9 +37,17 @@ function App() {
     }
   }, [setToken]);
 
+  useEffect(() => {
+    if (localStorage.getItem("email")) {
+      setEmail(localStorage.getItem("email"));
+    }
+  }, [setEmail]);
+
   const handleLogout = () => {
     localStorage.clear();
     setToken("");
+    setEmail("");
+    setUser("");
     navigate("/");
   };
 
@@ -41,12 +57,14 @@ function App() {
         visible={signUpVisible}
         setVisible={setSignUpVisible}
         setIsUser={setIsUser}
+        setUser={setUser}
         setToken={setToken}
       />
       <Login
         visible={loginVisible}
         setVisible={setLoginVisible}
         setIsUser={setIsUser}
+        setUser={setUser}
         setToken={setToken}
         setIsLoggedIn={setIsLoggedIn}
         setEmail={setEmail}
@@ -68,12 +86,13 @@ function App() {
 
         <Routes>
           {token ? (
-            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/"
+              element={<Home email={email} token={token} user={user} />}
+            ></Route>
           ) : (
             <Route path="*" element={<Landing />}></Route>
           )}
-
-
 
           <Route path="/found-a-pet" element={<NewPetPage />}></Route>
           <Route

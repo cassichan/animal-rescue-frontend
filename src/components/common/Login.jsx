@@ -3,12 +3,12 @@ import { useContext } from "react";
 import { PetContext } from "../../context/PetContext";
 
 export default function Login({ visible, setVisible }) {
-  const { token, setToken, setIsLoggedIn } = useContext(PetContext);
+  const { setToken, setEmail, setIsLoggedIn, setUser } = useContext(PetContext);
 
   const handleLogin = ({ email, password }) => {
     fetch(
-      // "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
-      "https://cat-rescue-backend.web.app/users/login",
+      "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
+      // "https://cat-rescue-backend.web.app/users/login",
       {
         method: "POST",
         headers: {
@@ -21,10 +21,14 @@ export default function Login({ visible, setVisible }) {
       .then((data) => {
         setToken(data.token);
         localStorage.setItem("token", data.token);
+        // setUser(data.user);
+        // localStorage.setItem("user", data.user);
+        setEmail(data.email);
+        localStorage.setItem("email", data.email);
         setVisible(false);
         setIsLoggedIn(true);
       })
-      .catch((err) => console.error(err.message));
+      .catch((err) => alert("Invalid email or password"));
   };
   return (
     <>
@@ -58,7 +62,7 @@ export default function Login({ visible, setVisible }) {
             rules={[
               {
                 required: true,
-                message: "Please enter a valid email",
+                message: "Please enter a valid password",
               },
             ]}
           >
