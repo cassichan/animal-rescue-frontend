@@ -4,6 +4,7 @@ import Navbar from "./components/Common/Navbar";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Menu, Layout } from "antd";
 import Home from "./pages/Home";
+import Landing from "./pages/Landing"
 import NewPetPage from "./pages/NewPetPage";
 import DetailedPetPage from "./pages/DetailedPetPage";
 import Login from "../src/components/Common/Login.jsx";
@@ -14,7 +15,7 @@ import "./App.css";
 import { PetContext } from "./context/PetContext";
 
 function App() {
-  const { setToken, setIsUser, setEmail, setIsLoggedIn } =
+  const { token, setToken, setIsUser, setEmail, setIsLoggedIn } =
     useContext(PetContext);
 
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function App() {
   const handleLogout = () => {
     localStorage.clear();
     setToken("");
-    navigate("/")
+    navigate("/");
   };
 
   return (
@@ -66,7 +67,14 @@ function App() {
         </Menu>
 
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          {token ? (
+            <Route path="/" element={<Home />}></Route>
+          ) : (
+            <Route path="*" element={<Landing />}></Route>
+          )}
+
+
+
           <Route path="/found-a-pet" element={<NewPetPage />}></Route>
           <Route
             path="/cats/:_id"
