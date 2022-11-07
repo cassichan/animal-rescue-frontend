@@ -6,16 +6,21 @@ export default function SignUp({ visible, setVisible }) {
   const { setToken, setEmail, setUser } = useContext(PetContext);
 
   const handleSignUp = ({ email, password }) => {
-    fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
-      // fetch("https://cat-rescue-backend.web.app/users", {
+    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
+    fetch("https://cat-rescue-backend.web.app/users", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ email, password }),
     })
       .then((response) => response.json())
       .then((data) => {
+        // if (data.error) {
+        //   alert("Error");
+        //   setVisible(false);
+        //   return;
+        // } else {
         setToken(data.token);
         localStorage.setItem("token", data.token);
         // setUser(data.user)
@@ -23,8 +28,9 @@ export default function SignUp({ visible, setVisible }) {
         setEmail(data.email);
         localStorage.setItem("email", data.email);
         setVisible(false);
-        console.log(`Account created for user: ${email}`);
-      });
+        // }
+      })
+      .catch((err) => alert("E-mail is already in use."));
   };
   return (
     <>
