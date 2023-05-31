@@ -17,6 +17,8 @@
 .user-homepage-header-container {
   display: flex;
   justify-content: center;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .user-homepage-header {
