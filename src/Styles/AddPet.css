@@ -1,8 +1,10 @@
 .add-pet-header-container {
   display: flex;
   justify-content: center;
+  text-align: center;
   font-family: Dynapuff;
   font-size: 1.5rem;
+  margin-top: 20px;
 }
 
 .add-pet-page-container {
