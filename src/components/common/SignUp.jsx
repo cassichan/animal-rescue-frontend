@@ -7,10 +7,11 @@ export default function SignUp({ visible, setVisible }) {
 
   const handleSignUp = ({ email, password }) => {
     // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
-    fetch("https://cat-rescue-backend.web.app/users", {
+    // fetch("https://cat-rescue-backend.web.app/users", {
+    fetch(`${process.env.REACT_APP_API}/users`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     })

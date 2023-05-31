@@ -12,8 +12,9 @@ export default function CatList() {
     setCats(updatedList);
   };
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/cats")
-      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+    // fetch("https://cat-rescue-backend.web.app/cats")
+    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/cats")
+    fetch(`${process.env.REACT_APP_API}/cats`)
       .then((res) => res.json())
       .then((data) => setCats(data))
       .catch((error) => console.log(error));

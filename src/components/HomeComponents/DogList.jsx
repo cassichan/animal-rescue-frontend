@@ -13,8 +13,9 @@ export default function DogList() {
     setDogs(updatedList);
   };
   useEffect(() => {
-    fetch("https://cat-rescue-backend.web.app/dogs")
-      // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
+    // fetch("https://cat-rescue-backend.web.app/dogs")
+    // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/dogs")
+    fetch(`${process.env.REACT_APP_API}/dogs`)
       .then((res) => res.json())
       .then((data) => setDogs(data))
       .catch((error) => console.log(error));
