@@ -1,23 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useContext } from "react";
+import { PetContext } from "../context/PetContext";
 import DetailedCatCard from "../components/DetailedPetComponents/DetailedCatCard";
 import DetailedDogCard from "../components/DetailedPetComponents/DetailedDogCard";
 import "../Styles/DetailedPetPage.css";
-import { PetContext } from "../context/PetContext";
 
 export default function DetailedPet({ species }) {
   const { cat, setCat, dog, setDog } = useContext(PetContext);
 
-  //useParams hook to get _id from the route (app.js)
   const { _id } = useParams();
 
   useEffect(() => {
     setCat({});
     setDog({});
     fetch(`https://cat-rescue-backend.web.app/${species}/${_id}`)
-    // fetch(
-    //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
-    // )
+      // fetch(
+      //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
+      // )
       .then((res) => res.json())
       .then((data) => {
         if (species === "cats") setCat(data);

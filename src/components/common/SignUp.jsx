@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { PetContext } from "../../context/PetContext";
 
 export default function SignUp({ visible, setVisible }) {
-  const { setToken, setEmail, setUser } = useContext(PetContext);
+  const { setToken, setEmail } = useContext(PetContext);
 
   const handleSignUp = ({ email, password }) => {
     // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
@@ -16,15 +16,8 @@ export default function SignUp({ visible, setVisible }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        // if (data.error) {
-        //   alert("Error");
-        //   setVisible(false);
-        //   return;
-        // } else {
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        // setUser(data.user)
-        // localStorage.setItem("user", data.user);
         setEmail(data.email);
         localStorage.setItem("email", data.email);
         setVisible(false);

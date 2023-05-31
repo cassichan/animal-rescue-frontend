@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { Card, Button } from "antd";
-import "../../Styles/PetCard.css";
 import { PetContext } from "../../context/PetContext";
+import "../../Styles/PetCard.css";
 const { Meta } = Card;
 
 export default function CatCard({ cat, setCat }) {

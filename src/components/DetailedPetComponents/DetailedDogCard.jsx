@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { PetContext } from "../../context/PetContext";
-import "../../App.css";
-import "../../Styles/DetailedPetPage.css";
 import { Card } from "antd";
+import { PetContext } from "../../context/PetContext";
+import "../../Styles/DetailedPetPage.css";
+import "../../App.css";
 
 export default function DetailedDogCard() {
   const { dog } = useContext(PetContext);

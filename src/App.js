@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import Navbar from "./components/Common/Navbar";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { Menu, Layout } from "antd";
+import { Menu} from "antd";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import NewPetPage from "./pages/NewPetPage";
@@ -55,7 +55,7 @@ function App() {
     <div className="main-app">
       <SignUp
         visible={signUpVisible}
-        setVisible={setSignUpVisible}
+        // setVisible={setSignUpVisible}
         setIsUser={setIsUser}
         setUser={setUser}
         setToken={setToken}
@@ -70,42 +70,41 @@ function App() {
         setEmail={setEmail}
       />
 
-      <Layout>
-        <Navbar />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
-            Sign up
-          </Menu.Item>
-          <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
-            Login
-          </Menu.Item>
-          <Menu.Item key="3" onClick={() => handleLogout()}>
-            Logout
-          </Menu.Item>
-        </Menu>
 
-        <Routes>
-          {token ? (
+          <Navbar />
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+            <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
+              Sign up
+            </Menu.Item>
+            <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
+              Login
+            </Menu.Item>
+            <Menu.Item key="3" onClick={() => handleLogout()}>
+              Logout
+            </Menu.Item>
+          </Menu>
+
+          <Routes>
+            {token ? (
+              <Route
+                path="/"
+                element={<Home email={email} token={token} user={user} />}
+              ></Route>
+            ) : (
+              <Route path="*" element={<Landing />}></Route>
+            )}
+
+            <Route path="/found-a-pet" element={<NewPetPage />}></Route>
             <Route
-              path="/"
-              element={<Home email={email} token={token} user={user} />}
+              path="/cats/:_id"
+              element={<DetailedPetPage species="cats" />}
             ></Route>
-          ) : (
-            <Route path="*" element={<Landing />}></Route>
-          )}
-
-          <Route path="/found-a-pet" element={<NewPetPage />}></Route>
-          <Route
-            path="/cats/:_id"
-            element={<DetailedPetPage species="cats" />}
-          ></Route>
-          <Route
-            path="/dogs/:_id"
-            element={<DetailedPetPage species="dogs" />}
-          ></Route>
-        </Routes>
-        <Footer />
-      </Layout>
+            <Route
+              path="/dogs/:_id"
+              element={<DetailedPetPage species="dogs" />}
+            ></Route>
+          </Routes>
+          <Footer />
     </div>
   );
 }

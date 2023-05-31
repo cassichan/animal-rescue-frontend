@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { PetContext } from "../../context/PetContext";
 import { Divider } from "antd";
+import { PetContext } from "../../context/PetContext";
 import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 import "../../App.css";

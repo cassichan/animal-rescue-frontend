@@ -1,5 +1,5 @@
-import { Modal, Form, Input, Button } from "antd";
 import { useContext } from "react";
+import { Modal, Form, Input, Button } from "antd";
 import { PetContext } from "../../context/PetContext";
 
 export default function Login({ visible, setVisible }) {
@@ -21,8 +21,6 @@ export default function Login({ visible, setVisible }) {
       .then((data) => {
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        // setUser(data.user);
-        // localStorage.setItem("user", data.user);
         setEmail(data.email);
         localStorage.setItem("email", data.email);
         setVisible(false);

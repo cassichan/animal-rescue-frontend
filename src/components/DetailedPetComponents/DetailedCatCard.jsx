@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { PetContext } from "../../context/PetContext";
-import "../../App.css";
-import "../../Styles/DetailedPetPage.css";
-import { Card } from "antd";
 import React from "react";
+import { useContext } from "react";
+import { Card } from "antd";
+import { PetContext } from "../../context/PetContext";
+import "../../Styles/DetailedPetPage.css";
+import "../../App.css";
 
 export default function DetailedCatCard() {
   const { cat } = useContext(PetContext);
