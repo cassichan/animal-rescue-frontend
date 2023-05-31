@@ -7,8 +7,6 @@ export default function Login({ visible, setVisible }) {
 
   const handleLogin = ({ email, password }) => {
     fetch(
-      // "http://localhost:5001/cat-rescue-backend/us-central1/api/users/login",
-      // "https://cat-rescue-backend.web.app/users/login",
       `${process.env.REACT_APP_API}/users/login`,
       {
         method: "POST",

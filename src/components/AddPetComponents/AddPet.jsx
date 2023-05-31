@@ -38,8 +38,6 @@ export default function AddPet() {
     };
     try {
       const results = await fetch(
-        // `http://localhost:5001/cat-rescue-backend/us-central1/api/add-${species}`,
-        // `https://cat-rescue-backend.web.app/add-${species}`,
         `${process.env.REACT_APP_API}/add-${species}`,
         {
           method: "POST",
