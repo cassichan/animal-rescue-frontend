@@ -5,14 +5,13 @@
   padding: 3rem;
   text-align: center;
   text-overflow: auto;
-  /* max-width: 12rem; */
   width: 100vw;
+  height: auto;
   margin: auto;
 }
 
 .detailed-antd-animal-card .ant-card-body {
   height: unset;
-  width: 25rem;
 }
 
 .detailed-antd-animal-card > * {
@@ -22,8 +21,8 @@
 .detailed-animal-image {
   object-fit: contain;
   height: auto;
-  aspect-ratio: 16/9;
-  margin-right: 0.25rem;
+  width: 80%;
+  /* aspect-ratio: 16/9; */
 }
 
 
