@@ -78,7 +78,7 @@ export default function AddPet() {
   return (
     <>
       <section className="add-pet-header-container">
-        <h1>
+        <h1 className="add-pet-title">
           <u>Report an animal in need</u>
         </h1>
       </section>
