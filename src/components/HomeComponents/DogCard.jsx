@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Card, Button } from "antd";
-import { PetContext } from "../../context/PetContext";
+import { UserContext } from "../../context/UserContext";
 import "../../Styles/PetCard.css";
 
 const { Meta } = Card;
 export default function DogCard({ dog, setDog }) {
-  const { token } = useContext(PetContext);
+  const { token } = useContext(UserContext);
   async function updateDogFavorite(dogId, favorite) {
     const fetchPets = await fetch(
       // `http://localhost:5001/cat-rescue-backend/us-central1/api/update-dog?_id=${dogId}`,
