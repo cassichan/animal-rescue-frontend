@@ -1,7 +1,6 @@
 .logged-in-status {
  display: flex;
  justify-content: flex-end;
- height: 4vh;
  background-color: teal;
 }
 
