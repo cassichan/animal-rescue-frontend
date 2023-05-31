@@ -71,17 +71,17 @@ function App() {
       />
 
       <Navbar />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-      >
-        <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
+      <Menu theme="dark" mode="horizontal">
+        <Menu.Item
+          onClick={() => setSignUpVisible(!signUpVisible)}
+          key="1" selectable={false}
+        >
           Sign up
         </Menu.Item>
-        <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
+        <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2" selectable={false}>
           Login
         </Menu.Item>
-        <Menu.Item key="3" onClick={() => handleLogout()}>
+        <Menu.Item key="3" onClick={() => handleLogout()} selectable={false}>
           Logout
         </Menu.Item>
       </Menu>

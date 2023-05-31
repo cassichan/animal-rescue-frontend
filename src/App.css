@@ -7,10 +7,16 @@
   padding: 0;
   box-sizing: inherit;
 }
-
 .ant-menu.ant-menu-dark .ant-menu-item-selected {
   background-color: #001529 !important;
   color: hsla(0, 0%, 100%, 0.65);
+  cursor: default
+}
+
+.ant-menu.ant-menu-dark:hover .ant-menu-item-selected:hover {
+  background-color: #001529 !important;
+  color: hsla(0, 0%, 100%, 0.65);
+  cursor: default;
 }
 
 .main-app {
@@ -73,4 +79,10 @@
 h5.ant-typography {
   font-weight: 300 !important;
   color: rgb(57, 57, 57) !important;
+}
+
+@media only screen and (max-width: 750px) {
+  .user-homepage-header {
+    font-size: 1.8rem;
+  }
 }
