@@ -8,21 +8,6 @@
   box-sizing: inherit;
 }
 
-.App {
-  /* text-align: center;
-  display: grid;
-  grid-template-rows: 4rem 1fr 3rem;
-  height: 100vh;
-  max-width: 1100px;
-  margin: auto; */
-}
-
-.app-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .main-app {
   display: flex;
   flex-direction: column;
@@ -68,7 +53,6 @@
 
 .card-section > h3 {
   text-align: center;
-  font-size: 2rem;
 }
 
 .stray-animal-title-container {
@@ -83,11 +67,3 @@ h5.ant-typography {
   font-weight: 300 !important;
   color: rgb(57, 57, 57) !important;
 }
-
-/* @media only screen and (max-width: 708px) {
-  .main-app {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-} */
