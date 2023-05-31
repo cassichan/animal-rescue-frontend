@@ -3,7 +3,6 @@
   justify-content: center;
   font-family: Dynapuff;
   font-size: 1.5rem;
-  margin: 0.5rem;
 }
 
 .add-pet-page-container {
@@ -89,4 +88,12 @@
 .uploaded-animal-image {
   max-width: 50%;
   height: auto;
+}
+
+@media only screen and (max-width: 750px) {
+  .add-pet-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
