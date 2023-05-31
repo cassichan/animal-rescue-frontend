@@ -47,6 +47,7 @@ export default function DogCard({ dog, setDog }) {
               Details
             </Button>
           </Link>
+          {token? (
           <section className="favorite-container">
             {dog.favorite === true ? (
               <div
@@ -66,6 +67,9 @@ export default function DogCard({ dog, setDog }) {
               </div>
             )}
           </section>
+          ) : (
+            <h1>Login to favorite me!</h1>
+          )}
         </Card>
       </div>
     </>
