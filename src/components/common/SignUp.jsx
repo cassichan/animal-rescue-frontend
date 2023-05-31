@@ -1,9 +1,9 @@
-import { Modal, Form, Input, Button } from "antd";
 import { useContext } from "react";
-import { PetContext } from "../../context/PetContext";
+import { Modal, Form, Input, Button } from "antd";
+import { UserContext } from "../../context/UserContext";
 
 export default function SignUp({ visible, setVisible }) {
-  const { setToken, setEmail } = useContext(PetContext);
+  const { setToken, setEmail } = useContext(UserContext);
 
   const handleSignUp = ({ email, password }) => {
     // fetch("http://localhost:5001/cat-rescue-backend/us-central1/api/users", {
@@ -21,7 +21,6 @@ export default function SignUp({ visible, setVisible }) {
         setEmail(data.email);
         localStorage.setItem("email", data.email);
         setVisible(false);
-        // }
       })
       .catch((err) => alert("E-mail is already in use."));
   };

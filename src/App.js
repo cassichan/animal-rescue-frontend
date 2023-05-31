@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import Navbar from "./components/Common/Navbar";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Menu } from "antd";
+import { UserContext } from "./context/UserContext";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import NewPetPage from "./pages/NewPetPage";
@@ -10,7 +11,6 @@ import DetailedPetPage from "./pages/DetailedPetPage";
 import Login from "../src/components/Common/Login.jsx";
 import SignUp from "../src/components/Common/SignUp.jsx";
 import Footer from "./components/Common/Footer";
-import { PetContext } from "./context/PetContext";
 import "antd/dist/antd.min.css";
 import "./App.css";
 
@@ -24,7 +24,7 @@ function App() {
     email,
     setEmail,
     setIsLoggedIn,
-  } = useContext(PetContext);
+  } = useContext(UserContext);
 
   const navigate = useNavigate();
 

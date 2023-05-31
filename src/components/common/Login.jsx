@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Modal, Form, Input, Button } from "antd";
-import { PetContext } from "../../context/PetContext";
+import { UserContext } from "../../context/UserContext";
 
 export default function Login({ visible, setVisible }) {
-  const { setToken, setEmail, setIsLoggedIn, setUser } = useContext(PetContext);
+  const { setToken, setEmail, setIsLoggedIn } = useContext(UserContext);
 
   const handleLogin = ({ email, password }) => {
     fetch(

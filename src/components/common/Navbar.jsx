@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { PetContext } from "../../context/PetContext";
+import { UserContext } from "../../context/UserContext";
 import "../../Styles/Navbar.css";
 
 export default function Navbar() {
-  const { token, email, user } = useContext(PetContext);
+  const { token, email } = useContext(UserContext);
   return (
     <>
       <div className="logged-in-status">

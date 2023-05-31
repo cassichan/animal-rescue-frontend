@@ -11,13 +11,6 @@ export default function PetContextProvider({ children }) {
   const [strayCats, setStrayCats] = useState([]);
   const [strayDogs, setStrayDogs] = useState([]);
 
-  const [token, setToken] = useState("");
-  const [isUser, setIsUser] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const value = {
     cats,
     setCats,
@@ -31,18 +24,6 @@ export default function PetContextProvider({ children }) {
     setStrayCats,
     strayDogs,
     setStrayDogs,
-    token,
-    setToken,
-    isUser,
-    setIsUser,
-    isLoggedIn,
-    setIsLoggedIn,
-    user,
-    setUser,
-    email,
-    setEmail,
-    password,
-    setPassword,
   };
 
   return <Provider value={value}>{children}</Provider>;
