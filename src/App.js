@@ -55,7 +55,7 @@ function App() {
     <div className="main-app">
       <SignUp
         visible={signUpVisible}
-        // setVisible={setSignUpVisible}
+        setVisible={setSignUpVisible}
         setIsUser={setIsUser}
         setUser={setUser}
         setToken={setToken}
