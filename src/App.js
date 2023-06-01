@@ -4,6 +4,7 @@ import Navbar from "./components/Common/Navbar";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Menu } from "antd";
 import { UserContext } from "./context/UserContext";
+
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import NewPetPage from "./pages/NewPetPage";
@@ -30,6 +31,8 @@ function App() {
 
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -74,11 +77,16 @@ function App() {
       <Menu theme="dark" mode="horizontal">
         <Menu.Item
           onClick={() => setSignUpVisible(!signUpVisible)}
-          key="1" selectable={false}
+          key="1"
+          selectable={false}
         >
           Sign up
         </Menu.Item>
-        <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2" selectable={false}>
+        <Menu.Item
+          onClick={() => setLoginVisible(!loginVisible)}
+          key="2"
+          selectable={false}
+        >
           Login
         </Menu.Item>
         <Menu.Item key="3" onClick={() => handleLogout()} selectable={false}>
@@ -94,16 +102,17 @@ function App() {
           ></Route>
         ) : (
           <Route path="*" element={<Landing />}></Route>
-        )}
+        )}a
 
         <Route path="/found-a-pet" element={<NewPetPage />}></Route>
+
         <Route
           path="/cats/:_id"
-          element={<DetailedPetPage species="cats" />}
+          element={<DetailedPetPage species="cats" isLoading={isLoading} setIsLoading={setIsLoading}/>}
         ></Route>
         <Route
           path="/dogs/:_id"
-          element={<DetailedPetPage species="dogs" />}
+          element={<DetailedPetPage species="dogs" isLoading={isLoading} setIsLoading={setIsLoading} />}
         ></Route>
       </Routes>
       <Footer />

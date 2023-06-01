@@ -23,7 +23,7 @@ export default function PetContextProvider({ children }) {
     strayCats,
     setStrayCats,
     strayDogs,
-    setStrayDogs,
+    setStrayDogs
   };
 
   return <Provider value={value}>{children}</Provider>;
