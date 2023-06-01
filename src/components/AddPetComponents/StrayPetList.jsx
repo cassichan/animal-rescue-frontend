@@ -5,23 +5,36 @@ import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
 import "../../App.css";
 
-export default function StrayPetList() {
+export default function StrayPetList({ isLoading, setIsLoading }) {
   const { strayCats, setStrayCats, strayDogs, setStrayDogs } =
     useContext(PetContext);
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${process.env.REACT_APP_API}/get-stray-cats`)
       .then((results) => results.json())
       .then((data) => {
         setStrayCats(data);
+        setIsLoading(false);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
     fetch(`${process.env.REACT_APP_API}/get-stray-dogs`)
       .then((results) => results.json())
       .then((data) => {
         setStrayDogs(data);
+        setIsLoading(false);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) {
+    return <h1>Loading... please wait</h1>;
+  }
   return (
     <div className="stray-animal-container">
       <section className="stray-animal-text-container">

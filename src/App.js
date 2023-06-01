@@ -107,7 +107,13 @@ function App() {
             }
           ></Route>
         )}
-        a<Route path="/found-a-pet" element={<NewPetPage />}></Route>
+        a
+        <Route
+          path="/found-a-pet"
+          element={
+            <NewPetPage isLoading={isLoading} setIsLoading={setIsLoading} />
+          }
+        ></Route>
         <Route
           path="/cats/:_id"
           element={

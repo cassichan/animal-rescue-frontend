@@ -11,16 +11,6 @@ export default function Home({ isLoading, setIsLoading }) {
       </header>
       <CatList isLoading={isLoading} setIsLoading={setIsLoading} />
       <DogList isLoading={isLoading} setIsLoading={setIsLoading} />
-
-
-      {/* {isLoading ? (
-        <h1> Loading...please wait</h1>
-      ) : (
-        <>
-          <CatList isLoading={isLoading} setIsLoading={setIsLoading} />
-          <DogList isLoading={isLoading} setIsLoading={setIsLoading} />
-        </>
-      )} */}
     </>
   );
 }
