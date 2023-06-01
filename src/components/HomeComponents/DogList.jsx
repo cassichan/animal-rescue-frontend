@@ -3,7 +3,7 @@ import { PetContext } from "../../context/PetContext";
 import DogCard from "./DogCard";
 import "../../App.css";
 
-export default function DogList() {
+export default function DogList({ isLoading, setIsLoading }) {
   const { dogs, setDogs } = useContext(PetContext);
 
   const updateDogList = (dog) => {
@@ -13,12 +13,20 @@ export default function DogList() {
     setDogs(updatedList);
   };
   useEffect(() => {
+    setIsLoading(true);
+    setDogs(null);
     fetch(`${process.env.REACT_APP_API}/dogs`)
       .then((res) => res.json())
-      .then((data) => setDogs(data))
-      .catch((error) => console.log(error));
+      .then((data) => {
+        setDogs(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   }, [setDogs]);
-  if (!dogs) {
+  if (isLoading) {
     return <h1> Loading...please wait</h1>;
   }
   return (

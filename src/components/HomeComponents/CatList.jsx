@@ -3,7 +3,7 @@ import { PetContext } from "../../context/PetContext";
 import CatCard from "./CatCard";
 import "../../App.css";
 
-export default function CatList() {
+export default function CatList({ isLoading, setIsLoading }) {
   const { cats, setCats, token } = useContext(PetContext);
   const updateCatList = (cat) => {
     const updatedList = cats.map((c) => {
@@ -12,12 +12,19 @@ export default function CatList() {
     setCats(updatedList);
   };
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${process.env.REACT_APP_API}/cats`)
       .then((res) => res.json())
-      .then((data) => setCats(data))
-      .catch((error) => console.log(error));
+      .then((data) => {
+        setCats(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   }, [setCats]);
-  if (!cats) {
+  if (isLoading && !cats) {
     return <h1> Loading...please wait</h1>;
   }
   return (

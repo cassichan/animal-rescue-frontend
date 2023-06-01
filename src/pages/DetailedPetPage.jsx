@@ -12,9 +12,7 @@ export default function DetailedPet({ species, isLoading, setIsLoading }) {
 
   useEffect(() => {
     setIsLoading(true);
-    setCat(null);
-    setDog(null);
-    fetch(`${process.env.REACT_APP_API}/${_id}`)
+    fetch(`${process.env.REACT_APP_API}/${species}/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         if (species === "cats") {

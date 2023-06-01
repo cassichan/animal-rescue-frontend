@@ -33,7 +33,6 @@ function App() {
   const [loginVisible, setLoginVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
@@ -75,21 +74,13 @@ function App() {
 
       <Navbar />
       <Menu theme="dark" mode="horizontal">
-        <Menu.Item
-          onClick={() => setSignUpVisible(!signUpVisible)}
-          key="1"
-          selectable={false}
-        >
+        <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
           Sign up
         </Menu.Item>
-        <Menu.Item
-          onClick={() => setLoginVisible(!loginVisible)}
-          key="2"
-          selectable={false}
-        >
+        <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
           Login
         </Menu.Item>
-        <Menu.Item key="3" onClick={() => handleLogout()} selectable={false}>
+        <Menu.Item key="3" onClick={() => handleLogout()}>
           Logout
         </Menu.Item>
       </Menu>
@@ -98,21 +89,44 @@ function App() {
         {token ? (
           <Route
             path="/"
-            element={<Home email={email} token={token} user={user} />}
+            element={
+              <Home
+                email={email}
+                token={token}
+                user={user}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            }
           ></Route>
         ) : (
-          <Route path="*" element={<Landing />}></Route>
-        )}a
-
-        <Route path="/found-a-pet" element={<NewPetPage />}></Route>
-
+          <Route
+            path="*"
+            element={
+              <Landing isLoading={isLoading} setIsLoading={setIsLoading} />
+            }
+          ></Route>
+        )}
+        a<Route path="/found-a-pet" element={<NewPetPage />}></Route>
         <Route
           path="/cats/:_id"
-          element={<DetailedPetPage species="cats" isLoading={isLoading} setIsLoading={setIsLoading}/>}
+          element={
+            <DetailedPetPage
+              species="cats"
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
         ></Route>
         <Route
           path="/dogs/:_id"
-          element={<DetailedPetPage species="dogs" isLoading={isLoading} setIsLoading={setIsLoading} />}
+          element={
+            <DetailedPetPage
+              species="dogs"
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
         ></Route>
       </Routes>
       <Footer />

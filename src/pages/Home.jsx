@@ -1,7 +1,7 @@
 import CatList from "../components/HomeComponents/CatList";
 import DogList from "../components/HomeComponents/DogList";
 
-export default function Home() {
+export default function Home({ isLoading, setIsLoading }) {
   return (
     <>
       <header className="user-homepage-header-container">
@@ -9,8 +9,18 @@ export default function Home() {
           Please consider adopting one of these furry friends in need.
         </h1>
       </header>
-      <CatList />
-      <DogList />
+      <CatList isLoading={isLoading} setIsLoading={setIsLoading} />
+      <DogList isLoading={isLoading} setIsLoading={setIsLoading} />
+
+
+      {/* {isLoading ? (
+        <h1> Loading...please wait</h1>
+      ) : (
+        <>
+          <CatList isLoading={isLoading} setIsLoading={setIsLoading} />
+          <DogList isLoading={isLoading} setIsLoading={setIsLoading} />
+        </>
+      )} */}
     </>
   );
 }
