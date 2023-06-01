@@ -14,10 +14,7 @@ export default function DetailedPet({ species, isLoading, setIsLoading }) {
     setIsLoading(true);
     setCat(null);
     setDog(null);
-    fetch(`https://cat-rescue-backend.web.app/${species}/${_id}`)
-      // fetch(
-      //   `http://localhost:5001/cat-rescue-backend/us-central1/api/${species}/${_id}`
-      // )
+    fetch(`${process.env.REACT_APP_API}/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         if (species === "cats") {
