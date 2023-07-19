@@ -1,4 +1,5 @@
 import { useEffect, useContext } from "react";
+import { Spin } from "antd";
 import { PetContext } from "../../context/PetContext";
 import DogCard from "./DogCard";
 import "../../App.css";
@@ -27,7 +28,7 @@ export default function DogList({ isLoading, setIsLoading }) {
       });
   }, [setDogs]);
   if (isLoading) {
-    return <h1> Loading...please wait</h1>;
+    return <Spin/>;
   }
   return (
     <section className="card-section">

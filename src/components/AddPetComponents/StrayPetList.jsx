@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Divider } from "antd";
+import { Divider, Spin } from "antd";
 import { PetContext } from "../../context/PetContext";
 import StrayCatCard from "../AddPetComponents/StrayCatCard.jsx";
 import StrayDogCard from "../AddPetComponents/StrayDogCard.jsx";
@@ -33,7 +33,7 @@ export default function StrayPetList({ isLoading, setIsLoading }) {
   }, []);
 
   if (isLoading) {
-    return <h1>Loading... please wait</h1>;
+    return <Spin/>;
   }
   return (
     <div className="stray-animal-container">

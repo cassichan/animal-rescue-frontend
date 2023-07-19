@@ -1,4 +1,5 @@
 import { useEffect, useContext } from "react";
+import { Spin } from "antd";
 import { PetContext } from "../../context/PetContext";
 import CatCard from "./CatCard";
 import "../../App.css";
@@ -25,7 +26,7 @@ export default function CatList({ isLoading, setIsLoading }) {
       });
   }, [setCats]);
   if (isLoading && !cats) {
-    return <h1> Loading...please wait</h1>;
+    return <Spin/>;
   }
   return (
     <section className="card-section">

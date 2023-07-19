@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useContext } from "react";
+import { Spin } from "antd";
 import { PetContext } from "../context/PetContext";
 import DetailedCatCard from "../components/DetailedPetComponents/DetailedCatCard";
 import DetailedDogCard from "../components/DetailedPetComponents/DetailedDogCard";
@@ -29,7 +30,7 @@ export default function DetailedPet({ species, isLoading, setIsLoading }) {
   }, [setCat, setDog, _id]);
 
   if (isLoading) {
-    return <h1>Loading... please wait</h1>;
+    return <Spin/>;
   }
   return (
     <>
