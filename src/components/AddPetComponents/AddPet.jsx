@@ -167,7 +167,8 @@ export default function AddPet() {
           </form>
         </section>
 
-        <img className="uploaded-animal-image" src={image} alt="animal"></img>
+     
+        {image ? <img className="uploaded-animal-image" src={image} alt="animal"></img> : ''}
         <br />
       </section>
     </>
