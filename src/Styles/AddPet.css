@@ -39,6 +39,28 @@
   font-size: 1rem;
 }
 
+#image-upload.form-input {
+  margin-right: 100px;
+}
+
+/* Styles: File reader button text was blue on ios devices */
+
+/* For safari */
+.image-upload-input::-webkit-file-upload-button {
+color: black;
+}
+
+/* For firefox */
+.image-upload-input::before {
+  color: black;
+}
+
+.image-upload-input::after {
+  color: black;
+}
+
+
+
 .form-label {
   grid-column: 1 / 2;
   color: black;
@@ -51,6 +73,7 @@
   grid-column: 2 / 3;
   width: 15rem;
   margin-left: 0.5rem;
+  color: black !important;
 }
 
 .form-input-email {
@@ -64,17 +87,19 @@
 
 .submit-btn {
   border: none;
-  padding: 15px 32px;
+  padding: 15px 0;
   display: inline-block;
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase;
-  width: 50%;
+  width: 40%;
   border-radius: 20px;
   letter-spacing: 0.1rem;
-  padding: 0.9rem 4rem;
   margin-bottom: 0.5rem;
+  background-color: #ece9e9e4;
+  display: flex;
+  justify-content: center;
 }
 
 .add-pet-header {
@@ -101,10 +126,15 @@
     align-items: center;
     text-align: center;
   }
+  
 }
 
 @media only screen and (max-width: 450px) {
   .new-animal-form {
-    margin: 50px;
+    margin: 0 50px;
+  }
+
+  #image-upload.form-input {
+    margin-right: 0;
   }
 }

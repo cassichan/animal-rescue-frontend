@@ -133,7 +133,7 @@ export default function AddPet() {
             <br />
             <input
               id="image-upload"
-              className="form-input"
+              className="form-input image-upload-input"
               type="file"
               onChange={(e) => convertFile(e.target.files)}
             />
@@ -166,7 +166,7 @@ export default function AddPet() {
             </button>
           </form>
         </section>
-        
+
         <img className="uploaded-animal-image" src={image} alt="animal"></img>
         <br />
       </section>
