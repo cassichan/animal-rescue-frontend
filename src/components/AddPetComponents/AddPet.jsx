@@ -10,6 +10,7 @@ export default function AddPet() {
   const [phone, setPhone] = useState("");
   const [eMail, setEmail] = useState("");
   const [image, setImage] = useState("");
+  const [formIsSubmitting, setFormIsSubmitting] = useState(false);
 
   function formRefresh() {
     setSpecies("");
@@ -35,6 +36,7 @@ export default function AddPet() {
       image,
     };
     try {
+      setFormIsSubmitting(true);
       const results = await fetch(
         `${process.env.REACT_APP_API}/add-${species}`,
         {
@@ -54,6 +56,7 @@ export default function AddPet() {
         setStrayDogs(data);
       }
       formRefresh();
+      setFormIsSubmitting(false);
     } catch (error) {
       console.error(error);
     }
@@ -164,11 +167,15 @@ export default function AddPet() {
             <button className="submit-btn" type="submit" onClick={formSubmit}>
               Submit
             </button>
+            {formIsSubmitting ? <p>Submitting, Please wait...</p> : ""}
           </form>
         </section>
 
-     
-        {image ? <img className="uploaded-animal-image" src={image} alt="animal"></img> : ''}
+        {image ? (
+          <img className="uploaded-animal-image" src={image} alt="animal"></img>
+        ) : (
+          ""
+        )}
         <br />
       </section>
     </>
