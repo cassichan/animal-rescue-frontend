@@ -9,8 +9,6 @@ export default function AddPet() {
   const [description, setDescription] = useState("");
   const [phone, setPhone] = useState("");
   const [eMail, setEmail] = useState("");
-
-  const [filebase64, setFileBase64] = useState("");
   const [image, setImage] = useState("");
 
   function formRefresh() {
@@ -168,7 +166,8 @@ export default function AddPet() {
             </button>
           </form>
         </section>
-        <img className="uploaded-animal-image" src={image}></img>
+        
+        <img className="uploaded-animal-image" src={image} alt="animal"></img>
         <br />
       </section>
     </>
