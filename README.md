@@ -2,9 +2,11 @@
 
 This project is a web application built in React that creates a bridge between the public and animal rescues. It allows users to view cats and dogs available for adoption from local animal rescues, favorite animals, and post information for an animal in need of rescue/shelter intake.
 
-## Live Demo
 
-https://animal-rescue-frontend-js.web.app/
+[Live demo](https://animal-rescue-frontend-js.web.app/)
+
+## Preview
+![Desktop view](./public/chance_4_pets.png)
 
 ### Credits
 
